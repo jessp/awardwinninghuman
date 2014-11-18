@@ -1,0 +1,204 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Cluster Tests</title>
+	<link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="normalize.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="d3.min.js"></script>
+	<script src="redditclustersetup.js"></script>
+</head>
+<body>
+
+	<div class = "top-border">
+		<div class = "page-title"><h1>Conversation Structures for r/AdventureTime</h1></div>
+		<select id="subredditlist" name="subredditlist">
+    		<option selected="selected" value="adventuretime">AdventureTime</option>
+    		<option value="eve">Eve</option>
+    		<option value="harrypotter">Harry Potter</option>
+    		<option value="python">Python</option>
+    		<option value="metalworking">Metal Working</option>
+    		<option value="arduino">Arduino</option>
+    		<option value="toronto">Toronto</option>
+    		<option value="minnesota">Minnesota</option>
+    		<option value="hongkong">Hong Kong</option>
+  		</select>
+	</div>
+	<div class = "container">
+	<svg class = "theSvg" width="100%" height-"100%" viewBox="0 0 1280 700"></svg>
+	</div>
+
+	<script type="text/javascript">
+		var width = 1280;
+		var height = 700;
+
+		var divider = 10;
+
+
+		var svg = d3.select(".theSvg")
+		.call(d3.behavior.zoom().scaleExtent([1, 8]).on("zoom", zoom))
+    	.append("g");
+
+    		var linkLayer = svg.append("g");
+			var nodeLayer = svg.append("g");
+
+
+    	var force = d3.layout.force()
+			.charge(-120/divider)
+			.linkDistance(15)
+			.size([width, height]);
+
+
+		function draw(){
+
+
+
+			var relationshipArray = [];
+			convertReplies(data_array);
+
+
+			var just_ids = [];
+			data_array.forEach(function(d){
+				just_ids.push(d["id"]);
+			})
+
+
+			data_array.forEach(function(d, index){
+
+				if (d["type"] == "comments"){
+					if (d["replies_id_list"].length > 0){
+						var idsArray = [];
+						var target = index;
+
+						for (var i = 0; i < d["replies_id_list"].length; i++){
+							var theNum = just_ids.indexOf(d["replies_id_list"][i]["unique_id"]);
+
+							if (theNum != -1){
+								target = theNum;
+							}
+							if (target != index){
+								var innerArray = new Array();
+								innerArray["target"] = index;
+								innerArray["source"] = target;
+								innerArray["value"] = 1;
+								relationshipArray.push(innerArray);
+							}
+						}
+					}
+				}
+			})
+
+
+			data_array.forEach(function(d, index){
+
+				if (d["type"] == "comments"){
+					var innerArray = new Array();
+					var target = index;
+					for (var i = 0; i < data_array.length; i++){
+						if (d["in_response_to"] == data_array[i]["id"]){
+							target = i;
+						}
+					}
+					if (target != index){
+						innerArray["target"] = index;
+						innerArray["source"] = target;
+						innerArray["value"] = 1;
+						relationshipArray.push(innerArray);
+					}
+				}
+			})
+
+			var karmaScale = d3.scale.linear()
+								.domain(d3.extent(data_array, function(d){
+									return Math.abs(d["karma"]);
+								}))
+								.range([3,15]);
+
+
+			makeGraph(data_array, relationshipArray, karmaScale);
+		}
+
+		function makeGraph(nodeArray, linkArray, scoreScale){
+
+
+
+			force
+			.nodes(nodeArray)
+			.links(linkArray)
+			.start();
+
+			var link = linkLayer.selectAll(".link")
+			.data(linkArray);
+
+			link
+			.enter().append("line")
+			.attr("class", "link")
+			.attr("stroke", "black")
+			.style("stroke-width", 2/divider);
+
+			var node = nodeLayer.selectAll(".node")
+			.data(nodeArray);
+
+			node
+			.enter().append("circle")
+			.attr("class", "node")
+			.attr("r", function(d){
+				return scoreScale(d["karma"]/divider);
+			})
+			.attr("stroke", function(d){
+				if (d["sentiment"] == "pos"){
+					return "green";
+				} else {
+					return "red";
+				}
+			})
+			.attr("stroke-width", 2/divider)
+			.attr("fill", function(d){
+				if (d["karma"] > 0){
+				if (d["sentiment"] == "pos"){
+					return "green";
+				} else {
+					return "red";
+				}
+			} else {
+				return "none";
+			}
+			});
+
+      force.on("tick", function() {
+      	link.attr("x1", function(d) { return d.source.x; })
+      	.attr("y1", function(d) { return d.source.y; })
+      	.attr("x2", function(d) { return d.target.x; })
+      	.attr("y2", function(d) { return d.target.y; });
+
+      	node.attr("cx", function(d) { return d.x; })
+      	.attr("cy", function(d) { return d.y; });
+      });
+
+      node.exit().remove();
+      link.exit().remove();
+  }
+
+  function convertReplies(theArray){
+  	theArray.forEach(function(d, index){
+  		if (d["type"] == "comments"){
+  			d["replies_id_list"] = JSON.parse(d["replies_id_list"]);
+  		}
+  	});
+  }
+
+function zoom() {
+      svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    }
+
+ d3.select("#subredditlist").on("change", function(d){
+ 	force.stop();
+ 	var new_value =  d3.select(this)[0][0]["value"];
+ 	load_page(new_value);
+ })
+
+</script>
+
+</body>
+</html>
