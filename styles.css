@@ -1,0 +1,137 @@
+html, body{
+	height:100%;
+	margin:0px;
+	padding:0px;
+	font-family: "Dosis";
+}
+
+.page{
+	height:100%;
+	margin:0px;
+	padding:0px;
+	top:0px;
+}
+
+.headingText{
+	padding-top: 30px;
+}
+
+.headingText h1{
+	font-size: 32px;
+	text-align: center;
+}
+
+ u {
+    text-decoration: none;
+    border-bottom: 1.75px solid;
+  }
+
+  .noHeightPage{
+	margin:0px;
+	padding:0px;
+	top:0px;
+  }
+
+
+.coloured{
+	background-color: #170D70;
+}
+
+.logoHolder{
+	padding-top:120px;
+	text-align: center;
+}
+
+#svgLogo{
+	max-width: 700px;
+	min-width: 200px;
+	width:70%;
+}
+
+.portfolioHolder{
+	width:80%;
+	margin:0 auto;
+	padding-bottom: 50px;
+}
+
+.portfolioBox{
+	padding:10px 14px;
+	border:1px solid #fff;
+	width:150px;
+}
+
+.portfolioBoxHolder{
+	padding:10px;
+	float:left;
+}
+
+.aboutPageHolder{
+	width:70%;
+	min-width: 400px;
+}
+
+.clearer{
+	clear:both;
+}
+
+.nav{
+	position: fixed;
+	top: 0px;
+	list-style: none;
+	color: #170D70;
+	font-size: 20px;
+	right:0px;
+	background-color: rgba(255,255,255,0.8);
+	padding-right: 15px;
+}
+
+.nav ul{
+	text-align: right;
+	list-style: none;
+}
+
+.nav li{
+	display: inline-block;
+	padding:0px 15px;
+}
+
+.captionText{
+	color:#fff;
+	font-size: 15px;
+	padding:2px 0px;
+}
+
+.captionItalics{
+	font-style: italic;
+	font-size: 13px;
+	color:#fff;
+	padding:2px 0px;
+}
+
+.aboutPageHolder{
+	width:60%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+
+.portraitHolder{
+	float:left;
+	margin-right:5%;
+	width:40%;
+	padding: 0px;
+
+}
+
+.cvTextHolder{
+	font-size: 20px;
+	color: #170D70;
+	float: left;
+	padding:20px;
+	width:55%;
+	height:450px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+  border: 1.75px solid #170D70;
+}
