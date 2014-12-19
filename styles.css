@@ -3,6 +3,12 @@ html, body{
 	margin:0px;
 	padding:0px;
 	font-family: "Dosis";
+	font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: 200;
+
 }
 
 .page{
@@ -52,17 +58,23 @@ html, body{
 	width:80%;
 	margin:0 auto;
 	padding-bottom: 50px;
+	padding-left: 17%;
 }
 
 .portfolioBox{
-	padding:10px 14px;
-	border:1px solid #fff;
-	width:150px;
+	/*padding:10px 14px;*/
+	/*border:1px solid #fff;*/
+	width:179px;
+	height:225px;
+	background-color: #fff;
+	position: relative;
+
 }
 
 .portfolioBoxHolder{
 	padding:10px;
 	float:left;
+
 }
 
 .aboutPageHolder{
@@ -76,36 +88,51 @@ html, body{
 
 .nav{
 	position: fixed;
-	top: 0px;
+	top: 50%;
+	margin-top: -100px;
 	list-style: none;
-	color: #170D70;
+	color: #9393C0;
 	font-size: 20px;
-	right:0px;
-	background-color: rgba(255,255,255,0.8);
-	padding-right: 15px;
+	left:5%;
+	/*background-color: rgba(255,255,255,0.8);*/
+	/*padding-right: 10%;*/
 }
 
 .nav ul{
-	text-align: right;
-	list-style: none;
+	text-left: right;
+	/*list-style: none;*/
 }
 
 .nav li{
-	display: inline-block;
-	padding:0px 15px;
+	/*display: inline-block;*/
+	padding:3px 15px;
 }
 
 .captionText{
 	color:#fff;
-	font-size: 15px;
-	padding:2px 0px;
+	font-size: 16px;
+	padding:14px 14px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	top:0px;
+	width:152px;
+	position:absolute;
+	background-color: rgba(23, 13, 112, 0.5);
+	font-weight: 500;
+}
+
+.captionText span{
+	border-bottom: 1px solid #fff;
+	display: block;
+	padding-bottom:8px;
+	margin-bottom: 8px;
 }
 
 .captionItalics{
 	font-style: italic;
 	font-size: 13px;
-	color:#fff;
-	padding:2px 0px;
+	font-weight: 200;
 }
 
 .aboutPageHolder{
