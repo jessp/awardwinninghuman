@@ -33,6 +33,7 @@ h1, h2, h3, h4, h5, h6{
   }
 
   .noHeightPage{
+	min-height:100%;
 	margin:0px;
 	padding:0px;
 	top:0px;
@@ -64,11 +65,28 @@ h1, h2, h3, h4, h5, h6{
 .portfolioBox{
 	/*padding:10px 14px;*/
 	/*border:1px solid #fff;*/
-	width:179px;
-	height:225px;
+	width:275px;
+	height:275px;
 	background-color: #fff;
 	position: relative;
+	overflow: hidden;
 
+}
+
+.grow img {
+  height: 275px;
+  width: 275px;
+ 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+.grow img:hover {
+  width: 315px;
+  height: 315px;
 }
 
 .portfolioBoxHolder{
@@ -110,16 +128,21 @@ h1, h2, h3, h4, h5, h6{
 
 .captionText{
 	color:#fff;
-	font-size: 16px;
+	font-size: 23px;
 	padding:14px 14px;
 	bottom:0px;
 	left:0px;
 	right:0px;
 	top:0px;
-	width:152px;
+	width:260px;
 	position:absolute;
-	background-color: rgba(23, 13, 112, 0.5);
+	background-color: rgba(23, 13, 112, 0);
 	font-weight: 500;
+	/*pointer-events: none;*/
+}
+
+.captionText .captionItalixs:hover{
+	margin-left: 0px;
 }
 
 .captionText span{
@@ -129,11 +152,18 @@ h1, h2, h3, h4, h5, h6{
 	margin-bottom: 8px;
 }
 
+
 .captionItalics{
 	font-style: italic;
-	font-size: 13px;
+	font-size: 20px;
 	font-weight: 200;
+	margin-left:0px;
 }
+
+.hiddenLeft{
+	margin-left: -200px;
+}
+
 
 .aboutPageHolder{
 	width:60%;
@@ -162,3 +192,4 @@ h1, h2, h3, h4, h5, h6{
   box-sizing: border-box;         /* Opera/IE 8+ */
   border: 1.75px solid #170D70;
 }
+

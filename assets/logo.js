@@ -23,9 +23,10 @@
 			s.path("M0.722,3.164c0,0-0.555-1.182-0.167-2.215 s3.544-0.61,3.544-0.61"));
 
 		leafOutlines.attr({
-			stroke: fillColor,
+			stroke: "#170D70",
 			fill: "none",
-			strokeWidth:0.4
+			strokeWidth:0.4,
+			opacity: 0
 		});
 
 		leafOutlines.select("path:nth-child(1)")
@@ -151,6 +152,7 @@ function doFall(){
 		var theX = allLeaves[i].getBBox().x;
 		var theY = allLeaves[i].getBBox().y;
 		var transformString = allLeaves[i].transform().string;
+		allLeaves[i].attr("opacity", 1);
 		allLeaves[i].transform(transformString + "s0.1,0.1,-6,-6");
 
 		allLeaves[i].animate({transform: transformString + " s1"}, Math.random() * 1250 + 1000);
