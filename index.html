@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href='http://fonts.googleapis.com/css?family=Dosis:200,500' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Dosis:200,300' rel='stylesheet' type='text/css'>
 	<script src="build/snap.svg-min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<title>Award-Winning Human</title>
@@ -29,7 +29,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Visualizing Reddit</span>
 					<div class = "hiddenLeft captionItalics">
-						Website
+						Website (2014)
 						</div>
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Who Was Working?</span>
 					<div class = "hiddenLeft captionItalics">
-						Digital print
+						Digital print (2014)
 						</div>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Reimagining OCAD Wayfinding</span>
 					<div class = "hiddenLeft captionItalics">
-						Book
+						Book (2014)
 						</div>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Most-Read Books of All-time</span>
 					<div class = "hiddenLeft captionItalics">
-						Website
+						Website (2014)
 						</div>
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>The State of Short-fiction</span>
 					<div class = "hiddenLeft captionItalics">
-						Processing
+						Processing (2013)
 						</div>
 					</div>
 				</div>
@@ -89,7 +89,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Aliens in France</span>
 					<div class = "hiddenLeft captionItalics">
-						Processing
+						Processing (2013)
 						</div>
 					</div>
 				</div>
@@ -99,9 +99,9 @@
 				<div class = "grow portfolioBox">
 					<img src="https://placekitten.com/275/275">
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
-						<span>Baycrest Website Concept</span>
+						<span>Baycrest Website (2014) Concept</span>
 					<div class = "hiddenLeft captionItalics">
-						Website
+						Website (2013)
 						</div>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>USDA Food Statistics</span>
 					<div class = "hiddenLeft captionItalics">
-						Website
+						Website (2013)
 						</div>
 					</div>
 				</div>
@@ -125,7 +125,7 @@
 					<div class = "captionText" onmouseover="addClass(this)" onmouseout="removeClass(this)">
 						<span>Visualizing Music</span>
 					<div class = "hiddenLeft captionItalics">
-						Digital print
+						Digital print (2012)
 						</div>
 					</div>
 				</div>
@@ -151,12 +151,22 @@
 	<script>
 
 	function addClass(theElement){
-		console.log(this);
+		var theItalics = theElement.querySelectorAll(".captionItalics")[0];
 
+		if (theItalics.classList)
+		  theItalics.classList.remove("hiddenLeft");
+		else
+		  theItalics.className = "";
 	}
 
 	function removeClass(theElement){
-		console.log(this);
+
+		var theItalics = theElement.querySelectorAll(".captionItalics")[0];
+
+		if (theItalics.classList)
+		  theItalics.classList.add("hiddenLeft");
+		else
+		  theItalics.className += ' ' + "hiddenLeft";
 	}
 
 
