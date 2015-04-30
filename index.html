@@ -42,7 +42,9 @@
 	var pieSvg = d3.selectAll(".pieFace").append("svg").attr("width", 800).attr("height", 800);
 
 	  var path = pieSvg.datum(pieData).selectAll("path")
-      .data(pie)
+      .data(pie);
+
+      path
     .enter().append("path")
       .attr("fill", function(d, i) {
        return d3.rgb(pieColor[i], pieColor[i], pieColor[i]); 
@@ -50,7 +52,8 @@
       .attr("stroke", "#000")
       .attr("stroke-width", 2.5)
       .attr("d", pieArc)
-      .attr("transform", "translate(400,120)");
+      .attr("transform", "translate(400,120)")
+      .each(function(d) { this._current = d; });
 
 	//arc stuff
 	var arcSvg = d3.selectAll(".arcBg");
@@ -79,8 +82,8 @@
   	});
 
   	var subArcPath = arcSvg.selectAll(".subArcPath")
-			  .data(arcData, function(d){
-			  	return d;
+			  .data(arcData, function(d, i){
+			  	return i;
 			  });
 
 	subArcPath.enter()
@@ -102,7 +105,9 @@
 	var barSvg = d3.selectAll(".barChart").append("svg").attr("width", 800).attr("height", 800);
 
 	var bars = barSvg.selectAll(".rects")
-					.data(barData)
+					.data(barData, function(d, i){ return i});
+
+					bars
 					.enter()
 					.append("rect")
 					.attr("class", "rects")
@@ -126,6 +131,81 @@
 					.attr("x", 98)
 					.attr("fill", "#fff")
 					.attr("stroke", "#000");
+
+	animatePie();
+	animateArcs();
+	animateBars();
+
+
+	function animatePie() {
+	pieData = genData(pieSlices);
+	path = pieSvg.datum(pieData).selectAll("path")
+      .data(pie);
+
+    path
+    .transition().duration(1000)
+      .attrTween("d", arcTween)
+      .attr("transform", "translate(400,120)")
+      .delay(500)
+     	.call(endall, function(){
+			animatePie();
+		});
+	}
+
+	function animateArcs() {
+		arcData = genData(numArcs);
+		subArcPath = arcSvg.selectAll(".subArcPath")
+			  .data(arcData, function(d, i){
+			  	return i;
+			  });
+
+		subArcPath.transition()
+		.duration(1250)
+		.attr("d", subArc)
+		.call(endall, function(){
+			animateArcs();
+		});
+
+	}
+
+	function animateBars() {
+		barData = genData(barNum);
+
+		bars.data(barData, function(d, i){ return i;});
+
+		bars.transition()
+		.duration(1000)
+		.attr("y", function(d){
+						return 535 - (d * 50);
+					})
+		.attr("height", function(d){
+						return d * 50;
+					})
+		.call(endall, function(){
+			animateBars();
+		});
+
+
+
+
+	}
+
+	//from http://stackoverflow.com/questions/10692100/invoke-a-callback-at-the-end-of-a-transition
+function endall(transition, callback) { 
+    var n = 0; 
+    transition 
+        .each(function() { ++n; }) 
+        .each("end", function() { if (!--n) callback.apply(this, arguments); }); 
+  } 
+
+
+  function arcTween(a) {
+  var i = d3.interpolate(this._current, a);
+  this._current = i(0);
+  return function(t) {
+    return pieArc(i(t));
+  };
+}
 
 
 
