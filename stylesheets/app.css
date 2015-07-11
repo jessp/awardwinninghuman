@@ -1292,7 +1292,7 @@ button::-moz-focus-inner {
 /* line 238, ../bower_components/foundation/scss/foundation/components/_grid.scss */
 .row .row {
   margin: 0 -0.9375rem;
-  max-width: none;
+  max-width: 100%;
   width: auto;
 }
 /* line 172, ../bower_components/foundation/scss/foundation/components/_global.scss */
@@ -5100,8 +5100,8 @@ img {
 }
 
 /* line 268, ../scss/app.scss */
-footer {
-  padding: 10%;
+footer .columns{
+  padding: 5%;
 }
 
 /* line 272, ../scss/app.scss */
