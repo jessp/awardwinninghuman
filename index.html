@@ -3,15 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation</title>
-    <link href='http://fonts.googleapis.com/css?family=Noto+Sans|Lato|PT+Sans|Arimo|Hind' rel='stylesheet' type='text/css'>
+    <title>Award-Winning Human Jess Peter</title>
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
    <link rel="stylesheet" href="stylesheets/app.css" />
+   <link rel="stylesheet" href="scss/app.scss" /> <!--this wasn't here before-->
    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <script src="js/d3.min.js" charset="utf-8"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
-    <script src="js/pieStuff.js"></script>
-
   </head>
   <body>
         <div class="row full-width feat">
@@ -36,10 +34,8 @@
               </div>
        
            
-       
-          <div class="row">
-            <div class="small-12 show-for-small"><br>
-                           <div id="featured">
+             <div class="small-12 show-for-small"><br>
+                <div id="featured">
                   <svg class="arcBg svgPositioning" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 800 800"></svg>
                   <img src="assets/hoverman.svg" alt="Hovering Mystery Man" class = "svgPositioning">
                   <svg class="pieFace svgPositioning" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 800 800"></svg>
@@ -51,7 +47,6 @@
                 </div>
               </div>
             </div>
-          </div>
        
        
          
@@ -141,7 +136,7 @@
               </div>
        
               <div class="small-12 large-6 medium-6 columns">
-                <div class = "imgHolderGrid" style="background-image: url(assets/working4web.jpg)" href="#" data-reveal-id="whoWorkingModal">
+                <div class = "imgHolderGrid" style="background-image: url(assets/working4web.png)" href="#" data-reveal-id="whoWorkingModal">
                 <div class = "overfilter">
                   <div class = "panelHolder">
                   <h5>Who Was Working?</h5>
@@ -160,10 +155,13 @@
                 </div>
               </div>
        
-              
+           
+       
+        </div>
+       
         </div>
 
-       <footer class="row">
+                <footer class="row">
           <div class="small-12 large-12 columns">
             <hr>
             <div class="row">
@@ -183,8 +181,6 @@
             </div>
           </div>
         </footer>
-       
-        </div>
 
         <div id="visRedditModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <h2 id="modalTitle">Visualizing Reddit (2015)</h2>
@@ -202,7 +198,7 @@
        <div id="whoWorkingModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <h2 id="modalTitle">Who Was Working (2014)</h2>
           <div class="mod-class">
-            <div><img src="assets/working4web.jpg"/></div>
+            <div><img src="assets/working4web.png"/></div>
           </div>
         <p>I was interested in visualizing some of the impressive dataset presented by Studs Terkel in his 1974 classic <span class = "italics">Working: People Talk About What They Do All Day and How They Feel About What They Do.</span> Part of my goal in creating this piece was to move away from code-based tools (like d3.js, Python and Processing).I collected the data by reading through <span class = "italics">Working</span> and entering information on subjects with determinable ages and periods spent working at the profiled job.The graphic was then created in Adobe InDesign and Adobe Illustrator. A cropped version of this poster was short-listed for the 2014 <a href = "http://www.informationisbeautifulawards.com/showcase/588-who-was-working" target="_blank">Information is Beautiful Awards</a>.</p>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -211,7 +207,8 @@
       <div id="coverMattersModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <h2 id="modalTitle">Cover Matters (2014)</h2>
          <div class="flex-video">
-          <iframe src="http://player.vimeo.com/video/133112350" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                 <!--   <iframe class = "vimeo1" src="http://player.vimeo.com/video/133112350" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
+                   <iframe class = "vimeo1" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <p>I created this design exercise over two days based on a long-held personal interest in the relationship between a book's sales and the information immediately visible to the consumer on the cover. The main dataset comes from a <a href = "http://www.theguardian.com/news/datablog/2012/aug/09/best-selling-books-all-time-fifty-shades-grey-compare" target="_blank">list published by the Guardian</a> of the best-selling books of all-time. I then used the Google Books API to query all the titles and extract additional information on publisher (etc.) and download all book covers. I used OpenCV to calculate histograms of each book's cover. This final dataset was passed on to Processing to visualize.</p>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -260,7 +257,8 @@
       <div id="wordsModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
         <h2 id="modalTitle">Words (2012)</h2>
           <div class="flex-video">
-          <iframe src="http://player.vimeo.com/video/133177637" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+         <!--  <iframe  class = "vimeo2" src="http://player.vimeo.com/video/133177637" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
+           <iframe  class = "vimeo2" width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
         <p>This is one of my earliest data visualization projects. It was completed in Processing as part of a class assignment. The project was to create an interactive presentation using Processing. I was interested in exploring how a digital tool like Processing could be used to emulate the style of text while preserving its unique capabilities.</p>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
@@ -275,10 +273,17 @@
         <p>I started out playing with <a href = "http://faostat3.fao.org/" target="_blank">FAOSTAT's datasets</a> on crop trade and production for a class project. The result was the poster seen in the second image. I wasn't satisfied with the amount of information that could be portrayed in a static image, so I created the second visualization as a personal exercise using d3.js. It can be viewed on <a href = "http://codepen.io/jey/pen/yvecD" target="_blank">Codepen</a>.</p>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
       </div>
+
+      <div class = "dimmer one"></div>
+      <div class = "dimmer two"></div>
+      <div class = "loadingPie">
+        <svg class="loadPie" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 400 400"></svg>
+      </div>
            
        
     
-
+    <script src="js/d3.min.js" charset="utf-8"></script>
+    <script src="js/pieStuff.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>

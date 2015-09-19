@@ -1,14 +1,27 @@
 	window.onload = function() {
+		pieLoader();
 
-	$('.mod-class').slick({
-		dots: true,
-		arrows: true,
-		setPosition: 0
-	});
+		$('.mod-class').slick({
+			dots: true,
+			arrows: true,
+			setPosition: 0
+		});
 
-	$(".reveal-modal").on("opened.fndtn.reveal", function() {
-    	$(".mod-class").slick("setPosition", 0);
-	});
+		$(".reveal-modal").on("opened.fndtn.reveal", function() {
+			$(".mod-class").slick("setPosition", 0);
+		});
+
+
+		$("#coverMattersModal.reveal-modal").on("opened.fndtn.reveal", function() {
+			$(".vimeo1").attr("src", "http://player.vimeo.com/video/133112350");
+		});
+
+		$("#wordsModal.reveal-modal").on("opened.fndtn.reveal", function() {
+			$(".vimeo2").attr("src", "http://player.vimeo.com/video/133177637");
+		});
+
+
+
 
 
 
@@ -20,28 +33,28 @@
 	var colorForArcs = genGreys(numArcs, 100, 175);
 
 	var arcScale = d3.scale.linear()
-					.domain([0.01,0.99])
-					.range([250,500]);
+	.domain([0.01,0.99])
+	.range([250,500]);
 
 	var pi = Math.PI;
-  	var numSecs = 360/numArcs;
+	var numSecs = 360/numArcs;
 
-  	var subArc = d3.svg.arc()
-  	.innerRadius(0)
-  	.outerRadius(function(d){
-  		return arcScale(d);
-  	})
-  	.startAngle(function(d, i){
-  		 return i*numSecs * (pi/180);
-  	})
-  	.endAngle(function(d, i){
-  		return (i+1)*numSecs * (pi/180); 
-  	});
+	var subArc = d3.svg.arc()
+	.innerRadius(0)
+	.outerRadius(function(d){
+		return arcScale(d);
+	})
+	.startAngle(function(d, i){
+		return i*numSecs * (pi/180);
+	})
+	.endAngle(function(d, i){
+		return (i+1)*numSecs * (pi/180); 
+	});
 
-  	var subArcPath = arcSvg.selectAll(".subArcPath")
-			  .data(arcData, function(d, i){
-			  	return i;
-			  });
+	var subArcPath = arcSvg.selectAll(".subArcPath")
+	.data(arcData, function(d, i){
+		return i;
+	});
 
 	subArcPath.enter()
 	.append("path")
@@ -63,35 +76,35 @@
 	// .attr("width", 800).attr("height", 800);
 
 	var bars = barSvg.selectAll(".rects")
-					.data(barData, function(d, i){ return i});
+	.data(barData, function(d, i){ return i});
 
-					bars
-					.enter()
-					.append("rect")
-					.attr("class", "rects")
-					.attr("x", function(d, i){
-						return i * 10 + 100;
-					})
-					.attr("y", function(d){
-						return 535 - (d * 50);
-					})
-					.attr("fill", "#fff")
-					.attr("stroke", "#000")
-					.attr("width", 5)
-					.attr("height", function(d){
-						return d * 50;
-					});
+	bars
+	.enter()
+	.append("rect")
+	.attr("class", "rects")
+	.attr("x", function(d, i){
+		return i * 10 + 100;
+	})
+	.attr("y", function(d){
+		return 535 - (d * 50);
+	})
+	.attr("fill", "#fff")
+	.attr("stroke", "#000")
+	.attr("width", 5)
+	.attr("height", function(d){
+		return d * 50;
+	});
 
 	var fakeAxis = barSvg.append("rect")
-					.attr("width", 50)
-					.attr("height", 3)
-					.attr("y", 550)
-					.attr("x", 98)
-					.attr("fill", "#fff")
-					.attr("stroke", "#000");
+	.attr("width", 50)
+	.attr("height", 3)
+	.attr("y", 550)
+	.attr("x", 98)
+	.attr("fill", "#fff")
+	.attr("stroke", "#000");
 
 	var recursionSvg = d3.selectAll(".pieBg").append("g")
-						.attr("transform", "translate(60,75) rotate(90 400,400)");
+	.attr("transform", "translate(60,75) rotate(90 400,400)");
 
 
 
@@ -104,149 +117,149 @@
 	animateBars();
 
 	function drawPie(theSvg, colorRangeA, colorRangeB, translateA, translateB, theRad, ind, slices){
-	var rander = Math.floor(Math.random() * ((ind * 200) - ind) + ind);
-	var rand = Math.floor(Math.random() * ((ind * 20) - ind) + ind);
-	var theClass = "a" + rander + "b" + ind + "b" + rand;
+		var rander = Math.floor(Math.random() * ((ind * 200) - ind) + ind);
+		var rand = Math.floor(Math.random() * ((ind * 20) - ind) + ind);
+		var theClass = "a" + rander + "b" + ind + "b" + rand;
 		// pie stuff
-	var pieSlices = slices;
-	var pieData = [];
-	pieData = genData(pieSlices);
-	var pieRadius = theRad;
-	var pieColor = [];
-	pieColor = genGreys(pieSlices, colorRangeA, colorRangeB);
+		var pieSlices = slices;
+		var pieData = [];
+		pieData = genData(pieSlices);
+		var pieRadius = theRad;
+		var pieColor = [];
+		pieColor = genGreys(pieSlices, colorRangeA, colorRangeB);
 
-	var pie = d3.layout.pie()
-    .value(function(d) { return d; })
-    .sort(null);
+		var pie = d3.layout.pie()
+		.value(function(d) { return d; })
+		.sort(null);
 
-	var pieArc = d3.svg.arc()
-    .innerRadius(0)
-    .outerRadius(pieRadius);
+		var pieArc = d3.svg.arc()
+		.innerRadius(0)
+		.outerRadius(pieRadius);
 
 
-	var pieSvg = theSvg;
+		var pieSvg = theSvg;
 
-	  var path = pieSvg.datum(pieData).selectAll("." + theClass)
-      .data(pie);
+		var path = pieSvg.datum(pieData).selectAll("." + theClass)
+		.data(pie);
 
-      path
-    .enter().append("path")
-    .attr("class", theClass)
-      .attr("fill", function(d, i) {
-       return d3.rgb(pieColor[i], pieColor[i], pieColor[i]); 
-   })
-      .attr("stroke", "#000")
-      .attr("stroke-width", 2.5)
-      .attr("d", pieArc)
-      .attr("transform", "translate(" + translateA + "," + translateB + ")")
-      .each(function(d, i) { 
-      	this._current = d;
-      });
+		path
+		.enter().append("path")
+		.attr("class", theClass)
+		.attr("fill", function(d, i) {
+			return d3.rgb(pieColor[i], pieColor[i], pieColor[i]); 
+		})
+		.attr("stroke", "#000")
+		.attr("stroke-width", 2.5)
+		.attr("d", pieArc)
+		.attr("transform", "translate(" + translateA + "," + translateB + ")")
+		.each(function(d, i) { 
+			this._current = d;
+		});
 
-      if (pieSlices == 7){
-      	animatePie(pieData, pieSlices, pieSvg, pie, pieArc, theClass);
-      }
+		if (pieSlices == 7){
+			animatePie(pieData, pieSlices, pieSvg, pie, pieArc, theClass);
+		}
 
-  }
+	}
 
 
 	function animatePie(theData, theSlices, theSvg, thePie, theArc, theClass) {
 
-	theData = genData(theSlices);
-	path = theSvg.datum(theData).selectAll("." + theClass)
-      .data(thePie);
+		theData = genData(theSlices);
+		path = theSvg.datum(theData).selectAll("." + theClass)
+		.data(thePie);
 
-    path
-    .transition().duration(1000)
-      .attrTween("d", arcTween)
+		path
+		.transition().duration(1000)
+		.attrTween("d", arcTween)
       // .attr("transform", "translate(400,120)")
       .delay(500)
-     	.call(endall, function(){
-			animatePie(theData, theSlices, theSvg, thePie, theArc, theClass);
-		});
+      .call(endall, function(){
+      	animatePie(theData, theSlices, theSvg, thePie, theArc, theClass);
+      });
 
-		function arcTween(a) {
-		  var i = d3.interpolate(this._current, a);
-		  this._current = i(0);
-		  return function(t) {
-		    return theArc(i(t));
-		  };
-		}
+      function arcTween(a) {
+      	var i = d3.interpolate(this._current, a);
+      	this._current = i(0);
+      	return function(t) {
+      		return theArc(i(t));
+      	};
+      }
 
-	}
+  }
 
-	function animateArcs() {
-		arcData = genData(numArcs);
-		subArcPath = arcSvg.selectAll(".subArcPath")
-			  .data(arcData, function(d, i){
-			  	return i;
-			  });
+  function animateArcs() {
+  	arcData = genData(numArcs);
+  	subArcPath = arcSvg.selectAll(".subArcPath")
+  	.data(arcData, function(d, i){
+  		return i;
+  	});
 
-		subArcPath.transition()
-		.duration(1250)
-		.attr("d", subArc)
-		.call(endall, function(){
-			animateArcs();
-		});
+  	subArcPath.transition()
+  	.duration(1250)
+  	.attr("d", subArc)
+  	.call(endall, function(){
+  		animateArcs();
+  	});
 
-	}
+  }
 
-	function animateBars() {
-		barData = genData(barNum);
+  function animateBars() {
+  	barData = genData(barNum);
 
-		bars.data(barData, function(d, i){ return i;});
+  	bars.data(barData, function(d, i){ return i;});
 
-		bars.transition()
-		.duration(1000)
-		.attr("y", function(d){
-						return 535 - (d * 50);
-					})
-		.attr("height", function(d){
-						return d * 50;
-					})
-		.call(endall, function(){
-			animateBars();
-		});
-
-
+  	bars.transition()
+  	.duration(1000)
+  	.attr("y", function(d){
+  		return 535 - (d * 50);
+  	})
+  	.attr("height", function(d){
+  		return d * 50;
+  	})
+  	.call(endall, function(){
+  		animateBars();
+  	});
 
 
-	}
+
+
+  }
 
 
 	//from http://stackoverflow.com/questions/10692100/invoke-a-callback-at-the-end-of-a-transition
-function endall(transition, callback) { 
-    var n = 0; 
-    transition 
-        .each(function() { ++n; }) 
-        .each("end", function() { if (!--n) callback.apply(this, arguments); }); 
-  } 
-
- 
-
-function recur(theSvg, colorRangeA, colorRangeB, translateA, translateB, theRad, index, inc) {
-	
-	if(index > 0) {
-		drawPie(theSvg, colorRangeA, colorRangeB, translateA, translateB, theRad/2, index, 3);
-	}
-
-	colorRangeA = colorRangeA - 45;
-	colorRangeB = colorRangeB - 45;	
-	if (index < 5 ){
-		var number = 3;
-		for (var i = 0; i < number; i++){
-			var theX2 = (theRad ) * Math.cos((i/number * 360) * Math.PI/180) + translateA;
-			var theY2 = (theRad ) * Math.sin((i/number * 360) * Math.PI/180) + translateB;
-			recur(theSvg, colorRangeA, colorRangeB, theX2, theY2, theRad/2, index + 1, i);
-		}
+	function endall(transition, callback) { 
+		var n = 0; 
+		transition 
+		.each(function() { ++n; }) 
+		.each("end", function() { if (!--n) callback.apply(this, arguments); }); 
 	} 
 
-}
+
+
+	function recur(theSvg, colorRangeA, colorRangeB, translateA, translateB, theRad, index, inc) {
+
+		if(index > 0) {
+			drawPie(theSvg, colorRangeA, colorRangeB, translateA, translateB, theRad/2, index, 3);
+		}
+
+		colorRangeA = colorRangeA - 45;
+		colorRangeB = colorRangeB - 45;	
+		if (index < 5 ){
+			var number = 3;
+			for (var i = 0; i < number; i++){
+				var theX2 = (theRad ) * Math.cos((i/number * 360) * Math.PI/180) + translateA;
+				var theY2 = (theRad ) * Math.sin((i/number * 360) * Math.PI/180) + translateB;
+				recur(theSvg, colorRangeA, colorRangeB, theX2, theY2, theRad/2, index + 1, i);
+			}
+		} 
+
+	}
 
 
 
 
-function genData(numVals){
+	function genData(numVals){
 		var tempArray = [];
 		for (var i = 0; i < numVals; i++){
 			tempArray.push(Math.random());
@@ -254,7 +267,7 @@ function genData(numVals){
 		return tempArray;
 	}
 
-function genGreys(numVals, min, max){
+	function genGreys(numVals, min, max){
 		var tempArray = [];
 		for (var i = 0; i < numVals; i++){
 			tempArray.push(Math.floor(Math.random()* (max - min + 1)) + min);
@@ -263,4 +276,85 @@ function genGreys(numVals, min, max){
 	}
 
 }
+
+function pieLoader(){
+	var width = 400, height = 400;
+	var data = [0,100];	
+
+	var svgElement = d3.select(".loadPie");
+
+	var defs= svgElement.append('defs');
+
+
+defs.append('pattern')
+    .attr('id', 'pic1')
+    // .attr('patternContentUnits', 'objectBoundingBox')
+    .attr('patternUnits', 'userSpaceOnUse')
+    .attr("patternTransform", "translate(-200,-200)")
+    .attr('width', 400)
+    .attr('height', 400)
+  .append('svg:image')
+    .attr('xlink:href', 'assets/pieForLoad-01.svg')
+    .attr("width", 400)
+    .attr("height", 400)
+    .attr("x", 0)
+    .attr("y", 0)
+
+    // .attr("preserveAspectRatio", "xMinYMin slice");
+
+	var svg = svgElement
+		.append("g")
+		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+		var arc = d3.svg.arc()
+		.outerRadius(width/2)
+		.innerRadius(0);
+
+		var pie = d3.layout.pie()
+		.sort(null)
+		.value(function(d){ return d;});
+
+		var the_arc = svg.selectAll(".arc")
+		.data(pie(data));
+
+		the_arc
+		.enter()
+		.append("path")
+
+		the_arc
+		.attr("class", "arc")
+		.attr("start", arc)
+		.attr("fill", function(d, i) { if (i == 0){ return "#ccc" } else { return "url(#pic1)"} })
+		.attr("d", arc)
+		.attr("opacity", function(d, i){ if (i == 0){ return 0; } else { return 1; } })
+		.each(function(d) { this._current = d; });
+
+		var data = [100,0];	
+
+		the_arc
+		.data(pie(data));
+
+		the_arc
+		.transition().duration(5000).delay(100)
+		.attrTween("d", arcTween)
+		.each("end", proceed);
+
+		function arcTween(a) {
+		  var i = d3.interpolate(this._current, a);
+		  this._current = i(0);
+		  return function(t) {
+		    return arc(i(t));
+		 };
+}	
+
+
+}
+
+	function proceed(){
+
+		d3.select(".loadingPie").classed("removed", true);
+		d3.selectAll(".dimmer").classed("removed", true);
+	}
+
+
 
