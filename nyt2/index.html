@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timeline</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="hopscotch.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="d3.min.js"></script>
+	<!--<script src="{{ url_for('static', filename='hopscotch.min.js') }}"></script>-->
+	<script src="ajax_reqs.js"></script>
+	<script src="buildTour.js"></script>
+	<script src="visualizer.js"></script>
+	<script src="visualizer_alt.js"></script>
+	
+</head>
+<body>
+<div class = "svgHolder">
+	<svg width="100%" height="100%" viewBox="0 0 1000 600" class = "theSvg"></svg>
+</div>
+
+<!-- <div class = "themesOverlay">
+</div> -->
+
+<div class = "popUp hidden">
+	<h1 class = "theTitle">This is placeholder nonsense.</h1>
+	<h2 class = "theAuthor">June Junebug</h2>
+	<p class = "content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis tempor nisi. Vivamus feugiat diam orci. Nunc pellentesque id felis nec consequat. In mattis viverra vehicula. Ut ut imperdiet ipsum, vel tempus magna. Morbi eleifend in augue et bibendum. Nulla rutrum ante at urna vestibulum finibus.</p>
+	<p><span class = "bold">Also involved: </span><span class = "otherActors">Yo, yo yo yo, yo mcyo</span></p>
+</div>
+
+<div class = "dimmer"></div>
+<div class = "requestModal">
+	<h2>Search term:&nbsp;</h2><input type = "text" class = "inputText" value = "Anonymous"/><br/>
+	<h3>From:&nbsp;</h3><input type ="date" value = "2014-01-01" class = "fromBox"/>
+	<h3>To:&nbsp;</h3><input type ="date" value = "2014-01-08"  class = "toBox"/><br/>
+	<button class = "buttonV1">Visualize in format 1</button><button class = "buttonV2">Visualize in format 2</button>
+</div>
+</body>
+</html>
