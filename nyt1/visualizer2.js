@@ -2,14 +2,20 @@ var org_colors = {"glocations": "#5296FF",
 					"persons": "#3FD6E8",
 					"organizations": "#09DBB6"};
 
+var circle_radius = 5;
+var circle_radius_padding = 2;
+
 var nodeLayer;
 var linkLayer;
+var contextLayer;
 
   var brush = d3.svg.brush()
     .x(context_time)
     .on("brushstart", brushbegin)
     .on("brush", brushed)
     .on("brushend", brushfinish);
+
+  var axis = d3.svg.axis();
 
 var force;
 
@@ -19,9 +25,75 @@ var one_day = time_scale(daily_format.parse("2014-01-02")) - time_scale(daily_fo
 return one_day;
 }
 
+function resetSearch(){
+  d3.select(".initialInput").classed("hidden", false);
+
+    d3.select(".dimmer").classed("hidden", false);
+
+}
+
+function reselectLinks(){
+  linkLayer.selectAll(".link")
+  .attr("stroke-opacity", function(d){
+        if (the_selected_type == "all"){
+          return 1; 
+        } else{
+          if (d["type"] == the_selected_type){
+            if (_.contains(d["source"][the_selected_type], the_selected_term) && _.contains(d["target"][the_selected_type], the_selected_term)){
+              return 1;
+            } else {
+              return 0;
+            }
+          } else {
+            return 0;
+          }
+        }
+      })
+
+  nodeLayer.selectAll(".article").select(".parentDiv")
+  .attr("class", function(d){
+     var addedTerm = "";
+      if (the_selected_type == "all"){
+        addedTerm = "";
+      } else {
+        if (_.contains(d[the_selected_type], the_selected_term)){
+          addedTerm = "";
+        } else {
+          addedTerm = " collapsed";
+        }
+      }
+      return "parentDiv" + addedTerm;
+  });
+
+  nodeLayer.selectAll(".theExtender")
+  .text(function(d){
+        if (d3.select(d3.select(d3.select(this.parentNode.childNodes)[0][0][2].childNodes)[0][0][0].childNodes[0]).classed("collapsed")){
+          return "\uf065";
+        }
+        else{
+          return "\uf066";
+        }
+      })
+
+  contextLayer.selectAll("circle")
+  .attr("r", function(d){
+                    if (the_selected_type == "all"){
+                                return circle_radius;
+                              } else {
+                                if (_.contains(d[the_selected_type], the_selected_term)){
+                                  return circle_radius;
+                                } else {
+                                  return circle_radius/2;
+                                }
+                              }
+                  })
+
+}
 
 
 function visualize(the_nodes, the_links){
+
+  axis.scale(time_scale);
 
   var svgElement = d3.select("svg");
 
@@ -49,6 +121,18 @@ force = d3.layout.force()
   .selectAll(".article")
     .data(the_nodes.slice(0))
   .enter().append("g")
+  .attr("height", function(d){
+    var the_height = 3;
+      if (the_selected_type == "all"){
+      } else {
+        if (_.contains(d[the_selected_type], the_selected_term)){
+        } else {
+          the_height = article_height;
+        }
+      }
+      d["height"] = the_height;
+     return the_height;
+  })
   .attr("transform", function(d){
     var offset = (one_day())/4.5;
     d.x = time_scale(new Date(daily_format(new Date(d["pub_date"])))) + offset;
@@ -66,7 +150,6 @@ nodes.append("circle")
 .attr("cx", -5)
 .attr("fill", function(d){ return section_scale(d["section_name"]); })
 .attr("opacity", 0)
-
 
     nodes.append("rect")
     .attr("x", 0)
@@ -171,7 +254,7 @@ nodes.append("circle")
                     .key(function(d){ return daily_format(new Date(d["pub_date"]));})
                     .entries(the_nodes);
 
-  nodes.append("text")
+  var extender = nodes.append("text")
       .attr("class", "theExtender")
       .attr("font-family", "FontAwesome")
       .text(function(d){
@@ -203,6 +286,27 @@ nodes.append("circle")
       .attr("text-anchor", "end")
       .attr("dy", -3);
 
+  extender.on("click", function(d){
+    if (d3.select(d3.select(d3.select(this.parentNode.childNodes)[0][0][2].childNodes)[0][0][0].childNodes[0]).classed("collapsed")){
+          d3.select(d3.select(d3.select(this.parentNode.childNodes)[0][0][2].childNodes)[0][0][0].childNodes[0]).classed("collapsed", false);
+          d3.select(this.parentNode).select(".parentDiv").attr("height", function(e){
+            e["height"] = this.getBoundingClientRect()["height"] + 50;
+            return e["height"];
+          })
+          d3.select(this).text("\uf066");
+        }
+        else{
+         d3.select(d3.select(d3.select(this.parentNode.childNodes)[0][0][2].childNodes)[0][0][0].childNodes[0]).classed("collapsed", true);
+          d3.select(this.parentNode).select(".parentDiv").attr("height", function(e){
+            e["height"] = article_height;
+            return article_height;
+          })
+          d3.select(this).text("\uf065");
+        }
+        force.resume();
+  })
+
+
   var links = linkLayer.selectAll(".link")
               .data(the_links);
 
@@ -230,14 +334,19 @@ nodes.append("circle")
 var date_lines = nodeLayer.selectAll(".dateLine")
                   .data(nodes_by_date)
                   .enter()
-                  .append("line")
+                  .append("g")
                   .attr("class", "dateLine")
-                  .attr("x1", function(d){
-                    return time_scale(daily_format.parse(d.key));
-                  })
-                  .attr("x2", function(d){
-                    return time_scale(daily_format.parse(d.key));
-                  })
+                  .attr("transform", function(d){
+                    return "translate(" + time_scale(daily_format.parse(d.key)) + ",0)";
+                  });
+
+    date_lines.append("line")
+                  // .attr("x1", function(d){
+                  //   return time_scale(daily_format.parse(d.key));
+                  // })
+                  // .attr("x2", function(d){
+                  //   return time_scale(daily_format.parse(d.key));
+                  // })
                   .attr("y1", height)
                   .attr("y2", function(d){
                     var memberNodes = d3.selectAll("g.article.a" + d.key.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g,""));
@@ -254,12 +363,23 @@ var date_lines = nodeLayer.selectAll(".dateLine")
                   .attr("stroke-width", 1)
                   .attr("stroke", "#ccc");
 
-  var contextLayer = svgElement.append("g")
+      date_lines.append("text")
+                    .attr("fill", "#555")
+                    .attr("font-size", 7)
+                    .text(function(d){
+                      return d["key"];
+                    })
+                    .attr("dy", -3)
+                    .attr("transform", function(d){
+                      return "translate(" + (0) + "," + (height - 5) + ") " + " rotate(-90)";
+                    })
+
+
+  contextLayer = svgElement.append("g")
                     .attr("class", "context")
                     .attr("transform", "translate(" + margin.left + ", " + (height + 7) + ")");
 
-  var circle_radius = 5;
-  var circle_radius_padding = 2;
+
 
   contextLayer.append("g")
       .attr("class", "x brush")
@@ -269,6 +389,21 @@ var date_lines = nodeLayer.selectAll(".dateLine")
       .attr("height", function(){
         return (context_section_legend.range()[context_section_legend.range().length-1] + 2) * (circle_radius + circle_radius_padding) * 2;
       });
+
+  axis
+  .innerTickSize(-1 * (((context_section_legend.range()[context_section_legend.range().length-1] + 1) * (circle_radius + circle_radius_padding)) * 2 + circle_radius * 2.15))
+  .outerTickSize(0);
+
+  contextLayer.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + (((context_section_legend.range()[context_section_legend.range().length-1] + 1) * (circle_radius + circle_radius_padding)) * 2 + circle_radius) + ")")
+    .call(axis)
+  .selectAll("text")
+    .attr("y", 0)
+    .attr("x", 0)
+    .attr("dy", "1.7em")
+    // .attr("transform", "rotate(90)")
+    .style("text-anchor", "middle");
 
 
   var timeline_articles = contextLayer.selectAll(".artDots")
@@ -333,6 +468,8 @@ var date_lines = nodeLayer.selectAll(".dateLine")
                             return "translate(" + (-margin.left) + "," + (row * (circle_radius + circle_radius_padding) * 2 - (circle_radius + circle_radius_padding)) + ")";
                           });
 
+
+
       context_legend.append("text")
                     .text(function(d){ return d;})
                     .attr("fill", function(d){
@@ -378,6 +515,7 @@ var date_lines = nodeLayer.selectAll(".dateLine")
         })
 
       nodeLayer.selectAll(".dateLine")
+      .select("line")
       .attr("y2", function(d){
                     var memberNodes = d3.selectAll("g.article.a" + d.key.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g,""));
                     memberNodes = memberNodes.sort(function(a, b){
@@ -459,7 +597,7 @@ function brushfinish(){
 
     nodeLayer.selectAll(".article")
     .attr("height", function(d){
-        d["height"] = d3.select(this).select(".parentDiv").node().getBoundingClientRect()["height"] + 10;
+        d["height"] = d3.select(this).select(".parentDiv").node().getBoundingClientRect()["height"] + 50;
         return d["height"];
     })
 
@@ -517,7 +655,7 @@ function brushed() {
 
   nodeLayer.selectAll(".article")
   .attr("height", function(d){
-        d["height"] = d3.select(this).select(".parentDiv").node().getBoundingClientRect()["height"] + 10;
+        d["height"] = d3.select(this).select(".parentDiv").node().getBoundingClientRect()["height"] + 50;
         return d["height"];
     })
       .select("rect")
@@ -533,12 +671,8 @@ function brushed() {
     })
 
   nodeLayer.selectAll(".dateLine")
-      .attr("x1", function(d){
-        return time_scale(daily_format.parse(d.key));
-      })
-      .attr("x2", function(d){
-        return time_scale(daily_format.parse(d.key));
-      })
-
+  .attr("transform", function(d){
+                    return "translate(" + time_scale(daily_format.parse(d.key)) + ",0)";
+                  });
 }
 

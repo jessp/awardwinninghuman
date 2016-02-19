@@ -3,18 +3,18 @@
 <head>
 	<title>Timeline</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="hopscotch.css">
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src="underscore.min.js"></script>
 	<script src="d3.min.js"></script>
-	<!--<script src="{{ url_for('static', filename='hopscotch.min.js') }}"></script>-->
 	<script src="setup2.js"></script>
-	<script src="buildTour.js"></script>
 	<script src="visualizer2.js"></script>
-	<!--<script src="{{ url_for('static', filename='visualizer_alt.js') }}"></script>-->
 	
 </head>
 <body>
+<div class = "editEntriesBar">
+	<a class="connectionsButton">Connections</a>
+	<a class="newSearchButton">New Search</a>
+</div>
 <div class = "svgHolder">
 	<svg width="100%" height="100%" viewBox="0 0 1100 800" class = "theSvg">
 		<defs>

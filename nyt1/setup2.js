@@ -46,6 +46,8 @@ var article_height = 45;
 
 var image_url_starter = "http://graphics8.nytimes.com/";
 
+var drawing_from_scratch = true;
+
 
 window.onload = function(){
     visualize_v1_button = d3.select(".buttonV1");
@@ -66,6 +68,20 @@ window.onload = function(){
         visualizer_method = 1;
         doRequest();
     })
+
+    d3.select(".connectionsButton")
+    .on("click", function(d){
+        d3.select(".dimmer").classed("hidden", false);
+        d3.select(".selectEntity").classed("hidden", false);
+    })
+
+    d3.select(".connectionsButton")
+    .on("click", function(d){
+        d3.select(".dimmer").classed("hidden", false);
+        d3.select(".selectEntity").classed("hidden", false);
+    })
+
+    d3.select(".newSearchButton").classed("hidden", false);
 
 
 
@@ -273,7 +289,12 @@ function displaySelections(my_topics, my_themes, my_nodes, my_links){
     .on("click", function(d){
         the_selected_term = d[0];
         the_selected_type = "themes";
-        visualize(my_nodes, my_links);
+        if (drawing_from_scratch){
+            visualize(my_nodes, my_links);
+            drawing_from_scratch = false;
+        } else {
+            reselectLinks();
+        }
         closeThemeModal();
     })
 
@@ -287,7 +308,12 @@ function displaySelections(my_topics, my_themes, my_nodes, my_links){
     .on("click", function(d){
         the_selected_term = d[0];
         the_selected_type = "all_actors";
-        visualize(my_nodes, my_links);
+        if (drawing_from_scratch){
+            visualize(my_nodes, my_links);
+            drawing_from_scratch = false;
+        } else {
+            reselectLinks();
+        }
         closeThemeModal();
     })
 
@@ -295,7 +321,12 @@ function displaySelections(my_topics, my_themes, my_nodes, my_links){
     .on("click", function(d){
         the_selected_term = "all";
         the_selected_type = "all";
-        visualize(my_nodes, my_links);
+        if (drawing_from_scratch){
+            visualize(my_nodes, my_links);
+            drawing_from_scratch = false;
+        } else {
+            reselectLinks();
+        }
         closeThemeModal();
     })
 

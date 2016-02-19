@@ -11,6 +11,10 @@
 	<script type="text/javascript" src ="productArray.js"></script>
 	<script type="text/javascript" src ="d3slider.js"></script>
 	<script type="text/javascript" src ="imagesetup.js"></script>
+	<script type="text/javascript" src ="brand_bars.js"></script>
+		<script type="text/javascript" src ="donuts_stack.js"></script>
+
+	<!--<script type="text/javascript" src ="donuts.js"></script>-->
 </head>
 <body>
 	<div class = "wrapper">
@@ -88,15 +92,19 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam enim nibh, euismod gravida hendrerit ut, tincidunt a leo. Nunc sit amet ornare massa. Etiam ac laoreet tortor. Nam pharetra, erat et tristique pellentesque, velit dui tristique dui, et lacinia velit orci vitae neque. Vivamus condimentum felis lorem, ac posuere erat tincidunt at. Nam convallis accumsan elementum. Vivamus nisi nunc, imperdiet quis fringilla at, tincidunt blandit lectus. Donec vel justo facilisis, placerat ex ac, eleifend lacus. Ut malesuada in orci sed commodo. Fusce luctus consequat quam, nec sagittis dolor commodo sit amet. Suspendisse dignissim mattis lobortis. Pellentesque feugiat risus sit amet accumsan tincidunt. Morbi imperdiet metus tortor, cursus aliquet turpis iaculis efficitur. Maecenas aliquet dui vitae neque sollicitudin vestibulum. Etiam vel cursus erat, a porta eros.</p>
 		</div>
 		<div class = "chartHolder">
-				<div class = "infoBlock">
+				<div class = "infoBlock hidden">
 					<svg class = "barSvg" width="100%" height="100%" viewBox="0 0 1200 650"></svg>
 				</div>
+				<div class = "infoBlock">
+					<svg class = "donutSvg" width="100%" height="100%" viewBox="0 0 1200 650"></svg>
+				</div>
 			<div class ="controls">
+				<input type="checkbox" class = "doDonuts" value = "Y" checked><h4>Donuts?</h4>
 			<form action="">
-				<input type="radio" class = "brandCol" name = = "brandCol" value = "color" checked><label>Colour</label><br/>
-				<input type="radio" class = "brandCol" name = = "brandCol" value = "tempt"><label>Temptalia Review</label><br/>
-				<input type="radio" class = "brandCol" name = = "brandCol" value = "comm"><label>Community Score</label><br/>
-				<input type="radio" class = "brandCol" name = = "brandCol" value = "availability"><label>Availability</label>
+				<input type="radio" class = "brandCol" name = "brandCol" value = "color" checked><label>Colour</label><br/>
+				<input type="radio" class = "brandCol" name = "brandCol" value = "tempt"><label>Temptalia Review</label><br/>
+				<input type="radio" class = "brandCol" name = "brandCol" value = "comm"><label>Community Score</label><br/>
+				<input type="radio" class = "brandCol" name = "brandCol" value = "availability"><label>Availability</label>
 			</form>
 		
 			</div>

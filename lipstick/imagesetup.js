@@ -30,14 +30,21 @@ var color_dictionary = {
     "green": "green"
 }
 
+var donuts = true;
+
 var brand_bar_scale = d3.scale.linear();
+var brand_domain = d3.scale.ordinal();
 
 var colour_order;
 var colour_order_scale = d3.scale.ordinal();
 var grade_scale = d3.scale.ordinal().domain(["F", "D-", "D", "D+", "C-", "C", "C+", "B-","B", "B+", "A-", "A", "A+", "-"])
                                     .range(d3.range(14));
+
 var community_scale = d3.scale.ordinal().domain([1,2,3,4,5,0])
                                     .range(d3.range(6));
+
+var permanence_scale = d3.scale.ordinal().domain(["P", "LE", "DC"])
+                        .range([0,1,2]);
 
 
 var width_scale = d3.scale.linear()
@@ -92,6 +99,9 @@ var ratio;
 var leftOffset;
 
 var slider;
+
+var bar_data;
+
 
 
 window.onload = function() {
@@ -228,6 +238,11 @@ window.onload = function() {
         doBrandBarCheck(d3.select(this).attr("value"));
     })
 
+     d3.selectAll(".doDonuts").on("change", function(d){
+        donuts = false;
+       update_brand_donuts(bar_data, color_dictionary, colour_order_scale, "color_name");
+    })
+
 
     d3.select(".priceMin").html("$" + (0).toFixed(2));
     d3.select(".priceMax").html("$" + priceRange.toFixed(2));
@@ -254,7 +269,11 @@ window.onload = function() {
     // d3.select()
 
     update_visual(products);
-    update_brand_bars(products);
+    bar_data = draw_brand_bars(products);
+    // update_brand_bars(bar_data, color_dictionary, colour_order_scale, "color_name");
+    // draw_brand_bars(bar_data, color_dictionary, colour_order_scale, "color_name");
+    donut_data = draw_brand_donuts(products);
+    update_brand_donuts(donut_data, color_dictionary, colour_order_scale, "color_name");
 };
 
 function update_visual(data){
@@ -329,55 +348,16 @@ function doAvailabilityCheck(tOrF, theVal){
 }
 
 function doBrandBarCheck(theVal){
-    console.log(theVal);
-    if (theVal == "col"){
-
+    if (theVal == "color"){
+        update_brand_bars(bar_data, color_dictionary, colour_order_scale, "color_name");
     } else if (theVal == "tempt"){
-        var svg = d3.select(".barSvg");
-        var bars = svg.selectAll("g")
-        .datum(function(d){ return d["review"];})
-        
-        var rects = bars.selectAll("rect")
-        .data(function(d){ return d;})
-
-        rects
-        .enter()
-        .append("rect")
-
-        rects
-        .transition().duration(500)
-        .attr("x", function(d, i){ 
-                    if (i == 0){
-                        return 0;
-                    } else {
-                        var thisBrand = d3.select(this.parentNode).attr("theBrand");
-                        var thisData = _.find(nested_data, function(e){ return e["key"] == thisBrand})["color_name"];
-                        var myTotal = 0;
-                        for (var j = 0; j < i; j++){
-                            // console.log(thisData[j][1]);
-                            myTotal += brand_bar_scale(thisData[j][1]);
-                            // myTotal += thisData[j][1] * 2;
-                        }
-                        return myTotal;
-                        // return myTotal;
-                    }
-                    })
-                .attr("width", function(d){ 
-                    return brand_bar_scale(d[1]);})
-
-
+        update_brand_bars(bar_data, color_dictionary, grade_scale, "review");
+    } else if (theVal == "comm"){
+        update_brand_bars(bar_data, color_dictionary, community_scale, "user_rating");
+    } else if (theVal == "availability"){
+        update_brand_bars(bar_data, color_dictionary, permanence_scale, "permanence");
     }
-    // if (tOrF == true){
-    //     circles.filter(function(d){
-    //         return d[2] == theVal;
-    //     }).transition().duration(500)
-    //     .attr("opacity", 1);
-    // } else {
-    //     circles.filter(function(d){
-    //         return d[2] == theVal;
-    //     }).transition().duration(500)
-    //     .attr("opacity", 0);
-    // }
+
 }
 
 function doPriceCheck(minPrice, maxPrice, type){
@@ -502,73 +482,6 @@ if (val == "ounce"){
 }
 }
 
-function update_brand_bars(data){
-    var svg = d3.select(".barSvg");
-
-    var nested_data = d3.nest()
-                        .key(function(d){ return d["brand"]})
-                        .entries(data);
-
-    nested_data = nested_data.sort(function(a, b){
-        return b["values"].length - a["values"].length;
-    })
-    console.log(nested_data);
-
-    brand_bar_scale.domain([0, nested_data[0]["values"].length])
-                    .range([0, (width - 150)])
-    colour_order = count_all_colours(data);
-    colour_order_scale.domain(colour_order).range(d3.range(colour_order.length));
-    colour_order_scale.domain(colour_order).range(d3.range(colour_order.length));
-
-    get_val_numbers(nested_data, "color_name", colour_order_scale);
-    get_val_numbers(nested_data, "permanence");
-    get_val_numbers(nested_data, "review", grade_scale);
-    get_val_numbers(nested_data, "user_rating", community_scale);
-
-
-
-    var bars = svg.selectAll("g")
-                .data(nested_data)
-                .enter()
-                .append("g")
-                .attr("theBrand", function(d){ return d["key"]})
-                .attr("transform", function(d, i){
-                    return "translate(100," + (i * 25) + ")";
-                })
-
-    var brand_text = bars.append("text")
-                        .text(function(d){ return d["key"];})
-                        .attr("transform", "translate(-5, -13)")
-                        .attr("text-anchor", "end")
-
-    var indiv_bars = bars.datum(function(d){ return d["color_name"];})
-                .selectAll("rect")
-                .data(function(d){ return d;})
-                .enter()
-                .append("rect")
-                .attr("x", function(d, i){ 
-                    if (i == 0){
-                        return 0;
-                    } else {
-                        var thisBrand = d3.select(this.parentNode).attr("theBrand");
-                        var thisData = _.find(nested_data, function(e){ return e["key"] == thisBrand})["color_name"];
-                        var myTotal = 0;
-                        for (var j = 0; j < i; j++){
-                            // console.log(thisData[j][1]);
-                            myTotal += brand_bar_scale(thisData[j][1]);
-                            // myTotal += thisData[j][1] * 2;
-                        }
-                        return myTotal;
-                        // return myTotal;
-                    }
-                    })
-                .attr("width", function(d){ 
-                    return brand_bar_scale(d[1]);})
-                .attr("height", 15)
-                .attr("fill", function(d){
-                 return color_dictionary[d[0]];});
-                
-}
 
 function get_val_numbers(the_data, value, scale){
     for (var i = 0; i < the_data.length; i++){
