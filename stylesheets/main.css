@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Chivo:400,400i,700i,700&display=swap');
+
+html, body{
+	background-color:aliceblue;
+	color: #e56b62; 
+	font-family: 'Chivo', sans-serif;
+}
+
+body {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 2em;
+}
+
+h2 {
+	font-size: 1.25em;
+	padding-bottom: 1em;
+	width: 100%;
+	border-bottom: 1px solid currentColor;
+}
+
+a {
+	color: currentColor;
+	font-style: italic;
+}
