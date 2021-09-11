@@ -1,0 +1,99 @@
+$pad: 20px;
+$small: 400px;
+$medium: 900px;
+$large: 1200px;
+$gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49.48%, #F97D7D 100%);
+
+.title {
+  height: calc(100vh - $pad);
+  width: 100%;
+}
+
+.containerOuter {
+  min-height: 100vh;
+  margin: 0rem;
+  padding: $pad;
+  background: $gradient;
+  position: relative;
+
+  &.real {
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  &.pseudo {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+  }
+}
+
+.containerInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.blackBg {
+  background-color: black;
+  left: $pad;
+  right: $pad;
+  top: $pad;
+  bottom: $pad;
+  position: absolute;
+  z-index: -1;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-start;
+  max-width: 800px;
+  text-align: left;
+}
+
+.splash {
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.titleInfo {
+  $curve: 50px;
+
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 1fr; 
+  column-gap: $pad;
+  margin-top: $pad * 1.5;
+
+  p {
+    font-size: 120%;
+    line-height: 140%;
+  }
+
+  .detailInfo {
+    margin-top: $curve;
+  }
+
+  .arrowDown {
+    height: 30vh;
+    border-right: 8px solid #fff;
+    border-radius: 0px $curve 0px 0px;
+    width: calc(100% - 16px);
+  }
+
+
+}
+
+.projectList {
+  width: 100%;
+}

@@ -1,0 +1,52 @@
+$pad: 20px;
+$curve: 50px;
+
+
+.projectGrid {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	grid-template-rows: 100px min-content; 
+	column-gap: $pad;
+	margin-top: $pad * 2;
+
+	.imgHolder {
+		width: 100%;
+		margin-bottom: $pad * 3;
+
+		> div {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 4fr;
+			grid-template-rows: min-content min-content;
+			grid-auto-flow: column;
+			column-gap: $pad;
+
+			> div {
+				margin-top: $pad;
+			}
+		}
+	}
+
+	img {
+		max-height:40vh;
+		width: 100%;
+		object-fit: cover;
+	}
+}
+
+.arrowDown {
+	height: 100%;
+    border-right: 8px solid #fff;
+    border-radius: 0px $curve 0px 0px;
+    width: calc(100% - 16px);
+}
+
+.responsibilities {
+	font-size: 18px;
+}
+
+.label{
+	font-weight: bold;
+	text-align: right;
+}
