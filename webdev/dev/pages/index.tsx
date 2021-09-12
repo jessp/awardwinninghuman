@@ -45,40 +45,40 @@ const Home: NextPage = () => {
               title= {"Senior Designer"}
               info= {"Thomson Reuters Labs are the \“global reaching innovation arm\” of Thomson Reuters. I worked alongside multi-disciplinary teams on creating new features and powering up existing products with state-of-the-art data science techniques."}
               responsibilities={"Product design, user research, user experience design, data analysis, front-end development."}
-              image= {"https://www.placecage.com/640/360"}
+              image= {"/assets/tr-logo.png"}
               years= {[2019, 2021]}/>
 
               <Project 
               org= {"Personal Project"}
               title= {"Goodwill Hunting"}
-              info= {"I do a lot of personal projects to keep my skills sharp and investigate things that interest me. For Goodwill Hunting, I wanted to know what types of clothes are donated to Goodwill charity shops, and make some beautiful charts about my findings. This project made #1 on Hacker News. It's my nerdiest claim to fame."}
+              info= {"I do a lot of personal projects to keep my skills sharp and investigate things that interest me. For Goodwill Hunting, I wanted to know what types of clothes are donated to Goodwill charity shops across the USA, and make some beautiful charts about my findings. This project made #1 on Hacker News. It's my nerdiest claim to fame."}
               responsibilities={"Visual design, data analysis, front-end development."}
-              image= {"https://www.placecage.com/600/360"}
+              image= {"/assets/goodwill.png"}
+              years= {[2020]}/>
+
+              <Project 
+              org= {"The Pudding"}
+              title= {"11 Years of Top-Selling Book Covers"}
+              info= {"I created this interactive piece for the Pudding while completing my Master's. On this site, you can explore the covers of more than a decade of New York Times best-sellers (approximately 5,000 books!) and judge your heart out. You can also filter by metadata from the Goodreads and The New York Times APIs, and by visual features detected by the Google Cloud Vision API."}
+              responsibilities={"Coding, visual design, data analysis, front-end development."}
+              image= {"/assets/covers.jpg"}
               years= {[2019]}/>
 
               <Project 
               org= {"Oslo School of Architecture and Design"}
-              title= {"Master's Degree"}
-              info= {"Thomson Reuters Labs are the \“global reaching innovation arm\” of Thomson Reuters. I worked alongside multi-disciplinary teams on creating new features and powering up existing products with state-of-the-art data science techniques."}
-              responsibilities={"Product design, user research, user experience design, data analysis, front-end development."}
-              image= {"https://www.placecage.com/640/360"}
-              years= {[2019, 2021]}/>
-
-              <Project 
-              org= {"The Pudding"}
-              title= {"Cover Matters"}
-              info= {"Thomson Reuters Labs are the \“global reaching innovation arm\” of Thomson Reuters. I worked alongside multi-disciplinary teams on creating new features and powering up existing products with state-of-the-art data science techniques."}
-              responsibilities={"Product design, user research, user experience design, data analysis, front-end development."}
-              image= {"https://www.placecage.com/640/360"}
-              years= {[2019, 2021]}/>
+              title= {"Hack 1 Knit 2"}
+              info= {"The software needed to use whole-garment knitting machines is incredibly complex, with users needing years of dedicated training to master. For my Master's Thesis, I developed open-source code that can be used to replicate many different knitting techniques that can be used by a wide range of makers for a wide range of projects on whole-garment knitting machines. This built off of work by the Carnegie Mellon Textiles Lab."}
+              responsibilities={"Coding, research, writing, front-end development, knitting."}
+              image= {"/assets/knit.jpg"}
+              years= {[2017, 2019]}/>
 
               <Project 
               org= {"The Globe and Mail"}
               title= {"Design and Front-end Dev Lead"}
-              info= {"Thomson Reuters Labs are the \“global reaching innovation arm\” of Thomson Reuters. I worked alongside multi-disciplinary teams on creating new features and powering up existing products with state-of-the-art data science techniques."}
-              responsibilities={"Product design, user research, user experience design, data analysis, front-end development."}
-              image= {"https://www.placecage.com/640/360"}
-              years= {[2019, 2021]}/>
+              info= {"I worked with The Globe and Mail's data science team to create Sophi: an in-house analytics systems to help editors understand how stories are performing. I designed and developed both the front-end web experience, as well as a Chrome extension."}
+              responsibilities={"Product design, user research, user experience design, front-end development."}
+              image= {"/assets/globe.jpeg"}
+              years= {[2016, 2017]}/>
             </div>
           </main>
         </div>

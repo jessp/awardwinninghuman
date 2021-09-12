@@ -14,6 +14,12 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
   margin: 0rem;
   padding: $pad;
   background: $gradient;
+  background-size: 400% 400%;
+  -webkit-animation: gradientAnimation 45s ease infinite;
+  -moz-animation: gradientAnimation 45s ease infinite;
+  animation: gradientAnimation 45s ease infinite;
+
+
   position: relative;
 
   &.real {
@@ -39,7 +45,7 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
 }
 
 .blackBg {
-  background-color: black;
+  background-color: #1F1F1F;
   left: $pad;
   right: $pad;
   top: $pad;
@@ -96,4 +102,20 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
 
 .projectList {
   width: 100%;
+}
+
+@-webkit-keyframes gradientAnimation {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@-moz-keyframes gradientAnimation {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
+}
+@keyframes gradientAnimation {
+    0%{background-position:0% 51%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 51%}
 }

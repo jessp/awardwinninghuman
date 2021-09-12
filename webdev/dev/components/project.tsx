@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from './project.module.scss'
 
 type Props = {
@@ -22,22 +23,18 @@ const Project = ({ org, title, info, responsibilities, image, years }: Props) =>
     		<div className={styles.arrowDown}>
     		</div>
     		<div className={styles.imgHolder}>
-    			<img src={image}
-     				 alt="MDN logo"/>
-     			<div>
-     				<div></div>
-	     			<div className={styles.label}>
-	     				<p className={styles.responsibilities}>I did:</p>
-	     			</div>
-	     			<div>
-		    			<p>{info}</p>
-		    		</div>
-		    		<div>
-		    			<p className={styles.responsibilities}>{responsibilities}</p>
-		    		</div>
-		    	</div>
+     			<Image src={image} alt="me" layout='fill' objectFit='cover' />
     		</div>
-
+    		<div></div>
+	     	<div>
+		    	<p>{info}</p>
+		    </div>
+		    <div className={styles.label}>
+		    	<p className={styles.responsibilities}>I did:</p>
+		    </div>
+		    <div>
+		    	<p className={styles.responsibilities}>{responsibilities}</p>
+		    </div>
     	</div>
     </>
 )

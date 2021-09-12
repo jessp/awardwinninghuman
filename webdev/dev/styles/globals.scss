@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap');
+
 $small: 400px;
 $medium: 900px;
 $large: 1200px;
 $lightGrey: #D4D4D4;
+$bodyText: 'IBM Plex Sans', sans-serif; 
+$bodyWeight: 300;
+$labelWeight: 400;
 
 html,
 body {
@@ -47,15 +52,15 @@ h2 {
 
 h3 {
 	font-size: 36px;
-	color: $lightGrey;
-	-webkit-text-fill-color: lightGrey;
+	color: white;
+	-webkit-text-fill-color: white;
 	line-height: 120%;
 }
 
 h4 {
 	font-size: 32px;
 	color: $lightGrey;
-	-webkit-text-fill-color: lightGrey;
+	-webkit-text-fill-color: $lightGrey;
 	line-height: 136%;
 }
 
@@ -63,6 +68,7 @@ p {
 	font-size: 20px;
 	line-height: 136%;
 	color: lightGrey;
-	-webkit-text-fill-color: lightGrey;
-    font-family: "Apex New";
+	-webkit-text-fill-color: $lightGrey;
+    font-family: $bodyText;
+    font-weight: $bodyWeight;
 }
