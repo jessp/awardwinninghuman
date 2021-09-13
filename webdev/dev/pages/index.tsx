@@ -31,7 +31,6 @@ const Home: NextPage = () => {
                   <li>
                     <a href="mailto:jess@awardwinninghuman.com" target="_blank">Email</a>
                   </li>
-                  <li><a href="/assets/JP_CV_2021.pdf" target="_blank">CV</a></li>
                 </ul>
               </div>
             </div>
