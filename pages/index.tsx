@@ -7,8 +7,6 @@ import Project from '../components/project'
 const Home: NextPage = () => {
   return (
     <div>
-      <div className={styles.containerOuter + " " + styles.pseudo}>
-      </div>
       <div className={styles.containerOuter + " " + styles.real}>
         <div className={styles.containerInner}>
           <Head>
@@ -21,7 +19,7 @@ const Home: NextPage = () => {
           <main className={styles.main}>
             <div className={styles.splash}>
               <div className={styles.inner}>
-                <h1>
+                <h1 className={"grad"}>
                   Jess Peter is an interaction designer and creative coder living in London.
                 </h1>
                 <ul className={styles.links}>
@@ -35,8 +33,6 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className={styles.projectList}>
-              <div className={styles.blackBg}>
-              </div>
               <Project 
               org= {"Thomson Reuters Labs"}
               title= {"Senior Designer"}

@@ -16,7 +16,7 @@ const Project = ({ org, title, info, responsibilities, image, years, link, alt }
     <>
     	<div className={styles.projectGrid}>
     		<div className={styles.projectYear}>
-    			<h2>{years[0]}<br/>{years.length === 1 || `- ${years[1]}`}</h2>
+    			<h2 className={"grad"}>{years[0]}<br/>{years.length === 1 || `- ${years[1]}`}</h2>
     		</div>
     		<div className={styles.projectHeader}>
     			<h3>{title}</h3>

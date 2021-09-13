@@ -8,20 +8,7 @@
 .containerOuter {
   min-height: 100vh;
   margin: 0rem;
-  background: $gradient;
   position: relative;
-
-  &.real {
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-
-  &.pseudo {
-    position: fixed;
-    z-index: -1;
-    width: 100%;
-  }
-
 }
 
 .containerInner {
@@ -32,16 +19,6 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-}
-
-.blackBg {
-  background-color: $darkGrey;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  bottom: 0px;
-  position: absolute;
-  z-index: -1;
 }
 
 .main {
