@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap');
+@import 'variables';
 
-$small: 400px;
-$medium: 900px;
-$large: 1200px;
-$lightGrey: #D4D4D4;
-$bodyText: 'IBM Plex Sans', sans-serif; 
-$bodyWeight: 300;
-$labelWeight: 400;
+@font-face {
+  font-family: "Carmin";
+  src: url("https://portfolioasset.s3.eu-west-2.amazonaws.com/Carmin0.2-Light.woff2") format("woff2"),
+       url("https://portfolioasset.s3.eu-west-2.amazonaws.com/Carmin0.2-Light.woff") format("woff");
+}
 
 html,
 body {
@@ -14,13 +13,12 @@ body {
   margin: 0;
   width: 100%;
   width: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'IBM Plex Sans', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
   color: inherit;
-  text-decoration: none;
+  font-size: 16px;
 }
 
 * {
@@ -31,23 +29,50 @@ a {
 }
 
 h1, h2, h3, h4, h5 {
-	font-family: "Carmin 0.2 Trial";
+	font-family: "Carmin", sans-serif;
  	font-weight: lighter;
 }
 
 h1 {
-  font-size: 240px; 
-  line-height: 80%;
+	font-size: 110px; 
+	line-height: 100%;
+	text-transform: uppercase;
+	margin-bottom: $pad;
 
-  @media screen and (max-width: $small) {
+	@media screen and (max-width: $large) {
+		font-size: 95px;
+	}
 
-  }
+	@media screen and (max-width: $medium) {
+		font-size: 75px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 45px;
+	}
+
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 36px;
+	}
 }
 
 h2 {
 	font-size: 36px;
 	text-align: right;
 	line-height: 120%;
+
+	@media screen and (max-width: $medium) {
+		font-size: 28px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 24px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 18px;
+	}
 }
 
 h3 {
@@ -55,6 +80,18 @@ h3 {
 	color: white;
 	-webkit-text-fill-color: white;
 	line-height: 120%;
+
+	@media screen and (max-width: $medium) {
+		font-size: 28px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 24px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 22px;
+	}
 }
 
 h4 {
@@ -62,6 +99,18 @@ h4 {
 	color: $lightGrey;
 	-webkit-text-fill-color: $lightGrey;
 	line-height: 136%;
+
+	@media screen and (max-width: $medium) {
+		font-size: 24px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 22px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 18px;
+	}
 }
 
 p {
@@ -71,4 +120,47 @@ p {
 	-webkit-text-fill-color: $lightGrey;
     font-family: $bodyText;
     font-weight: $bodyWeight;
+
+    @media screen and (max-width: $medium) {
+		font-size: 18px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 16px;
+	}
+
+}
+
+ul, li {
+	color: lightGrey;
+	-webkit-text-fill-color: $lightGrey;
+}
+
+
+li {
+  list-style: none;
+  display: inline-block;
+  font-family: "Carmin 0.2 Trial";
+  font-weight: lighter;
+  font-size: 24px;
+
+  &:not(:last-of-type) {
+    margin-right: $pad;
+  }
+
+  * {
+  	font-size: 24px;
+
+  	@media screen and (max-width: $medium) {
+		font-size: 20px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 18px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 16px;
+	}
+  }
 }

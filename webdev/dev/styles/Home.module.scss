@@ -1,8 +1,4 @@
-$pad: 20px;
-$small: 400px;
-$medium: 900px;
-$large: 1200px;
-$gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49.48%, #F97D7D 100%);
+@import 'variables';
 
 .title {
   height: calc(100vh - $pad);
@@ -12,14 +8,7 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
 .containerOuter {
   min-height: 100vh;
   margin: 0rem;
-  padding: $pad;
   background: $gradient;
-  background-size: 400% 400%;
-  -webkit-animation: gradientAnimation 45s ease infinite;
-  -moz-animation: gradientAnimation 45s ease infinite;
-  animation: gradientAnimation 45s ease infinite;
-
-
   position: relative;
 
   &.real {
@@ -32,6 +21,7 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
     z-index: -1;
     width: 100%;
   }
+
 }
 
 .containerInner {
@@ -45,11 +35,11 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
 }
 
 .blackBg {
-  background-color: #1F1F1F;
-  left: $pad;
-  right: $pad;
-  top: $pad;
-  bottom: $pad;
+  background-color: $darkGrey;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
   position: absolute;
   z-index: -1;
 }
@@ -60,20 +50,21 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
   flex-direction: column;
   justify-content: center;
   align-items: self-start;
-  max-width: 800px;
+  max-width: 1200px;
   text-align: left;
+  width: 100%;
 }
 
 .splash {
   height: 100vh;
+  max-height: 1200px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   flex-direction: column;
+  padding: 0px $pad;
 }
 
 .titleInfo {
-  $curve: 50px;
-
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -90,32 +81,16 @@ $gradient: radial-gradient(44.48% 87.96% at 61.01% 68.8%, #FFE871 0%, #4D6EC2 49
     margin-top: $curve;
   }
 
-  .arrowDown {
-    height: 30vh;
-    border-right: 8px solid #fff;
-    border-radius: 0px $curve 0px 0px;
-    width: calc(100% - 16px);
-  }
-
 
 }
 
 .projectList {
-  width: 100%;
-}
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
 
-@-webkit-keyframes gradientAnimation {
-    0%{background-position:0% 51%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 51%}
-}
-@-moz-keyframes gradientAnimation {
-    0%{background-position:0% 51%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 51%}
-}
-@keyframes gradientAnimation {
-    0%{background-position:0% 51%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 51%}
+  @media screen and (max-width: $medium) {
+    width: 100%;
+    padding: 0px $pad;
+  }
 }
