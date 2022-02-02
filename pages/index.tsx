@@ -33,6 +33,21 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className={styles.projectList}>
+
+              <Project 
+              org= {"Personal Project"}
+              title= {"deepwork"}
+              info= {"I wrote and coded this satirical interactive essay about technology and corporate culture for The Pudding. It was featured on Fast Company."}
+              responsibilities={"Coding, writing, front-end development."}
+              alt={"Illustration showing glowing hands reaching up to alter a girl's appearance."}
+              image= {"/assets/deepwork.jpeg"}
+              years= {[2022]}
+              link={
+                {"display": "pudding.cool/2022/01/deepwork",
+                "address": "https://pudding.cool/2022/01/deepwork/"}
+              }/>
+
+
               <Project 
               org= {"Thomson Reuters Labs"}
               title= {"Senior Designer"}
@@ -62,7 +77,7 @@ const Home: NextPage = () => {
               <Project 
               org= {"The Pudding"}
               title= {"11 Years of Top-Selling Book Covers"}
-              info= {"I created this interactive piece for the Pudding while completing my Master's. On this site, you can explore the covers of more than a decade of New York Times best-sellers (approximately 5,000 books!) and judge your heart out. You can also filter by metadata from the Goodreads and The New York Times APIs, and by visual features detected by the Google Cloud Vision API."}
+              info= {"I created this interactive piece for The Pudding while completing my Master's. On this site, you can explore the covers of more than a decade of New York Times best-sellers (approximately 5,000 books!) and judge your heart out. You can also filter by metadata from the Goodreads and The New York Times APIs, and by visual features detected by the Google Cloud Vision API."}
               responsibilities={"Coding, visual design, data analysis, front-end development."}
               alt={"A grid of book covers"}
               image= {"/assets/covers.jpg"}
