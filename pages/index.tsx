@@ -34,8 +34,33 @@ const Home: NextPage = () => {
             </div>
             <div className={styles.projectList}>
 
-              <Project 
+            <h2>Full-time Jobs</h2>
+
+            <div className={styles.jobList}>
+              <ul>
+                <li><span className={"grad"}>Currently</span><span className={styles.grey}> a </span>Senior Product Designer <span className={styles.grey}>at </span>SuperAwesome</li>
+                <li><span className={"grad"}>Previously</span><span className={styles.grey}> a </span>Senior Designer <span className={styles.grey}>at </span>Thomson Reuters Labs</li>
+                <li><span className={"grad"}>Once</span><span className={styles.grey}> a </span>Designer/Developer <span className={styles.grey}>at </span>The Globe and Mail</li>
+              </ul>
+            </div>
+
+            <h2>Projects</h2>
+
+            <Project 
               org= {"Personal Project"}
+              title= {"Maria: DIY Anime-inspired Holographic Virtual Assistant"}
+              info= {"Maria is an anime-inspired holographic virtual assistant you can make at home. She runs on Raspberry Pi."}
+              responsibilities={"Coding, 3D modelling and animation, front-end development."}
+              alt={""}
+              image= {"/assets/deepwork.jpeg"}
+              years= {[2022]}
+              link={
+                {"display": "maria.awardwinninghuman.com",
+                "address": "https://maria.awardwinninghuman.com/"}
+              }/>
+
+              <Project 
+              org= {"The Pudding"}
               title= {"deepwork"}
               info= {"I wrote and coded this satirical interactive essay about technology and corporate culture for The Pudding. It was featured on Fast Company."}
               responsibilities={"Coding, writing, front-end development."}
@@ -45,20 +70,6 @@ const Home: NextPage = () => {
               link={
                 {"display": "pudding.cool/2022/01/deepwork",
                 "address": "https://pudding.cool/2022/01/deepwork/"}
-              }/>
-
-
-              <Project 
-              org= {"Thomson Reuters Labs"}
-              title= {"Senior Designer"}
-              info= {"Thomson Reuters Labs are the \“global reaching innovation arm\” of Thomson Reuters. I worked alongside multi-disciplinary teams on creating new features and powering up existing products with state-of-the-art data science techniques."}
-              responsibilities={"Product design, user research, user experience design, data analysis, front-end development."}
-              alt={"Thomson Reuters logo"}
-              image= {"/assets/tr-logo.png"}
-              years= {[2019, 2021]}
-              link={
-                {"display": "innovation.thomsonreuters.com",
-                "address": "https://innovation.thomsonreuters.com"}
               }/>
 
               <Project 
@@ -94,24 +105,12 @@ const Home: NextPage = () => {
               responsibilities={"Coding, research, writing, front-end development, knitting."}
               alt={"An assortment of small knitted objects"}
               image= {"/assets/knit.jpg"}
-              years= {[2017, 2019]}
+              years= {[2019]}
               link={
                 {"display": "jessp.github.io/kcodeblog",
                 "address": "https://jessp.github.io/kcodeblog/"}
               }/>
 
-              <Project 
-              org= {"The Globe and Mail (Sophi)"}
-              title= {"Design and Front-end Dev Lead"}
-              info= {"I worked with The Globe and Mail's data science team to create Sophi: an in-house analytics systems to help editors understand how news stories are performing. I designed and developed both the front-end web experience, as well as a Chrome extension."}
-              responsibilities={"Product design, user research, user experience design, front-end development."}
-              alt={"The Globe and Mail logo"}
-              image= {"/assets/globe.jpeg"}
-              years= {[2016, 2017]}
-              link={
-                {"display": "sophi.io",
-                "address": "https://www.sophi.io/"}
-              }/>
             </div>
           </main>
         </div>

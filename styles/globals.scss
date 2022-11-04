@@ -35,13 +35,13 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-	font-size: 110px; 
+	font-size: 90px; 
 	line-height: 100%;
 	text-transform: uppercase;
 	margin-bottom: $pad;
 
 	@media screen and (max-width: $large) {
-		font-size: 95px;
+		font-size: 85px;
 	}
 
 	@media screen and (max-width: $medium) {
@@ -58,7 +58,33 @@ h1 {
 	}
 }
 
+
 h2 {
+	font-size: 48px;
+	line-height: 120%;
+	color: $lightGrey;
+	-webkit-text-fill-color: $lightGrey;
+	margin-bottom: $pad * 4;
+
+	&.grad {
+    	background-size: 150%;
+  }
+
+	@media screen and (max-width: $medium) {
+		font-size: 42px;
+	}
+
+	@media screen and (max-width: $small) {
+		font-size: 30px;
+	}
+
+	@media screen and (max-width: $xsmall) {
+		font-size: 24px;
+	}
+}
+
+
+h3 {
 	font-size: 36px;
 	text-align: right;
 	line-height: 120%;
@@ -80,7 +106,7 @@ h2 {
 	}
 }
 
-h3 {
+h4 {
 	font-size: 36px;
 	color: white;
 	-webkit-text-fill-color: white;
@@ -99,7 +125,7 @@ h3 {
 	}
 }
 
-h4 {
+h5 {
 	font-size: 32px;
 	color: $lightGrey;
 	-webkit-text-fill-color: $lightGrey;

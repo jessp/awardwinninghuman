@@ -5,7 +5,7 @@
 .projectGrid {
 	width: 100%;
 	display: grid;
-	grid-template-columns: 1fr 5fr;
+	grid-template-columns: auto 6fr;
 	grid-template-rows: min-content min-content min-content min-content; 
 	column-gap: $pad;
 	margin-top: $pad;

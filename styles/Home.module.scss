@@ -33,12 +33,30 @@
 }
 
 .splash {
-  height: 100vh;
+  min-height: 100vh;
   max-height: 1200px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 0px $pad;
+}
+
+
+.jobList {
+  
+  margin-bottom: $pad * 6;
+
+  li {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    margin-bottom: $pad;
+  }
+
+}
+
+.grey {
+  color: $lightGrey;
+  -webkit-text-fill-color: $lightGrey;
 }
 
 .titleInfo {

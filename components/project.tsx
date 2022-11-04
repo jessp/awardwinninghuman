@@ -16,11 +16,11 @@ const Project = ({ org, title, info, responsibilities, image, years, link, alt }
     <>
     	<div className={styles.projectGrid}>
     		<div className={styles.projectYear}>
-    			<h2 className={"grad"}>{years[0]}<br/>{years.length === 1 || `- ${years[1]}`}</h2>
+    			<h3 className={"grad"}>{years[0]}<br/>{years.length === 1 || `- ${years[1]}`}</h3>
     		</div>
     		<div className={styles.projectHeader}>
-    			<h3>{title}</h3>
-    			<h4>{org}</h4>
+    			<h4>{title}</h4>
+    			<h5>{org}</h5>
     			<p>
     				<a href={link.address} rel="noreferrer" target="_blank">{link.display}</a>
     			</p>
