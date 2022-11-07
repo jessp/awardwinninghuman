@@ -51,8 +51,8 @@ const Home: NextPage = () => {
               title= {"Maria: DIY Anime-inspired Holographic Virtual Assistant"}
               info= {"Maria is an anime-inspired holographic virtual assistant you can make at home. She runs on Raspberry Pi."}
               responsibilities={"Coding, 3D modelling and animation, front-end development."}
-              alt={""}
-              image= {"/assets/deepwork.jpeg"}
+              alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
+              image= {"/assets/maria.jpg"}
               years= {[2022]}
               link={
                 {"display": "maria.awardwinninghuman.com",
