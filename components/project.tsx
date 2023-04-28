@@ -26,7 +26,7 @@ const Project = ({ org, title, info, responsibilities, image, years, link, alt }
     			</p>
     		</div>
     		<div className={styles.imgHolder}>
-     			<Image src={image} alt={alt} layout='fill' objectFit='cover' />
+     			<Image src={image} alt={alt} fill={true} style={{"objectFit": "cover"}} />
     		</div>
 	     	<div className={styles.description}>
 		    	<p>{info}</p>
