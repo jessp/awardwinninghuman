@@ -10,19 +10,22 @@
     "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && echo \"awardwinninghuman.com\" > out/CNAME && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
+    "@react-three/fiber": "^8.13.0",
+    "@types/three": "^0.151.0",
     "next": "^13.3.1",
     "react": "~18.2.0",
-    "react-dom": "~18.2.0"
+    "react-dom": "~18.2.0",
+    "three": "^0.152.2"
   },
   "devDependencies": {
     "@types/node": "^18.16.0",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
-    "typescript": "^4.7.3",
     "autoprefixer": "^10.3.4",
     "eslint": "~8.39.0",
     "eslint-config-next": "~13.3.1",
     "postcss": "^8.3.6",
-    "sass": "^1.56.0"
+    "sass": "^1.56.0",
+    "typescript": "^4.7.3"
   }
 }

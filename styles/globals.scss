@@ -1,203 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Epilogue:ital@0;1&family=MuseoModerno:ital,wght@1,300&display=swap');
 @import 'variables';
 
-@font-face {
-  font-family: "Carmin";
-  src: url("https://portfolioasset.s3.eu-west-2.amazonaws.com/Carmin0.2-Light.woff2") format("woff2"),
-       url("https://portfolioasset.s3.eu-west-2.amazonaws.com/Carmin0.2-Light.woff") format("woff");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-
-html,
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  width: 100%;
-  font-family: 'IBM Plex Sans', Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: $darkGrey;
+	line-height: 1;
 }
-
-a {
-  color: inherit;
-  font-size: 16px;
+ol, ul {
+	list-style: none;
 }
-
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 * {
-  box-sizing: border-box;
-  margin: 0; 
-  padding: 0;
-  line-height: 120%;
-}
-
-h1, h2, h3, h4, h5 {
-	font-family: "Carmin", sans-serif;
- 	font-weight: lighter;
+	box-sizing: border-box;
 }
 
 h1 {
-	font-size: 90px; 
-	line-height: 100%;
-	text-transform: uppercase;
-	margin-bottom: $pad;
-
-	@media screen and (max-width: $large) {
-		font-size: 85px;
-	}
-
-	@media screen and (max-width: $medium) {
-		font-size: 75px;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: 45px;
-	}
-
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 36px;
-	}
+	font-size: 65pt;
 }
-
 
 h2 {
-	font-size: 48px;
-	line-height: 120%;
-	color: $lightGrey;
-	-webkit-text-fill-color: $lightGrey;
-	margin-bottom: $pad * 4;
-
-	&.grad {
-    	background-size: 150%;
-  }
-
-	@media screen and (max-width: $medium) {
-		font-size: 42px;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: 30px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 24px;
-	}
+	font-size: 40pt;
 }
-
 
 h3 {
-	font-size: 36px;
-	text-align: right;
-	line-height: 120%;
+	font-size: 24pt;
+}
 
-	&.grad {
-    	background-size: 150%;
-    }
+body {
+		margin: 0 auto;
+}
 
-	@media screen and (max-width: $medium) {
-		font-size: 28px;
-	}
+.container {
+	margin: 0 auto;
+	max-width: 1280px;
+}
 
-	@media screen and (max-width: $small) {
-		font-size: 24px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 18px;
+.innerContainer {
+	margin: 0px 20px;
+	@media screen and (min-width: $big) {
+		margin: 0px 50px;
 	}
 }
 
-h4 {
-	font-size: 36px;
-	color: white;
-	-webkit-text-fill-color: white;
-	line-height: 120%;
-
-	@media screen and (max-width: $medium) {
-		font-size: 28px;
+.work {
+	h1, h2, h3 {
+		font-family: $work-font
 	}
-
-	@media screen and (max-width: $small) {
-		font-size: 24px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 22px;
-	}
-}
-
-h5 {
-	font-size: 32px;
-	color: $lightGrey;
-	-webkit-text-fill-color: $lightGrey;
-	line-height: 136%;
-
-	@media screen and (max-width: $medium) {
-		font-size: 24px;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: 22px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 18px;
-	}
-}
-
-p {
-	font-size: 20px;
-	line-height: 136%;
-	color: lightGrey;
-	-webkit-text-fill-color: $lightGrey;
-    font-family: $bodyText;
-    font-weight: $bodyWeight;
-
-    @media screen and (max-width: $medium) {
-		font-size: 18px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 16px;
-	}
-
-}
-
-ul, li {
-	color: lightGrey;
-	-webkit-text-fill-color: $lightGrey;
-}
-
-
-li {
-  list-style: none;
-  display: inline-block;
-  font-family: "Carmin";
-  font-weight: lighter;
-  font-size: 24px;
-
-  &:not(:last-of-type) {
-    margin-right: $pad;
-  }
-
-  * {
-  	font-size: 24px;
-
-  	@media screen and (max-width: $medium) {
-		font-size: 20px;
-	}
-
-	@media screen and (max-width: $small) {
-		font-size: 18px;
-	}
-
-	@media screen and (max-width: $xsmall) {
-		font-size: 16px;
-	}
-  }
-}
-
-.grad {
-	background: $gradient;
-	-webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
 }

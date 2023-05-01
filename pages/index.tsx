@@ -3,12 +3,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Project from '../components/project'
+import Hero from '../components/hero'
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <div className={styles.containerOuter + " " + styles.real}>
-        <div className={styles.containerInner}>
+    <div className={"work container"}>
+      <div className={"innerContainer"}>
+        <div>
           <Head>
             <title>Jess Peter | Designer</title>
             <meta name="description" content="Award-winning Human Jess Peter" />
@@ -16,33 +17,12 @@ const Home: NextPage = () => {
             <link rel="icon" href="/assets/favicon-01.png" />
           </Head>
 
-          <main className={styles.main}>
-            <div className={styles.splash}>
-              <div className={styles.inner}>
-                <h1 className={"grad"}>
-                  Jess Peter is an interaction designer and creative coder living in London.
-                </h1>
-                <ul className={styles.links}>
-                  <li>
-                    <a href="https://github.com/jessp" target="_blank" rel="noreferrer">Github</a>
-                  </li>
-                  <li>
-                    <a href="mailto:jess@awardwinninghuman.com" target="_blank" rel="noreferrer">Email</a>
-                  </li>
-                </ul>
-              </div>
+          <main>
+            <div className={styles.header}>
+              <Hero></Hero>
             </div>
-            <div className={styles.projectList}>
 
             <h2>Full-time Jobs</h2>
-
-            <div className={styles.jobList}>
-              <ul>
-                <li><span className={"grad"}>Currently</span><span className={styles.grey}> a </span>Senior Product Designer <span className={styles.grey}>at </span>SuperAwesome</li>
-                <li><span className={"grad"}>Previously</span><span className={styles.grey}> a </span>Senior Designer <span className={styles.grey}>at </span>Thomson Reuters Labs</li>
-                <li><span className={"grad"}>Once</span><span className={styles.grey}> a </span>Designer/Developer <span className={styles.grey}>at </span>The Globe and Mail</li>
-              </ul>
-            </div>
 
             <h2>Projects</h2>
 
@@ -111,7 +91,6 @@ const Home: NextPage = () => {
                 "address": "https://jessp.github.io/kcodeblog/"}
               }/>
 
-            </div>
           </main>
         </div>
       </div>
