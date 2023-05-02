@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 
@@ -22,8 +22,14 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF("/2may.gltf") as GLTFResult;
   const { actions } = useAnimations<GLTFActions>(animations, group);
+
+
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group 
+    ref={group}
+    {...props} 
+    dispose={null}
+    onClick={(e) => actions["Hands on Hips"].play()}>
       <group name="Scene">
         <group name="metarig" scale={0.01}>
           <primitive object={nodes.spine} />
