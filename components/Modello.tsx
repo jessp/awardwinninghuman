@@ -23,22 +23,30 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials, animations } = useGLTF(
     "/2may_compressed.glb"
   ) as GLTFResult;
+
+
+  const metal = new THREE.MeshStandardMaterial( {
+    color: 0xe6e6e6,
+    roughness: 0,
+    metalness: 1,
+  } );
+
   const { actions } = useAnimations<GLTFActions>(animations, group);
   return (
     <group ref={group} {...props} dispose={null} onClick={(e) => actions["Hands on Hips"].play()}>
-      <group name="Scene">
+      <group name="Scene" scale={5}>
         <group name="metarig" scale={0.003}>
           <primitive object={nodes.spine} />
           <skinnedMesh
             name="acc_hair_punkin"
             geometry={nodes.acc_hair_punkin.geometry}
-            material={nodes.acc_hair_punkin.material}
+            material={metal}
             skeleton={nodes.acc_hair_punkin.skeleton}
           />
           <skinnedMesh
             name="casual_Female_K"
             geometry={nodes.casual_Female_K.geometry}
-            material={nodes.casual_Female_K.material}
+            material={metal}
             skeleton={nodes.casual_Female_K.skeleton}
           />
         </group>
@@ -47,7 +55,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
           castShadow
           receiveShadow
           geometry={nodes.trophy_base.geometry}
-          material={nodes.trophy_base.material}
+          material={metal}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.005}
         />

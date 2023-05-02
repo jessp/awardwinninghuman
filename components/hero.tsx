@@ -9,7 +9,7 @@ const Hero = () => (
       <Canvas>
         <Suspense fallback={null}>
           <Model />
-          <Environment preset="sunset" background />
+          <Environment preset="night" />
         </Suspense>
       </Canvas>
 )
