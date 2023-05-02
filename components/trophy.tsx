@@ -18,7 +18,7 @@ type GLTFResult = GLTF & {
 type ActionName = "Hands on Hips";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Model(props: JSX.IntrinsicElements["group"]) {
+export function Trophy(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF(
     "/2may_compressed.glb"
@@ -35,7 +35,7 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   return (
     <group ref={group} {...props} dispose={null} onClick={(e) => actions["Hands on Hips"].play()}>
       <group name="Scene" scale={5}>
-        <group name="metarig" scale={0.003}>
+        <group name="metarig" scale={0.003} position={[0, -0.01, 0]}>
           <primitive object={nodes.spine} />
           <skinnedMesh
             name="acc_hair_punkin"

@@ -3,12 +3,12 @@ import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from "@react-three/drei";
 
-import {Model} from './Modello';
+import {Trophy} from './trophy';
 
 const Hero = () => (
       <Canvas>
         <Suspense fallback={null}>
-          <Model />
+          <Trophy />
           <Environment preset="night" />
         </Suspense>
       </Canvas>
