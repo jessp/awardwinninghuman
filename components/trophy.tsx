@@ -1,8 +1,9 @@
 // @ts-nocheck
 
 import * as THREE from "three";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
+import { useFrame } from '@react-three/fiber';
 import { GLTF } from "three-stdlib";
 
 type GLTFResult = GLTF & {
@@ -27,27 +28,26 @@ export function Trophy(props: JSX.IntrinsicElements["group"]) {
 
   const metal = new THREE.MeshStandardMaterial( {
     color: 0xe6e6e6,
-    roughness: 0,
-    metalness: 1,
+    roughness: 0.2,
+    metalness: 0.8,
   } );
 
   const { actions } = useAnimations<GLTFActions>(animations, group);
+  useFrame((state, delta) => (group.current.rotation.y -= delta/3));
+
   return (
     <group ref={group} {...props} dispose={null} onClick={(e) => actions["Hands on Hips"].play()}>
-      <group name="Scene" scale={5}>
-        <group name="metarig" scale={0.003} position={[0, -0.01, 0]}>
+      <group name="Scene" scale={7} position={[0, -0.65, 0]}>
+        <group name="metarig" scale={0.00305} position={[0, -0.01, 0]} >
           <primitive object={nodes.spine} />
-          <skinnedMesh
-            name="acc_hair_punkin"
-            geometry={nodes.acc_hair_punkin.geometry}
-            material={metal}
-            skeleton={nodes.acc_hair_punkin.skeleton}
-          />
+         
           <skinnedMesh
             name="casual_Female_K"
             geometry={nodes.casual_Female_K.geometry}
             material={metal}
             skeleton={nodes.casual_Female_K.skeleton}
+            castShadow
+            receiveShadow
           />
         </group>
         <mesh
@@ -58,6 +58,7 @@ export function Trophy(props: JSX.IntrinsicElements["group"]) {
           material={metal}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.005}
+          position={[0, -0.01, 0]}
         />
       </group>
     </group>

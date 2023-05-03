@@ -13,9 +13,9 @@ type Props = {
 }
 
 const Project = ({ org, title, info, responsibilities, image, years, link, alt }: Props) => (
-    <>
+    <div className={styles.projHolder}>
     	<h3>Boop</h3>
-    </>
+    </div>
 )
 
 export default Project

@@ -1,0 +1,42 @@
+@import './../styles/variables';
+
+
+.nav {
+	
+	background: linear-gradient(180deg, $accent 0%, $accent 35%, rgba(218, 255, 112, 0) 50%, rgba(218, 255, 112, 0) 50.01%, rgba(218, 255, 112, 0) 100%);
+	background-size: 100% 200%;
+  	background-position: 100% 100%;
+	@media screen and (min-width: $big) {
+	    height: 150px;
+	    text-align: right;
+	    margin-top: -140px;
+  	}
+
+  	button {
+  		background: #FFFFFF;
+		border: 1.25px solid #000000;
+		padding: 4px 8px;
+		height: 65px;
+  		@media screen and (min-width: $big) {
+  			margin-top: 25px;
+  		}
+  	}
+
+}
+
+.nav.greenBackground {
+	background-position: 100% 0%;
+	transition: background-position 1s;
+}
+
+.buttons {
+	display: grid;
+    grid-auto-flow: column;
+    width: min-content;
+    float: right;
+    grid-column-gap: 10px;
+}
+
+
+
+
