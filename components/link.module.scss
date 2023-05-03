@@ -12,7 +12,7 @@
 	}
 
 	span {
-		border-bottom: 1.25px solid black;
+		border-bottom: 1.25pt solid black;
 		color: black;
 		line-height: 100%
 	}
@@ -20,14 +20,15 @@
 	path {
 		stroke-miterlimit: 10;
 		fill: $accent;
-		fill-opacity: 0;
-		transition: fill-opacity 1s;
+		fill-opacity: 1;
+		filter: drop-shadow(0px 0px 0px #fff);
+		transition: filter 0.5s;
 	}
 
 	:hover {
 		path {
-			fill-opacity: 1;
-			transition: fill-opacity 1s;
+			filter: drop-shadow(0px 0px 6px #bdff00);
+			transition: filter 0.5s;
 		}
 	}
 }
