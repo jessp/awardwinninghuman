@@ -1,20 +1,32 @@
 import styles from './nav.module.scss'
 
 type Props = {
-    scrolled: boolean
+    scrolled: boolean,
+    isWork: boolean, 
+    setWork: () => boolean
 }
 
 
-const Nav = ({ scrolled }: Props) => {
+const Nav = ({ scrolled, isWork, setWork }: Props) => {
       return (
     <div className={`${styles.nav} ${scrolled ? styles.greenBackground : ""}`}>
         <div className={"container"}>
             <div className={`innerContainer ${styles.buttons}`}>
     	       <div className={"work"}>
-                    <button>Work</button>
+                    <button 
+                        className={isWork ? styles.active : ""}
+                        onClick={() => setWork(true)}
+                        >
+                        work
+                    </button>
                 </div>
                 <div className={"play"}>
-                    <button>Play</button>
+                    <button 
+                        className={isWork ? "" : styles.active}
+                        onClick={() => setWork(false)}
+                        >
+                        play
+                    </button>
                 </div>
             </div>
         </div>

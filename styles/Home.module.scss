@@ -64,6 +64,11 @@
   top: 0px;
 }
 
+.clickableSpan {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .ender {
   width: 100vw;
   background-color: $accent;

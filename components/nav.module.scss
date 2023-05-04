@@ -14,12 +14,17 @@
 
   	button {
   		background: #FFFFFF;
-		border: 1.25px solid #000000;
+		border: $border;
 		padding: 4px 8px;
 		height: 65px;
   		@media screen and (min-width: $big) {
   			margin-top: 25px;
   		}
+
+  		&.active {
+    		background: #000;
+    		color: #fff;
+    	}
   	}
 
 }
