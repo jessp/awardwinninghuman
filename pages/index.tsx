@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       <div className={"work container"}>
         <div className={"innerContainer"}>
           <div className={styles.header}>
-            <Hero></Hero>
+            <Hero isWork={isWork}></Hero>
             <div className={styles.info}>
               <div className={styles.descriptionWrapper}>
                 <p className={styles.description}>

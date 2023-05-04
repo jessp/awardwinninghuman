@@ -1,10 +1,14 @@
 // @ts-nocheck
 
 import * as THREE from "three";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { useFrame } from '@react-three/fiber';
 import { GLTF } from "three-stdlib";
+
+type Props = {
+  isWork: boolean,
+}
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -19,7 +23,7 @@ type GLTFResult = GLTF & {
 type ActionName = "Hands on Hips";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Trophy(props: JSX.IntrinsicElements["group"]) {
+export function Trophy({ isWork }: Props) {
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF(
     "/2may_compressed.glb"
@@ -31,14 +35,31 @@ export function Trophy(props: JSX.IntrinsicElements["group"]) {
     roughness: 0.2,
     metalness: 0.8,
   } );
+  
 
   const { actions } = useAnimations<GLTFActions>(animations, group);
+  // console.log(actions["Hands on Hips"]);
+  // actions["Hands on Hips"].clampWhenFinished = true;
   useFrame((state, delta) => (group.current.rotation.y -= delta/3));
 
+  useEffect(() => {
+    actions["Hands on Hips"].clampWhenFinished = true;
+    actions["Hands on Hips"].setLoop(THREE.LoopOnce);
+    if (!isWork) {
+      actions["Hands on Hips"].reset();
+      actions["Hands on Hips"].timeScale = 1;
+      actions["Hands on Hips"].play();
+    } else {
+      actions["Hands on Hips"].timeScale = -1;
+      actions["Hands on Hips"].paused = false;
+    }
+
+  }, [isWork, actions]);
+
   return (
-    <group ref={group} {...props} dispose={null} onClick={(e) => actions["Hands on Hips"].play()}>
+    <group ref={group} dispose={null}>
       <group name="Scene" scale={7} position={[0, -0.65, 0]}>
-        <group name="metarig" scale={0.00305} position={[0, -0.01, 0]} >
+        <group name="metarig" scale={0.00305} position={[0, -0.01, 0]}>
           <primitive object={nodes.spine} />
          
           <skinnedMesh

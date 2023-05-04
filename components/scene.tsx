@@ -2,13 +2,16 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from "@react-three/drei";
-
 import {Trophy} from './trophy';
 
-const Scene = () => (
+type Props = {
+  isWork: boolean
+}
+
+const Scene = ({ isWork }: Props) => (
       <Canvas shadows >
         <Suspense fallback={null}>
-          <Trophy />
+          <Trophy isWork={isWork}/>
           <Environment preset="sunset"  />
         </Suspense>
       </Canvas>

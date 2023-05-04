@@ -2,10 +2,12 @@ import Scene from './scene';
 import Flare from './flare';
 import styles from './hero.module.scss'
 
+type Props = {
+  isWork: boolean
+}
 
 
-
-const Hero = () => (
+const Hero = ({ isWork }: Props) => (
   <div className={styles.heroHolder}>
     <p className={styles.intro}>Jess Peter is</p>
     <div className={styles.innerHeroHolder}>
@@ -16,7 +18,7 @@ const Hero = () => (
           <span className={styles.noShow}>human</span>
         </h1>
       </div>
-      <Scene/>
+      <Scene isWork={isWork}/>
       <div className={styles.textHolder}>
         <h1 className={styles.titleStyle}>
           <span>award-</span><br/>
