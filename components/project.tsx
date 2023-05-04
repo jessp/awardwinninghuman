@@ -19,7 +19,7 @@ const Project = ({ org, title, info, responsibilities, images, years, link, alt 
     		<h3>{title}</h3>
     	</div>
     	<div className={styles.projBody}>
-	    	<p>Years</p>
+	    	<p className={"caption"}>{years.length < 2 ? `${years[0]}` : `${years[0]} - ${years[1]}`}</p>
 	    	<div className={styles.projContent}>
 	    		<Carousel slides={images}/>
 	    		<p>{info}</p>

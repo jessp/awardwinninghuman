@@ -48,23 +48,31 @@ table {
 	box-sizing: border-box;
 }
 
+html, body { 
+	font-size: 16px; 
+	@media screen and (min-width: $big) {
+		font-size: 22px; 
+	}
+}
+
 h1 {
-	font-size: 65pt;
+	font-size: 4.0625em;
 	letter-spacing: 0.105em;
 	line-height: 87%;
 }
 
 h2 {
-	font-size: 40pt;
+	font-size: 2.5em;
 }
 
 h3 {
-	font-size: 24pt;
+	font-size: 1.5em;
 }
 
 p, li {
 	font-family: $body-font;
 	line-height: 156.25%;
+	font-size: 1em;
 }
 
 body {
@@ -150,4 +158,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.caption {
+	font-size: 0.875em;
+	font-style: italic;
 }

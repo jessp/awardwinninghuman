@@ -55,15 +55,29 @@ const Home: NextPage = () => {
 
       <div className={"work container"}>
         <div className={"innerContainer"}>
-          <h2>Full-time Jobs</h2>
-
-          <h2>Projects</h2>
+          <div className={styles.category}>
+            <div className={styles.catHolder}>
+              <h2>work</h2>
+            </div>
+            <p>A lot of my past jobs have been internal projects with sensitive data and internal users. I can’t always show as much as I’d like. Check out some of the work I’ve done for fun to see more of my breadth as a designer.</p>
+          </div>
 
           <ProjectList/>
 
       </div>
 
 
+      </div>
+      <div className={styles.ender}>
+      <div className={"work container"}>
+        <div className={`innerContainer ${styles.enderHolder}`}>
+          <h3>Why award-winning human?</h3>
+          <p className={"caption"}>Whenever my domain name comes up, I get questions. First of all, yes, I have won some awards. Mostly for pretty niche things that become less and less topical the older I get. But if I were put on trial for domain name veracity, I bet I would win.</p>
+          <p className={"caption"}>I chose this domain for a few reasons: a) it was available, b) I found it really funny, and c) as a designer who prefers to disappear into their work, it makes a lot of the self-promotional statements for me so I don’t have to.</p>
+          <p className={"caption"}>So there you have it.</p>
+        </div>
+        </div>
+        
       </div>
 
     </main>

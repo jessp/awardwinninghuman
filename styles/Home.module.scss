@@ -18,6 +18,30 @@
   z-index: 2
 }
 
+.category {
+  @media screen and (min-width: $big) {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    column-gap: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+}
+
+.catHolder {
+  display: grid;
+  background-color: $accent;
+  box-shadow: $fuzz;
+  border-radius: 50%;
+  transform: rotate(-10deg);
+  border: $border;
+
+  h2 {
+    margin: auto;
+    transform: rotate(10deg);
+  }
+}
+
 .description {
   @media screen and (min-width: $big) {
     font-size: 24pt;
@@ -38,4 +62,22 @@
 .nav {
   position: sticky;
   top: 0px;
+}
+
+.ender {
+  width: 100vw;
+  background-color: $accent;
+  @media screen and (min-width: $big) {
+    margin-top: 50px;
+  }
+}
+
+.enderHolder {
+  @media screen and (min-width: $big) {
+    padding: 50px 0px;
+
+    h3, p {
+      margin-bottom: 25px;
+    }
+  }
 }
