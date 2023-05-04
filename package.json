@@ -10,12 +10,12 @@
     "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && echo \"awardwinninghuman.com\" > out/CNAME && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
-    "next": "^13.3.1",
-    "react": "~18.2.0",
-    "react-dom": "~18.2.0",
     "@react-three/drei": "9.66.1",
     "@react-three/fiber": "8.13.0",
     "@types/three": "~0.151.0",
+    "embla-carousel": "^8.0.0-rc03",
+    "embla-carousel-react": "^8.0.0-rc03",
+    "next": "^13.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "three": "~0.152.2"

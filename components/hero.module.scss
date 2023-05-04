@@ -26,7 +26,13 @@
 	display: grid;
 	border: 1.25pt solid black;
 	pointer-events: none;
+}
 
+.flareHolder {
+	position: absolute;
+	path {
+		fill: black;
+	}
 }
 
 .titleStyle {
@@ -44,4 +50,5 @@
 	text-align: center;
 	margin-bottom: 10px;
 }
+
 

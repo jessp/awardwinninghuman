@@ -1,5 +1,7 @@
 import Scene from './scene';
+import Flare from './flare';
 import styles from './hero.module.scss'
+
 
 
 
@@ -21,6 +23,19 @@ const Hero = () => (
           <span className={styles.noShow}>winning</span><br/>
           <span>human</span>
         </h1>
+        <div className={styles.flareHolder} style={{ top: '0px', left : "0px", transform: "translate(calc(-50% - 0.75pt), calc(-50% + 0.75pt))" }}>
+          <Flare/>
+        </div>
+        <div className={styles.flareHolder} style={{ top: '0px', left : "100%", transform: "translate(calc(-50% + 0.75pt), calc(-50% + 0.75pt))" }}>
+          <Flare/>
+        </div>
+        <div className={styles.flareHolder} style={{ top: '100%', left : "0px", transform: "translate(calc(-50% - 0.75pt), calc(-50% + 1.5pt))" }}>
+          <Flare/>
+        </div>
+        <div className={styles.flareHolder} style={{ top: '100%', left : "100%", transform: "translate(calc(-50% + 0.75pt), calc(-50% + 1.5pt))" }}>
+          <Flare/>
+        </div>
+
       </div>
     </div>
   </div>

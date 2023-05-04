@@ -1,6 +1,28 @@
 @import './../styles/variables';
 
 .projHolder {
-	height: 500px;
+	border: $border;
+	@media screen and (min-width: $big) {
+		margin-bottom: 50px;
+	}
 }
 
+.projHeader {
+	padding: 5px 20px 10px;
+	background-color: black;
+	color: #fff;
+}
+
+.projBody {
+	margin: 15px 20px; 
+}
+
+.projContent {
+	@media screen and (min-width: $big) {
+	    display: grid;
+	    grid-auto-flow: column;
+	    grid-column-gap: 40px;
+	    grid-template-columns: 1fr 1fr;
+  	}
+	
+}
