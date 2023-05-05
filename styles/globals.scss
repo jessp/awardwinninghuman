@@ -46,6 +46,7 @@ table {
 }
 * {
 	box-sizing: border-box;
+	border-collapse: collapse;
 }
 
 html, body { 
@@ -152,6 +153,20 @@ button {
 
 .abs {
  	position: absolute;
+}
+
+.hideOnSmall {
+	display: none;
+	@media screen and (min-width: $big) {
+		display: block;
+	}
+}
+
+.hideOnBig {
+	display: block;
+	@media screen and (min-width: $big) {
+		display: none;
+	}
 }
 
 

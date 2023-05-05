@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from "react";
 import Carousel from './carousel';
+import Flare from './flare';
 import styles from './project.module.scss';
 
 type Props = {
@@ -10,10 +11,11 @@ type Props = {
 	years: [number]|[number, number],
 	link: {"display": string, "address": string},
 	alt: string,
-	children: ReactNode
+	children: ReactNode,
+	last: boolean | undefined
 }
 
-const Project = ({ org, title, images, years, link, alt, children }: Props) => (
+const Project = ({ org, title, images, years, link, alt, children, last }: Props) => (
     <div className={styles.projHolder}>
     	<div className={styles.projHeader}>
     		<h3>{title}</h3>
@@ -26,10 +28,13 @@ const Project = ({ org, title, images, years, link, alt, children }: Props) => (
 	    	</p>
 	    	<div className={styles.projContent}>
 	    		<Carousel slides={images}/>
-	    		<div>
+	    		<div className={styles.bodyInfo}>
 	    			{children}
 	    		</div>
 	    	</div>
+	    </div>
+	    <div className={`hideOnBig ${styles.flare}`}>
+	    	<Flare fill={last ? "#000" : "#DAFF70"}/>
 	    </div>
     </div>
 )

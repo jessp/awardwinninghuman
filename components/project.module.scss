@@ -31,6 +31,13 @@
 	}
 }
 
+.bodyInfo {
+	margin-top: 10px;
+	@media screen and (min-width: $big) {
+		margin-top: 0px;
+	}
+}
+
 .projContent {
 	@media screen and (min-width: $big) {
 	    display: grid;
@@ -39,4 +46,9 @@
 	    grid-template-columns: 1fr 1fr;
   	}
 	
+}
+
+.flare:not(.hideOnBig) {
+	text-align: center;
+	margin-top: 20px;
 }

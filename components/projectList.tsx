@@ -65,6 +65,7 @@ const ProjectList= () => {
           alt={"An assortment of small knitted objects"}
           images= {["./knit.jpg"]}
           years= {[2019]}
+          last={true}
           link={
             {"display": "jessp.github.io/kcodeblog",
             "address": "https://jessp.github.io/kcodeblog/"}

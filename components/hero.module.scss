@@ -71,18 +71,4 @@
 	height: 1em;
 }
 
-.hideOnSmall {
-	display: none;
-	@media screen and (min-width: $big) {
-		display: initial;
-	}
-}
-
-.hideOnBig {
-	display: initial;
-	@media screen and (min-width: $big) {
-		display: none;
-	}
-}
-
 
