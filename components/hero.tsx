@@ -20,11 +20,11 @@ const Hero = ({ isWork }: Props) => (
       </div>
       <Scene isWork={isWork}/>
       <div className={styles.textHolder}>
-        <h1 className={styles.titleStyle}>
+        <p className={`titleClone ${styles.titleStyle}`} aria-hidden={"true"}>
           <span>award-</span><br/>
           <span className={styles.noShow}>winning</span><br/>
           <span>human</span>
-        </h1>
+        </p>
         <div className={styles.flareHolder} style={{ top: '0px', left : "0px", transform: "translate(calc(-50% - 0.75pt), calc(-50% + 0.75pt))" }}>
           <Flare/>
         </div>

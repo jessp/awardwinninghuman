@@ -1,9 +1,9 @@
 @import './../styles/variables';
 
 .projHolder {
-	border: $border;
+	margin-bottom: 50px;
 	@media screen and (min-width: $big) {
-		margin-bottom: 50px;
+		border: $border;
 	}
 }
 
@@ -15,6 +15,17 @@
 
 .projBody {
 	margin: 15px 20px; 
+}
+
+.linkHolder {
+	font-size: 0.875em;
+	margin-bottom: 0.5em;
+	a {
+		color: black;
+	}
+	> * {
+		margin-right: 5px;
+	}
 }
 
 .projContent {

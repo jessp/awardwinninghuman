@@ -5,24 +5,29 @@ import styles from './project.module.scss'
 type Props = {
 	org: string,  
 	title: string,
-	info: string, 
-	responsibilities: string,
 	images: [string], 
 	years: [number]|[number, number],
 	link: {"display": string, "address": string},
-	alt: string
+	alt: string,
+	children: ReactNode
 }
 
-const Project = ({ org, title, info, responsibilities, images, years, link, alt }: Props) => (
+const Project = ({ org, title, info, responsibilities, images, years, link, alt, children }: Props) => (
     <div className={styles.projHolder}>
     	<div className={styles.projHeader}>
     		<h3>{title}</h3>
     	</div>
     	<div className={styles.projBody}>
-	    	<p className={"caption"}>{years.length < 2 ? `${years[0]}` : `${years[0]} - ${years[1]}`}</p>
+	    	<p className={styles.linkHolder}>
+		    	<span className={"caption"}>{years.length < 2 ? `${years[0]}` : `${years[0]} - ${years[1]}`}</span>
+		    	<span>&#x2022;</span>
+		    	<a href={link.address} target="_blank">{link.display}</a>
+	    	</p>
 	    	<div className={styles.projContent}>
 	    		<Carousel slides={images}/>
-	    		<p>{info}</p>
+	    		<div>
+	    			{children}
+	    		</div>
 	    	</div>
 	    </div>
     </div>

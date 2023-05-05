@@ -15,6 +15,12 @@
 	border-radius: 50%;
 	position: relative;
 	margin: 0 auto;
+	aspect-ratio: 1/1.25;
+	max-height: calc(100vh - 100px);
+	@media screen and (min-width: $big) {
+		aspect-ratio: auto;
+		max-height: calc(100vh - 150px);
+	}
 }
 
 .textHolder {

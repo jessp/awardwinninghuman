@@ -1,7 +1,14 @@
+@import './../styles/variables';
+
+
 .linkList {
 	display: flex;
 	flex-direction: row;
 	padding: 0px 5px 0px 0px;
 	gap: 15px;
 	height: min-content;
+	justify-content: center;
+	@media screen and (min-width: $big) {
+		justify-content: left;
+	}
 }

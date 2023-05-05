@@ -55,7 +55,7 @@ html, body {
 	}
 }
 
-h1 {
+h1, p.titleClone {
 	font-size: 4.0625em;
 	letter-spacing: 0.105em;
 	line-height: 87%;
@@ -69,10 +69,18 @@ h3 {
 	font-size: 1.5em;
 }
 
-p, li {
+p:not(.titleClone), li {
 	font-family: $body-font;
 	line-height: 156.25%;
 	font-size: 1em;
+}
+
+p:not(.titleClone) {
+	margin-bottom: 1em;
+}
+
+a, a:hover, a:active {
+	color: black;
 }
 
 body {
@@ -92,7 +100,7 @@ body {
 }
 
 .work {
-	h1, h2, h3, button {
+	h1, h2, h3, button, p.titleClone {
 		font-family: $work-font;
 	}
 
@@ -102,7 +110,7 @@ body {
 }
 
 .play {
-	h1, h2, h3, button {
+	h1, h2, h3, button, p.titleClone {
 		font-family: $play-font;
 	}
 

@@ -1,14 +1,19 @@
 @import 'variables';
 
 .header {
-  height: 100vh;
   padding-top: 15px;
+  > * {
+    margin-bottom: 40px;
+  }
   @media screen and (min-width: $big) {
+    height: 100vh;
     padding: 50px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px;
-
+    > * {
+      margin-bottom: unset;
+    }
   }
 }
 
@@ -35,6 +40,14 @@
   border-radius: 50%;
   transform: rotate(-10deg);
   border: $border;
+  width: min-content;
+  padding: 15px;
+  margin: auto;
+  @media screen and (min-width: $big) {
+    width: 100%;
+    padding: 5px;
+    margin: auto;
+  }
 
   h2 {
     margin: auto;
