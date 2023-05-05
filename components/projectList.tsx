@@ -6,7 +6,7 @@ const ProjectList= () => {
       	<div>
           <Project 
           org= {"Personal Project"}
-          title= {"Maria: DIY Anime-inspired Holographic Virtual Assistant"}
+          title= {"Maria: Holographic Virtual Assistant"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
           images= {["./maria.jpg"]}
           years= {[2022]}

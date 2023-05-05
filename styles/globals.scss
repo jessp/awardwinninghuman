@@ -118,18 +118,40 @@ body {
 	}
 
 	button {
-		font-size: 43px;
+		font-size: 1.95em;
 	}
 }
 
 .play {
+
 	h1, h2, h3, button, p.titleClone {
 		font-family: $play-font;
 	}
 
 	button {
-		font-size: 35px;
+		font-size: 1.59em;
 	}
+}
+
+button {
+  		background: #FFFFFF;
+		border: $border;
+		padding: 2px 4px;
+		height: 50px;
+  		@media screen and (min-width: $big) {
+  			padding: 4px 8px;
+  			margin-top: 25px;
+  			height: 65px;
+  		}
+
+  		&.active {
+    		background: #000;
+    		color: #fff;
+    	}
+ }
+
+.abs {
+ 	position: absolute;
 }
 
 

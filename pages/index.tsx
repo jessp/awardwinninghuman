@@ -39,10 +39,10 @@ const Home: NextPage = () => {
     </Head>
 
     <main>
-      <div className={"work container"}>
+      <div className={`${isWork ? "work" : "play"} container`}>
         <div className={"innerContainer"}>
           <div className={styles.header}>
-            <Hero isWork={isWork}></Hero>
+            <Hero isWork={isWork} setWork={(e) => updateWork(e)}></Hero>
             <div className={styles.info}>
               <div className={styles.descriptionWrapper}>
                 <p className={styles.description}>
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
         <Nav scrolled={isPinned} isWork={isWork} setWork={(e) => updateWork(e)}/>
       </div>
 
-      <div className={"work container"}>
+      <div className={`${isWork ? "work" : "play"} container`}>
         <div className={"innerContainer"}>
           <div className={styles.category}>
             <div className={styles.catHolder}>
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
             }
           </div>
       </div>
-      <div className={"work containerNoSmall"}>
+      <div className={`${isWork ? "work" : "play"} containerNoSmall`}>
           <div className={"innerContainerNoSmall"}>
             <ProjectList/>
           </div>
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
 
       </div>
       <div className={styles.ender}>
-      <div className={"work container"}>
+      <div className={`${isWork ? "work" : "play"} container`}>
         <div className={`innerContainer ${styles.enderHolder}`}>
           <h3>Why award-winning human?</h3>
           <p className={"caption"}>Whenever my domain name comes up, I get questions. First of all, yes, I have won some awards. Mostly for pretty niche things that become less and less topical the older I get. But if I were put on trial for domain name veracity, I bet I would win.</p>

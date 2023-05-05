@@ -8,9 +8,12 @@
 }
 
 .projHeader {
-	padding: 5px 20px 10px;
+	padding: 6px 20px 8px;
 	background-color: black;
 	color: #fff;
+	@media screen and (min-width: $big) {
+		padding: 5px 20px 10px;
+	}
 }
 
 .projBody {

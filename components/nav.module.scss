@@ -13,29 +13,20 @@
 	    margin-top: -140px;
   	}
 
-  	button {
-  		background: #FFFFFF;
-		border: $border;
-		padding: 4px 8px;
-		height: 65px;
-  		@media screen and (min-width: $big) {
-  			margin-top: 25px;
-  		}
-
-  		&.active {
-    		background: #000;
-    		color: #fff;
-    	}
-  	}
-
 }
 
 .nav.greenBackground {
 	background-position: 100% 0%;
 	transition: background-position 1s;
 
+
 	.buttons {
 		visibility: initial;
+		margin-top: 15px;
+		transition: margin-top 1s;
+		@media screen and (min-width: $big) {
+			margin-top: 0px;
+		}
 	}
 
 }
@@ -49,6 +40,8 @@
     justify-content: space-between;
     width: calc(100% - 40px);
     visibility: hidden;
+    margin-top: -30px;
+    transition: margin-top 1s;
     > div {
     	width: min-content;
     }
@@ -56,6 +49,7 @@
     	position: relative;
     	width: min-content;
     	visibility: initial;
+    	margin-top: 0px;
     }
 }
 

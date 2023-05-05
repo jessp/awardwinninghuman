@@ -14,7 +14,7 @@ const Nav = ({ scrolled, isWork, setWork }: Props) => {
             <div className={`innerContainer ${styles.buttons}`}>
     	       <div className={"work"}>
                     <button 
-                        className={isWork ? styles.active : ""}
+                        className={isWork ? "active" : ""}
                         onClick={() => setWork(true)}
                         >
                         work
@@ -22,7 +22,7 @@ const Nav = ({ scrolled, isWork, setWork }: Props) => {
                 </div>
                 <div className={"play"}>
                     <button 
-                        className={isWork ? "" : styles.active}
+                        className={isWork ? "" : "active"}
                         onClick={() => setWork(false)}
                         >
                         play

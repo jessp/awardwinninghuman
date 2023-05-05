@@ -2,18 +2,12 @@
 
 .header {
   padding-top: 15px;
-  height: 100vh;
-  > * {
-    margin-bottom: 50px;
-  }
   @media screen and (min-width: $big) {
+    height: 100vh;
     padding: 50px 0px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 50px;
-    > * {
-      margin-bottom: unset;
-    }
   }
 }
 
@@ -24,12 +18,13 @@
 }
 
 .category {
-  margin-top: 50px;
   margin-bottom: 50px;
+  margin-top: -25px;
   @media screen and (min-width: $big) {
     display: grid;
     grid-template-columns: 1fr 5fr;
     column-gap: 50px;
+    margin-top: 50px;
   }
 }
 
@@ -89,17 +84,18 @@
 .ender {
   width: 100vw;
   background-color: $accent;
+  margin-top: 20px;
   @media screen and (min-width: $big) {
     margin-top: 50px;
   }
 }
 
 .enderHolder {
+  h3, p {
+    margin-bottom: 25px;
+  }
+  padding: 20px 0px;
   @media screen and (min-width: $big) {
     padding: 50px 0px;
-
-    h3, p {
-      margin-bottom: 25px;
-    }
   }
 }
