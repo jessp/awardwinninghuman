@@ -119,6 +119,7 @@ body {
 .work {
 	h1, h2, h3, button, p.titleClone {
 		font-family: $work-font;
+		font-style: italic;
 	}
 
 	button {
@@ -130,6 +131,7 @@ body {
 
 	h1, h2, h3, button, p.titleClone {
 		font-family: $play-font;
+		font-style: italic;
 	}
 
 	button {
@@ -138,10 +140,11 @@ body {
 }
 
 button {
-  		background: #FFFFFF;
+  	background: #FFFFFF;
 		border: $border;
 		padding: 2px 4px;
 		height: 50px;
+		color: #000;
   		@media screen and (min-width: $big) {
   			padding: 4px 8px;
   			margin-top: 25px;

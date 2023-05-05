@@ -16,17 +16,20 @@ const Home: NextPage = () => {
   const pageRef = useRef<null | HTMLInputElement>(null);
 
 
+
+
  useEffect(() => {
     if (pageRef !== null && pageRef.current !== null) {
       const cachedRef = pageRef.current;
       const observer = new IntersectionObserver(
-        ([e]) => updatePinned(e.intersectionRatio < 1 && e.intersectionRect.y === 0),
+        ([e]) => updatePinned(e.intersectionRatio < 1 && e.boundingClientRect.y < 1),
         { threshold: [1] }
       );
       observer.observe(cachedRef);
       return () => observer.unobserve(cachedRef);
     }
   }, [pageRef]);
+ console.log(isPinned);
 
 
   return (

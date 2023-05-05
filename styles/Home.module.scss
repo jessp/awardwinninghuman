@@ -2,6 +2,7 @@
 
 .header {
   padding-top: 15px;
+  min-height: 50px;
   @media screen and (min-width: $big) {
     height: 100vh;
     padding: 50px 0px;
