@@ -3,7 +3,7 @@ import styles from './nav.module.scss'
 type Props = {
     scrolled: boolean,
     isWork: boolean, 
-    setWork: () => boolean
+    setWork: (arg0: boolean) => void
 }
 
 

@@ -38,8 +38,6 @@ export function Trophy({ isWork }: Props) {
   
 
   const { actions } = useAnimations<GLTFActions>(animations, group);
-  // console.log(actions["Hands on Hips"]);
-  // actions["Hands on Hips"].clampWhenFinished = true;
   useFrame((state, delta) => (group.current.rotation.y -= delta/3));
 
   useEffect(() => {

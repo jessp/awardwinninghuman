@@ -1,6 +1,7 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import { ReactNode } from "react";
 import Carousel from './carousel';
-import styles from './project.module.scss'
+import styles from './project.module.scss';
 
 type Props = {
 	org: string,  
@@ -12,7 +13,7 @@ type Props = {
 	children: ReactNode
 }
 
-const Project = ({ org, title, info, responsibilities, images, years, link, alt, children }: Props) => (
+const Project = ({ org, title, images, years, link, alt, children }: Props) => (
     <div className={styles.projHolder}>
     	<div className={styles.projHeader}>
     		<h3>{title}</h3>

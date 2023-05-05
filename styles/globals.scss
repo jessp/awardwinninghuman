@@ -92,10 +92,23 @@ body {
 	max-width: 1280px;
 }
 
+.containerNoSmall {
+	@media screen and (min-width: $big) {
+		margin: 0 auto;
+		max-width: 1280px;
+	}	
+}
+
 .innerContainer {
 	margin: 0px 20px;
 	@media screen and (min-width: $big) {
 		margin: 0px 50px;
+	}
+}
+
+.innerContainerNoSmall {
+	@media screen and (min-width: $big) {
+			margin: 0px 50px;
 	}
 }
 

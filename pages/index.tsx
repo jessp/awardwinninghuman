@@ -13,17 +13,19 @@ import ProjectList from '../components/projectList'
 const Home: NextPage = () => {
   const [isPinned, updatePinned] = useState(false);
   const [isWork, updateWork] = useState(true);
-  const pageRef = useRef();
+  const pageRef = useRef<null | HTMLInputElement>(null);
 
 
  useEffect(() => {
-  const cachedRef = pageRef.current;
-    const observer = new IntersectionObserver(
-      ([e]) => updatePinned(e.intersectionRatio < 1 && e.intersectionRect.y === 0),
-      { threshold: [1] }
-    );
-    observer.observe(cachedRef);
-    return () => observer.unobserve(cachedRef);
+    if (pageRef !== null && pageRef.current !== null) {
+      const cachedRef = pageRef.current;
+      const observer = new IntersectionObserver(
+        ([e]) => updatePinned(e.intersectionRatio < 1 && e.intersectionRect.y === 0),
+        { threshold: [1] }
+      );
+      observer.observe(cachedRef);
+      return () => observer.unobserve(cachedRef);
+    }
   }, [pageRef]);
 
 
@@ -73,9 +75,11 @@ const Home: NextPage = () => {
               </p>
             }
           </div>
-
-          <ProjectList/>
-
+      </div>
+      <div className={"work containerNoSmall"}>
+          <div className={"innerContainerNoSmall"}>
+            <ProjectList/>
+          </div>
       </div>
 
 

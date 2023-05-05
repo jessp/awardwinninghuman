@@ -6,6 +6,7 @@
 	background: linear-gradient(180deg, $accent 0%, $accent 35%, rgba(218, 255, 112, 0) 50%, rgba(218, 255, 112, 0) 50.01%, rgba(218, 255, 112, 0) 100%);
 	background-size: 100% 200%;
   	background-position: 100% 100%;
+  	height: 100px;
 	@media screen and (min-width: $big) {
 	    height: 150px;
 	    text-align: right;
@@ -32,14 +33,30 @@
 .nav.greenBackground {
 	background-position: 100% 0%;
 	transition: background-position 1s;
+
+	.buttons {
+		visibility: initial;
+	}
+
 }
 
 .buttons {
 	display: grid;
     grid-auto-flow: column;
-    width: min-content;
     float: right;
     grid-column-gap: 10px;
+    position: absolute;
+    justify-content: space-between;
+    width: calc(100% - 40px);
+    visibility: hidden;
+    > div {
+    	width: min-content;
+    }
+    @media screen and (min-width: $big) {
+    	position: relative;
+    	width: min-content;
+    	visibility: initial;
+    }
 }
 
 

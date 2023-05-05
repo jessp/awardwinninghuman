@@ -2,8 +2,8 @@ import React from 'react'
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import styles from './carousel.module.scss'
 
-type PropType = {
-  slides: number[]
+type Props = {
+  slides: string[]
   options?: EmblaOptionsType
 }
 
@@ -14,11 +14,11 @@ const Carousel = ({ slides, options }: Props) => {
     <div className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
+          {slides.map((elem) => (
+            <div className="embla__slide" key={elem}>
               <img
                 className="embla__slide__img"
-                src={index}
+                src={elem}
                 alt="Your alt text"
               />
             </div>
