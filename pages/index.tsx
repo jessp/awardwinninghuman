@@ -29,7 +29,6 @@ const Home: NextPage = () => {
       return () => observer.unobserve(cachedRef);
     }
   }, [pageRef]);
- console.log(isPinned);
 
 
   return (
