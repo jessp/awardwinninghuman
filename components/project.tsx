@@ -5,17 +5,16 @@ import Flare from './flare';
 import styles from './project.module.scss';
 
 type Props = {
-	org: string,  
 	title: string,
 	images: [string], 
-	years: [number]|[number, number],
+	years: [number | string],
 	link: {"display": string, "address": string},
 	alt: string,
 	children: ReactNode,
 	last: boolean | undefined
 }
 
-const Project = ({ org, title, images, years, link, alt, children, last }: Props) => (
+const Project = ({ title, images, years, link, alt, children, last }: Props) => (
     <div className={styles.projHolder}>
     	<div className={styles.projHeader}>
     		<h3>{title}</h3>

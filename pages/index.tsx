@@ -6,7 +6,8 @@ import styles from '../styles/Home.module.scss'
 import Hero from '../components/hero'
 import Links from '../components/links'
 import Nav from '../components/nav'
-import ProjectList from '../components/projectList'
+import ProjectListPlay from '../components/projectListPlay'
+import ProjectListWork from '../components/projectListWork'
 
 
 
@@ -80,7 +81,12 @@ const Home: NextPage = () => {
       </div>
       <div className={`${isWork ? "work" : "play"} containerNoSmall`}>
           <div className={"innerContainerNoSmall"}>
-            <ProjectList/>
+            {!isWork && 
+              <ProjectListPlay/>
+            }
+            {isWork && 
+              <ProjectListWork/>
+            }
           </div>
       </div>
 

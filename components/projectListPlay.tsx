@@ -1,11 +1,10 @@
 
 import Project from '../components/project'
 
-const ProjectList= () => {
+const ProjectListPlay= () => {
       return (
       	<div>
           <Project 
-          org= {"Personal Project"}
           title= {"Maria: Holographic Virtual Assistant"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
           images= {["./maria.jpg"]}
@@ -20,7 +19,6 @@ const ProjectList= () => {
           </Project>
 
           <Project 
-          org= {"The Pudding"}
           title= {"deepwork"}
           alt={"Illustration showing glowing hands reaching up to alter a girl's appearance."}
           images= {["./deepwork.jpeg"]}
@@ -34,7 +32,6 @@ const ProjectList= () => {
           </Project>
 
           <Project 
-          org= {"Personal Project"}
           title= {"Goodwill Hunting"}
           alt={"Chart showing fashion trends over time"}
           images= {["./goodwill.png"]}
@@ -47,7 +44,6 @@ const ProjectList= () => {
           </Project>
 
           <Project 
-          org= {"The Pudding"}
           title= {"11 Years of Top-Selling Book Covers"}
           alt={"A grid of book covers"}
           images= {["./covers.jpg"]}
@@ -60,7 +56,6 @@ const ProjectList= () => {
           </Project>
 
           <Project 
-          org= {"Oslo School of Architecture and Design"}
           title= {"Hack 1 Knit 2"}
           alt={"An assortment of small knitted objects"}
           images= {["./knit.jpg"]}
@@ -76,4 +71,4 @@ const ProjectList= () => {
         )
     }
 
-export default ProjectList;
+export default ProjectListPlay;
