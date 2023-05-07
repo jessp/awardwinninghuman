@@ -11,13 +11,13 @@ const Carousel = ({ slides, options }: Props) => {
   const [emblaRef] = useEmblaCarousel(options);
 
   return (
-    <div className="embla">
-      <div className="embla__viewport" ref={emblaRef}>
-        <div className="embla__container">
+    <div className={styles.embla}>
+      <div className={styles.embla__viewport} ref={emblaRef}>
+        <div className={styles.embla__container}>
           {slides.map((elem) => (
-            <div className="embla__slide" key={elem}>
+            <div className={styles.embla__slide} key={elem}>
               <img
-                className="embla__slide__img"
+                className={styles.embla__slide__img}
                 src={elem}
                 alt="Your alt text"
               />
