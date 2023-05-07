@@ -7,7 +7,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Senior Product Designer at SuperAwesome"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
-          images= {["./maria.jpg"]}
+          images= {["./sa-logo.png"]}
           years= {[2022, "Present"]}
           link={
             {"display": "www.superawesome.com/kids-web-services",
@@ -20,7 +20,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Senior Designer/Front-end Developer at Thomson Reuters Labs"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
-          images= {["./maria.jpg"]}
+          images= {["./tr-logo-square.png"]}
           years= {[2019, 2021]}
           link={
             {"display": "innovation.thomsonreuters.com",
@@ -32,7 +32,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Designer/Front-end Developer at The Globe and Mail (Sophi)"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
-          images= {["./maria.jpg"]}
+          images= {["./globe-logo.png"]}
           years= {[2016, 2017]}
           link={
             {"display": "sophi.io",
