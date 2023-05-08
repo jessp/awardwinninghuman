@@ -2,9 +2,7 @@
 
 .projHolder {
 	margin-bottom: 50px;
-	@media screen and (min-width: $big) {
-		border: $border;
-	}
+	border-top: 1.25pt solid $accent;
 }
 
 .projHeader {
@@ -17,7 +15,10 @@
 }
 
 .projBody {
-	margin: 15px 20px; 
+	padding: 15px 20px; 
+	@media screen and (min-width: $big) {
+		border: $border;
+	}
 }
 
 .linkHolder {

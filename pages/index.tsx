@@ -45,14 +45,14 @@ const Home: NextPage = () => {
     </Head>
 
     <main>
-      <div className={`${isWork ? "work" : "play"} container`}>
+      <div className={`container`}>
         <div className={"innerContainer"}>
           <div className={styles.header}>
             <Hero isWork={isWork} setWork={(e) => updateWork(e)}></Hero>
             <div className={styles.info}>
               <div className={styles.descriptionWrapper}>
                 <p className={styles.description}>
-                A product designer, creative coder, and UX researcher, who carefully balances an eye for detail with a pragmatic understanding that done is better than perfect.
+                Product designer. Creative coder. UX researcher. I have an unhealthy fascination with the strange and the complex.
                 </p>
                 <Links/>
               </div>
