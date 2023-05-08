@@ -1,8 +1,12 @@
+@import './../styles/variables';
+
+
 /* embla default styling */
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
   --slide-height: 19rem;
+  position: relative;
 }
 .embla__viewport {
   overflow: hidden;
@@ -25,5 +29,17 @@
   height: var(--slide-height);
   width: 100%;
   object-fit: cover;
+}
+
+.buttonHolder {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  border: $border;
+  display: grid;
+  grid-auto-flow: column;
+  width: min-content;
+  height: min-content;
+  background: #fff;
 }
 

@@ -6,7 +6,7 @@ const ProjectListWork= () => {
       	<div>
           <Project 
           title= {"Senior Product Designer at SuperAwesome"}
-          alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
+          alt={["The SuperAwesome logo"]}
           images= {["./sa-logo.png"]}
           years= {[2022, "Present"]}
           link={
@@ -19,7 +19,7 @@ const ProjectListWork= () => {
           </Project>
           <Project 
           title= {"Senior Designer/Front-end Developer at Thomson Reuters Labs"}
-          alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
+          alt={["The Thomson Reuters logo"]}
           images= {["./tr-logo-square.png"]}
           years= {[2019, 2021]}
           link={
@@ -31,7 +31,7 @@ const ProjectListWork= () => {
           </Project>
           <Project 
           title= {"Designer/Front-end Developer at The Globe and Mail (Sophi)"}
-          alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
+          alt={["The Globe and Mail logo"]}
           images= {["./globe-logo.png"]}
           years= {[2016, 2017]}
           link={

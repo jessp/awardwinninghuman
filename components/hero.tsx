@@ -28,7 +28,7 @@ const Hero = ({ isWork, setWork }: Props) => (
         </p>
         <div className={`work abs hideOnBig`} style={{ top: '100%', left : "-20px", transform: "translateY(-50%)"}}>
           <button 
-            className={isWork ? "active" : ""}
+            className={isWork ? "navButton active" : "navButton "}
             onClick={() => setWork(true)}
             >
             work
@@ -36,7 +36,7 @@ const Hero = ({ isWork, setWork }: Props) => (
         </div>
         <div className={`play abs hideOnBig`} style={{ top: '100%', right : "-20px", transform: "translateY(-50%)"}}>
             <button 
-                className={isWork ? "" : "active"}
+                className={isWork ? "navButton " : "navButton active"}
                 onClick={() => setWork(false)}
                 >
                 play

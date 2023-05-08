@@ -6,7 +6,7 @@ const ProjectListPlay= () => {
       	<div>
           <Project 
           title= {"Maria: Holographic Virtual Assistant"}
-          alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
+          alt={["A short looping video of a dancing anime girl hologram.", "A close up of an anime girl hologram.", "A screenshot of the Maria website showing instructions for how she is made."]}
           images= {["./maria-animated.gif", "./maria_website.png", "./maria_still.jpg", "./maria_materials.jpg"]}
           years= {[2022]}
           link={
@@ -20,7 +20,7 @@ const ProjectListPlay= () => {
 
           <Project 
           title= {"deepwork"}
-          alt={"Illustration showing glowing hands reaching up to alter a girl's appearance."}
+          alt={["Illustration showing glowing hands reaching up to alter a girl's appearance.", "Illustration saying \"The employment game is rigged. Win anyway.\"", "A looping video showing someone changing attributes of a young man's face."]}
           images= {["./deepwork.jpeg", "./deepwork-slide-1.png", "./deepwork-preview.gif"]}
           years= {[2022]}
           link={
@@ -33,7 +33,7 @@ const ProjectListPlay= () => {
 
           <Project 
           title= {"Goodwill Hunting"}
-          alt={"Chart showing fashion trends over time"}
+          alt={["Chart showing fashion trends over time"]}
           images= {["./goodwill-square.png"]}
           years= {[2020]}
           link={
@@ -45,7 +45,7 @@ const ProjectListPlay= () => {
 
           <Project 
           title= {"11 Years of Top-Selling Book Covers"}
-          alt={"A grid of book covers"}
+          alt={["A grid of book covers"]}
           images= {["./covers.jpg"]}
           years= {[2019]}
           link={
@@ -57,7 +57,7 @@ const ProjectListPlay= () => {
 
           <Project 
           title= {"Hack 1 Knit 2"}
-          alt={"An assortment of small knitted objects"}
+          alt={["An assortment of small knitted objects"]}
           images= {["./knit.jpg"]}
           years= {[2019]}
           last={true}
