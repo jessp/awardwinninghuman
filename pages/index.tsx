@@ -15,9 +15,12 @@ const Home: NextPage = () => {
   const [isPinned, updatePinned] = useState(false);
   const [isWork, updateWork] = useState(true);
   const pageRef = useRef<null | HTMLInputElement>(null);
+  const projRef = useRef<null | HTMLInputElement>(null);
 
-
-
+  const scrollToProj = (e: MouseEvent) => {
+    e.preventDefault();
+    projRef.current.scrollIntoView({ behavior: "smooth" });
+  }
 
  useEffect(() => {
     if (pageRef !== null && pageRef.current !== null) {
@@ -58,10 +61,10 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div ref={pageRef} className={styles.navHolder}>
-        <Nav scrolled={isPinned} isWork={isWork} setWork={(e) => updateWork(e)}/>
+        <Nav scrolled={isPinned} isWork={isWork} setWork={(e) => updateWork(e)} scrollToProj={(e) => scrollToProj(e)}/>
       </div>
 
-      <div className={`${isWork ? "work" : "play"} container`}>
+      <div className={`${isWork ? "work" : "play"} container`}  ref={projRef}>
         <div className={"innerContainer"}>
           <div className={styles.category}>
             <div className={styles.catHolder}>

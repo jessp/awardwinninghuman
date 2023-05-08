@@ -3,11 +3,12 @@ import styles from './nav.module.scss'
 type Props = {
     scrolled: boolean,
     isWork: boolean, 
-    setWork: (arg0: boolean) => void
+    setWork: (arg0: boolean) => void,
+    scrollToProj: (e: MouseEvent) => void
 }
 
 
-const Nav = ({ scrolled, isWork, setWork }: Props) => {
+const Nav = ({ scrolled, isWork, setWork, scrollToProj }: Props) => {
       return (
     <div className={`${styles.nav} ${scrolled ? styles.greenBackground : ""}`}>
         <div className={"container"}>
@@ -15,7 +16,7 @@ const Nav = ({ scrolled, isWork, setWork }: Props) => {
     	       <div className={"work"}>
                     <button 
                         className={isWork ? "navButton active" : "navButton"}
-                        onClick={() => setWork(true)}
+                        onClick={(e) => { setWork(true); scrollToProj(e);}}
                         >
                         work
                     </button>
@@ -23,7 +24,7 @@ const Nav = ({ scrolled, isWork, setWork }: Props) => {
                 <div className={"play"}>
                     <button 
                         className={isWork ? "navButton" : "navButton active"}
-                        onClick={() => setWork(false)}
+                        onClick={(e) => { setWork(false); scrollToProj(e);}}
                         >
                         play
                     </button>
