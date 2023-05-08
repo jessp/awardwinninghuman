@@ -7,7 +7,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Maria: Holographic Virtual Assistant"}
           alt={"A photo showing a small holographic anime character hovering in a plastic-looking case. An illustration of a character has a speech bubble saying \"I run on Raspberry Pi.\""}
-          images= {["./maria.jpg"]}
+          images= {["./maria-animated.gif", "./maria_website.png", "./maria_still.jpg", "./maria_materials.jpg"]}
           years= {[2022]}
           link={
             {"display": "maria.awardwinninghuman.com",
@@ -21,7 +21,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"deepwork"}
           alt={"Illustration showing glowing hands reaching up to alter a girl's appearance."}
-          images= {["./deepwork.jpeg"]}
+          images= {["./deepwork.jpeg", "./deepwork-slide-1.png", "./deepwork-preview.gif"]}
           years= {[2022]}
           link={
             {"display": "pudding.cool/2022/01/deepwork",
@@ -34,7 +34,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Goodwill Hunting"}
           alt={"Chart showing fashion trends over time"}
-          images= {["./goodwill.png"]}
+          images= {["./goodwill-square.png"]}
           years= {[2020]}
           link={
             {"display": "goodwill.awardwinninghuman.com",
