@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, MouseEvent as rMouseEvent } from 'react';
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import Hero from '../components/hero'
@@ -17,9 +17,11 @@ const Home: NextPage = () => {
   const pageRef = useRef<null | HTMLInputElement>(null);
   const projRef = useRef<null | HTMLInputElement>(null);
 
-  const scrollToProj = (e: MouseEvent) => {
-    e.preventDefault();
-    projRef.current.scrollIntoView({ behavior: "smooth" });
+  const scrollToProj = (e: rMouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (projRef !== null && projRef.current !== null) {
+      e.preventDefault();
+      projRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
  useEffect(() => {

@@ -1,10 +1,11 @@
+import { MouseEvent as rMouseEvent } from 'react';
 import styles from './nav.module.scss'
 
 type Props = {
     scrolled: boolean,
     isWork: boolean, 
     setWork: (arg0: boolean) => void,
-    scrollToProj: (e: MouseEvent) => void
+    scrollToProj: (e: rMouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 

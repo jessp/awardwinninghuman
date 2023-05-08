@@ -8,12 +8,12 @@ import carStyles from './carousel.module.scss'
 
 type Props = {
 	title: string,
-	images: [string], 
-	years: [number | string],
+	images: (string)[], 
+	years: (string|number)[],
 	link: {"display": string, "address": string},
-	alt: [string],
+	alt: (string)[],
 	children: ReactNode,
-	last: boolean | undefined
+	last?: boolean | undefined
 }
 
 const Project = ({ title, images, years, link, alt, children, last }: Props) => (

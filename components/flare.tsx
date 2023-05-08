@@ -1,5 +1,5 @@
 type Props = {
-  fill: color | undefined
+  fill?: `#${string}` | undefined
 }
 
 const Flare = ({ fill }: Props) => (
