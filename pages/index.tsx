@@ -52,13 +52,13 @@ const Home: NextPage = () => {
       <meta property="og:url" content="https://awardwinninghuman.com/"/>
       <meta property="og:title" content="award-winning human"/>
       <meta property="og:description" content="Jess Peter is a product designer, creative coder, and UX researcher."/>
-      <meta property="og:image" content="./social.png"/>
+      <meta property="og:image" content="/social.png"/>
 
       <meta property="twitter:card" content="summary_large_image"/>
       <meta property="twitter:url" content="https://awardwinninghuman.com/"/>
       <meta property="twitter:title" content="award-winning human"/>
       <meta property="twitter:description" content="Jess Peter is a product designer, creative coder, and UX researcher."/>
-      <meta property="twitter:image" content="./social.png"/>
+      <meta property="twitter:image" content="/social.png"/>
     </Head>
 
     <main>
