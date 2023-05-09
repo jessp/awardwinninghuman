@@ -34,6 +34,7 @@ const ProjectListWork= () => {
           alt={["The Globe and Mail logo"]}
           images= {["./globe-logo.png"]}
           years= {[2016, 2017]}
+          last={true}
           link={
             {"display": "sophi.io",
             "address": "https://www.sophi.io/"}
