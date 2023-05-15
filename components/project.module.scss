@@ -2,22 +2,24 @@
 
 .projHolder {
 	margin-bottom: 50px;
-	border-top: 1.25pt solid $accent;
+	@media screen and (min-width: $big) {
+		margin-bottom: 100px;
+	}
 }
 
 .projHeader {
 	padding: 6px 20px 8px;
-	background-color: black;
-	color: #fff;
+	color: black;
+	text-shadow: $text-fuzz;
 	@media screen and (min-width: $big) {
 		padding: 5px 20px 10px;
 	}
 }
 
 .projBody {
-	padding: 15px 20px; 
+	padding: 15px 0px; 
 	@media screen and (min-width: $big) {
-		border: $border;
+		padding: 25px 20px;
 	}
 }
 
@@ -33,9 +35,22 @@
 }
 
 .bodyInfo {
-	margin-top: 10px;
+	margin: 10px 20px 0px;
 	@media screen and (min-width: $big) {
-		margin-top: 0px;
+		margin: 0px;
+	}
+
+	li {
+		text-shadow: $text-fuzz;
+		margin-bottom: 10px;
+		@media screen and (min-width: $big) {
+			margin-bottom: 15px;
+		}
+	}
+
+	p:first-of-type {
+		font-weight: bold;
+		margin-top: 40px;
 	}
 }
 

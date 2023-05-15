@@ -17,7 +17,7 @@ const Nav = ({ scrolled, isWork, setWork, scrollToProj }: Props) => {
     	       <div className={"work"}>
                     <button 
                         className={isWork ? "navButton active" : "navButton"}
-                        onClick={(e) => { setWork(true); scrollToProj(e);}}
+                        onClick={(e) => { setWork(true); if (scrolled){ scrollToProj(e);}}}
                         >
                         work
                     </button>
@@ -25,7 +25,7 @@ const Nav = ({ scrolled, isWork, setWork, scrollToProj }: Props) => {
                 <div className={"play"}>
                     <button 
                         className={isWork ? "navButton" : "navButton active"}
-                        onClick={(e) => { setWork(false); scrollToProj(e);}}
+                        onClick={(e) => { setWork(false); if (scrolled){ scrollToProj(e);}}}
                         >
                         play
                     </button>

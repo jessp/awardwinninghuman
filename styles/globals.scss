@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Epilogue:ital@0;1&family=MuseoModerno:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&family=Epilogue:wght@400;700&family=MuseoModerno:ital,wght@1,300&display=swap');
 @import 'variables';
 
 html, body, div, span, applet, object, iframe,
@@ -28,6 +28,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #eee;
 }
 ol, ul {
 	list-style: none;
@@ -60,7 +61,7 @@ html, body {
 }
 
 h1, p.titleClone {
-	font-size: 4.0625em;
+	font-size: 3.75em;
 	letter-spacing: 0.105em;
 	line-height: 87%;
 }
@@ -178,4 +179,8 @@ button.navButton {
 .caption {
 	font-size: 0.875em;
 	font-style: italic;
+}
+
+.bold {
+	font-weight: bold;
 }

@@ -7,6 +7,7 @@
   --slide-size: 100%;
   --slide-height: 19rem;
   position: relative;
+  height: min-content;
 }
 .embla__viewport {
   overflow: hidden;
@@ -42,4 +43,20 @@
   height: auto;
   background: #fff;
 }
+
+.embla_thumbs {
+  --thumbs-slide-spacing: 0.8rem;
+  --thumbs-slide-height: 5rem;
+  margin-top: var(--thumbs-slide-spacing);
+}
+.embla_thumbs__viewport {
+  overflow: hidden;
+}
+.embla_thumbs__container {
+  display: flex;
+  flex-direction: row;
+  margin-left: calc(var(--thumbs-slide-spacing) * -1);
+  height: 100px;
+}
+
 

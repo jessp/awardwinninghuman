@@ -6,6 +6,8 @@ import {
   PrevButton,
   NextButton,
 } from './carouselButtons'
+import ThumbButton from './thumbButton'
+
 
 type Props = {
   slides: string[]
@@ -15,9 +17,15 @@ type Props = {
 
 const Carousel = ({ slides, alt, options }: Props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
+    containScroll: 'keepSnaps',
+    dragFree: true,
+  });
 
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0)
+
 
   const scrollPrev = useCallback(
     () => emblaApi && emblaApi.scrollPrev(),
@@ -29,10 +37,21 @@ const Carousel = ({ slides, alt, options }: Props) => {
   )
 
   const onSelect = useCallback(() => {
-    if (!emblaApi) return
+    if (!emblaApi || !emblaThumbsApi) return
     setPrevBtnEnabled(emblaApi.canScrollPrev())
     setNextBtnEnabled(emblaApi.canScrollNext())
-  }, [emblaApi])
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+    emblaThumbsApi.scrollTo(emblaApi.selectedScrollSnap())
+  }, [emblaApi, emblaThumbsApi, setSelectedIndex])
+
+
+  const onThumbClick = useCallback(
+    (index: number) => {
+      if (!emblaApi || !emblaThumbsApi) return
+      emblaApi.scrollTo(index)
+    },
+    [emblaApi, emblaThumbsApi],
+  )
 
   useEffect(() => {
     if (!emblaApi) return
@@ -42,24 +61,42 @@ const Carousel = ({ slides, alt, options }: Props) => {
   }, [emblaApi, onSelect])
 
   return (
-    <div className={styles.embla}>
-      <div className={styles.embla__viewport} ref={emblaRef}>
-        <div className={styles.embla__container}>
-          {slides.map((elem, index) => (
-            <div className={styles.embla__slide} key={elem}>
-              <img
-                className={styles.embla__slide__img}
-                src={elem}
-                alt={alt[index]}
-              />
-            </div>
-          ))}
+    <div>
+      <div className={styles.embla}>
+        <div className={styles.embla__viewport} ref={emblaRef}>
+          <div className={styles.embla__container}>
+            {slides.map((elem, index) => (
+              <div className={styles.embla__slide} key={elem}>
+                <img
+                  className={styles.embla__slide__img}
+                  src={elem}
+                  alt={alt[index]}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.buttonHolder}>
+          <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
+          <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
         </div>
       </div>
-      <div className={styles.buttonHolder}>
-        <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-        <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
-      </div>
+      <div className={styles.embla_thumbs}>
+          <div className={styles.embla_thumbs__viewport} ref={emblaThumbsRef}>
+            <div className={styles.embla_thumbs__container}>
+              {slides.map((elem, index) => (
+                <ThumbButton
+                  onClick={() => onThumbClick(index)}
+                  selected={index === selectedIndex}
+                  index={index}
+                  imgSrc={elem}
+                  key={index}
+                  alt={alt[index]}
+                />
+              ))}
+              </div>
+            </div>
+          </div>
     </div>
   )
 }

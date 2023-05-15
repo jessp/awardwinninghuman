@@ -8,7 +8,7 @@ type Props = {
 
 const Link = ({ text, url }: Props) => (
     <li className={styles.linkStyled}>
-    	<a href={url}>
+    	<a href={url} target={"_blank"}>
 	    	<Flare/>
 	    	<span>{text}</span>
     	</a>

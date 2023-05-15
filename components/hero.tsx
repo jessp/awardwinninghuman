@@ -12,6 +12,7 @@ const Hero = ({ isWork, setWork }: Props) => (
   <div className={styles.heroHolder}>
     <p className={styles.intro}>Jess Peter is</p>
     <div className={styles.innerHeroHolder}>
+      <div className={styles.oval}></div>
       <div className={`${styles.textHolder} ${isWork ? "work" : "play"}`}>
         <h1 className={styles.titleStyle}>
           <span className={`${styles.noShow}`}>award-</span><br/>

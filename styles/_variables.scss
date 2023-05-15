@@ -1,5 +1,7 @@
 $accent: #DAFF70;
 $fuzz: 0px 0px 11px 11px $accent;
+$grad: radial-gradient(50% 50% at 50% 50%, $accent 51.56%, rgba(218, 255, 112, 0) 100%);
+$text-fuzz: 0px 0px 11px $accent;
 $work-font: 'EB Garamond', serif;
 $play-font: 'MuseoModerno', cursive;
 $body-font: 'Epilogue', sans-serif;

@@ -1,9 +1,10 @@
+import styles from './projectList.module.scss';
 
 import Project from '../components/project'
 
 const ProjectListWork= () => {
       return (
-      	<div>
+      	<div className={styles.projList}>
           <Project 
           title= {"Senior Product Designer at SuperAwesome"}
           alt={["The SuperAwesome logo"]}
@@ -14,7 +15,8 @@ const ProjectListWork= () => {
             "address": "https://www.superawesome.com/kids-web-services/"}
           }>
             <p>The Kids Web Services department at SuperAwesome offers APIs and tools to help product developers create kid-safe online experiences.</p>
-            <p>I lead design on a few products within Kids Web Services, including the Verifiable Parental Consent service. This service is used by companies such as Epic Games (SuperAwesome’s parent company) to help parents opt in or out of certain features on behalf of their children.</p>
+            <p>I lead design on a few products within Kids Web Services, including the Verifiable Parental Consent service.</p>
+            <p>This service is used by companies such as Epic Games (SuperAwesome’s parent company) to help parents opt in or out of certain features on behalf of their children.</p>
             <p>In my role, I create visuals, perform user research, and collaborate with the design, development, and legal teams.</p>
           </Project>
           <Project 
@@ -26,8 +28,9 @@ const ProjectListWork= () => {
             {"display": "innovation.thomsonreuters.com",
             "address": "https://innovation.thomsonreuters.com/en.html"}
           }>
-            <p>Thomson Reuters Labs is the applied research division. They explore how data science and technology can be used to innovate in the legal, tax, news, and other industries.</p>
-            <p>As a designer and front-end designer, I designed and built interfaces, performed visual analytics and data visualisation, and facilitated user research.</p>
+            <p>Thomson Reuters Labs is the applied research division of Thomson Reuters.</p>
+            <p>They explore how data science and technology can be used to innovate in the legal, tax, news, and other industries.</p>
+            <p>As a designer and front-end developer, I designed and built interfaces, performed visual analytics and data visualisation, and facilitated user research.</p>
           </Project>
           <Project 
           title= {"Designer/Front-end Developer at The Globe and Mail (Sophi)"}

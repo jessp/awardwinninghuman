@@ -22,11 +22,6 @@ const Project = ({ title, images, years, link, alt, children, last }: Props) => 
     		<h3>{title}</h3>
     	</div>
     	<div className={styles.projBody}>
-	    	<p className={styles.linkHolder}>
-		    	<span className={"caption"}>{years.length < 2 ? `${years[0]}` : `${years[0]} - ${years[1]}`}</span>
-		    	<span>&#x2022;</span>
-		    	<a href={link.address} target="_blank">{link.display}</a>
-	    	</p>
 	    	<div className={styles.projContent}>
 	    		{images.length > 1 &&
 	    			<Carousel slides={images} alt={alt}/>
@@ -47,11 +42,21 @@ const Project = ({ title, images, years, link, alt, children, last }: Props) => 
 				      </div>
 	    		}
 	    		<div className={styles.bodyInfo}>
+	    			<ul className={styles.linkHolder}>
+				 		<li>
+				 			<span className={"bold"}>Date: </span>
+				 			<span>{years.length < 2 ? `${years[0]}` : `${years[0]} - ${years[1]}`}</span>
+				 		</li>
+				    	<li>
+				    		<span className={"bold"}>Site: </span>
+				    		<a href={link.address} target="_blank">{link.display}</a>
+				    	</li>
+			    	</ul>
 	    			{children}
 	    		</div>
 	    	</div>
 	    </div>
-	    <div className={`hideOnBig ${styles.flare}`}>
+	    <div className={`${styles.flare}`}>
 	    	<Flare fill={last ? "#000" : "#DAFF70"}/>
 	    </div>
     </div>
