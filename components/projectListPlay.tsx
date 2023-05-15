@@ -36,7 +36,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Goodwill Hunting"}
           alt={["Chart showing cost of clothing items in different states", "Multiple charts showing information on used clothing", "Chart showing price distribution of different clothing brands"]}
-          images= {["./goodwill-1.jpg", "./goodwill-2.jpg", "./goodwill-3.jpg",]}
+          images= {["./goodwill-1.jpg", "./goodwill-2.jpg", "./goodwill-3.jpg"]}
           years= {[2020]}
           link={
             {"display": "goodwill.awardwinninghuman.com",
