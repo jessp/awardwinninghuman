@@ -20,8 +20,8 @@ const ThumbButton = ({ selected, imgSrc, index, alt, onClick }: Props) => (
       >
         <img
           className={styles.embla_thumbs__slide__img}
-          src={alt}
-          alt="Your alt text"
+          src={imgSrc}
+          alt={alt}
         />
       </button>
     </div>
