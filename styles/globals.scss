@@ -142,21 +142,50 @@ body {
 
 button.navButton {
   	background: #FFFFFF;
-		border: $border;
-		padding: 2px 4px;
-		height: 50px;
-		color: #000;
-  		@media screen and (min-width: $big) {
-  			padding: 4px 8px;
-  			margin-top: 25px;
-  			height: 65px;
-  		}
+	border: $border;
+	padding: 2px 4px;
+	height: 50px;
+	color: #000;
+	cursor: pointer;
+  	@media screen and (min-width: $big) {
+  		padding: 4px 8px;
+  		margin-top: 25px;
+  		height: 65px;
+  	}
 
-  		&.active {
-    		background: #000;
-    		color: #fff;
-    	}
- }
+  	&.active {
+    	background: #000;
+    	color: #fff;
+    }
+
+    &:not(.active):hover {
+    	animation-name: shine;
+  		animation-duration: 300ms;
+    }
+}
+
+@keyframes shine {
+  0% {
+    background: linear-gradient(30deg, $accent 0%, #fff 25%);
+  }
+
+  25% {
+    background: linear-gradient(30deg, #fff 0%, $accent 25%, #fff 50%);
+  }
+
+  50% {
+    background: linear-gradient(30deg, #fff 0%, $accent 50%, #fff 75%);
+  }
+
+  75% {
+    background: linear-gradient(30deg, #fff 0%, $accent 75%, #fff 100%);
+  }
+
+  100% {
+    background: linear-gradient(30deg, #fff 0%, $accent 100%);
+  }
+}
+
 
 .abs {
  	position: absolute;

@@ -12,6 +12,7 @@
 }
 
 .car_button:not([disabled]):hover {
+	cursor: pointer;
 	path {
 		filter: drop-shadow(0px 0px 6px #bdff00);
 		transition: filter 0.5s;
