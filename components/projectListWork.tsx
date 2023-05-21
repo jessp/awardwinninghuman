@@ -1,10 +1,9 @@
-import styles from './projectList.module.scss';
-
 import Project from '../components/project'
+
 
 const ProjectListWork= () => {
       return (
-      	<div className={styles.projList}>
+      	<>
           <Project 
           title= {"Senior Product Designer at SuperAwesome"}
           alt={["The SuperAwesome logo"]}
@@ -45,7 +44,7 @@ const ProjectListWork= () => {
             <p>Sophi is a data analytics products created primarily for news publications.</p>
             <p>As the designer and front-end developer, I created a dashboard UI and browser plug-in, and continually collected user feedback.</p>
           </Project>
-        </div>
+        </>
         )
     }
 

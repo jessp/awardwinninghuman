@@ -1,10 +1,8 @@
-import styles from './projectList.module.scss';
-
 import Project from '../components/project'
 
 const ProjectListPlay= () => {
       return (
-      	<div className={styles.projList}>
+      	<>
           <Project 
           title= {"Maria: Holographic Virtual Assistant"}
           alt={["A short looping video of a dancing anime girl hologram.", "A close up of an anime girl hologram.", "A screenshot of the Maria website showing instructions for how she is made."]}
@@ -74,7 +72,7 @@ const ProjectListPlay= () => {
             <p>For my Master's Thesis, I developed open-source code written in JavaScript that can be used to replicate many different knitting techniques on whole-garment knitting machines.</p>
             <p>This built off of work by the Carnegie Mellon Textiles Lab.</p>
           </Project>
-        </div>
+        </>
         )
     }
 

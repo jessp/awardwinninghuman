@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRef, useEffect, useState, MouseEvent as rMouseEvent } from 'react';
 import Image from 'next/image'
+import ProjectList from '../components/projectList'
 import styles from '../styles/Home.module.scss'
 import Hero from '../components/hero'
 import Links from '../components/links'
@@ -101,11 +102,15 @@ const Home: NextPage = () => {
       </div>
       <div className={`${isWork ? "work" : "play"} containerNoSmall`}>
           <div className={"innerContainerNoSmall"}>
-            {!isWork && 
-              <ProjectListPlay/>
+            {!isWork &&
+              <ProjectList>
+                <ProjectListPlay/>
+              </ProjectList>
             }
-            {isWork && 
-              <ProjectListWork/>
+            {isWork &&
+              <ProjectList>
+                <ProjectListWork/>
+              </ProjectList>
             }
           </div>
       </div>

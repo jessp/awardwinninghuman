@@ -213,3 +213,14 @@ button.navButton {
 .bold {
 	font-weight: bold;
 }
+
+
+.listTransition-enter, .listTransition-appear {
+	opacity: 0;
+}
+
+/* This is where we can add the transition*/
+.listTransition-enter-active, .listTransition-appear-active {
+	opacity: 1;
+	transition: opacity 500ms;
+}
