@@ -7,7 +7,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Senior Product Designer at SuperAwesome"}
           alt={["The SuperAwesome logo"]}
-          images= {["/sa-logo.png"]}
+          images= {["./sa-logo.png"]}
           years= {[2022, "Present"]}
           link={
             {"display": "www.superawesome.com/kids-web-services",
@@ -21,7 +21,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Senior Designer/Front-end Developer at Thomson Reuters Labs"}
           alt={["The Thomson Reuters logo"]}
-          images= {["/tr-logo-square.png"]}
+          images= {["./tr-logo-square.png"]}
           years= {[2019, 2021]}
           link={
             {"display": "innovation.thomsonreuters.com",
@@ -34,7 +34,7 @@ const ProjectListWork= () => {
           <Project 
           title= {"Designer/Front-end Developer at The Globe and Mail (Sophi)"}
           alt={["The Globe and Mail logo"]}
-          images= {["/globe-logo.png"]}
+          images= {["./globe-logo.png"]}
           years= {[2016, 2017]}
           last={true}
           link={

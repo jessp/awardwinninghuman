@@ -1,4 +1,4 @@
-import Project from './project'
+import Project from '../components/project'
 
 const ProjectListPlay= () => {
       return (
@@ -6,7 +6,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Maria: Holographic Virtual Assistant"}
           alt={["A short looping video of a dancing anime girl hologram.", "A close up of an anime girl hologram.", "A screenshot of the Maria website showing instructions for how she is made."]}
-          images= {["/maria-animated.gif", "/maria_website.png", "/maria_still.jpg", "/maria_materials.jpg"]}
+          images= {["./maria-animated.gif", "./maria_website.png", "./maria_still.jpg", "./maria_materials.jpg"]}
           years= {[2022]}
           link={
             {"display": "maria.awardwinninghuman.com",
@@ -20,7 +20,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"deepwork"}
           alt={["Illustration showing glowing hands reaching up to alter a girl's appearance.", "Illustration saying \"The employment game is rigged. Win anyway.\"", "A looping video showing someone changing attributes of a young man's face."]}
-          images= {["/deepwork.jpeg", "/deepwork-slide-1.png", "/deepwork-preview.gif"]}
+          images= {["./deepwork.jpeg", "./deepwork-slide-1.png", "./deepwork-preview.gif"]}
           years= {[2022]}
           link={
             {"display": "pudding.cool/2022/01/deepwork",
@@ -34,7 +34,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Goodwill Hunting"}
           alt={["Chart showing cost of clothing items in different states", "Multiple charts showing information on used clothing", "Chart showing price distribution of different clothing brands"]}
-          images= {["/goodwill-1.jpg", "/goodwill-2.jpg", "/goodwill-3.jpg"]}
+          images= {["./goodwill-1.jpg", "./goodwill-2.jpg", "./goodwill-3.jpg"]}
           years= {[2020]}
           link={
             {"display": "goodwill.awardwinninghuman.com",
@@ -48,7 +48,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"11 Years of Top-Selling Book Covers"}
           alt={["A zoomed out grid of book covers with a title reading '11 Yeard of Top-Selling Book Covers, Arranged by Visual Similarity'", "A grid of book covers", "A book cover among other book covers, with text describing the book", "A grid of different book covers with some darkened out"]}
-          images= {["/books-1.jpg", "/books-2.jpg", "/books-3.jpg","/books-4.jpg"]}
+          images= {["./books-1.jpg", "./books-2.jpg", "./books-3.jpg","./books-4.jpg"]}
           years= {[2019]}
           link={
             {"display": "pudding.cool/2019/07/book-covers",
@@ -62,7 +62,7 @@ const ProjectListPlay= () => {
           <Project 
           title= {"Hack 1 Knit 2"}
           alt={["An assortment of small knitted objects", "A website with code showing how to make a little knit shirt"]}
-          images= {["/knit-1.jpg", "/knit-2.jpg"]}
+          images= {["./knit-1.jpg", "./knit-2.jpg"]}
           years= {[2019]}
           last={true}
           link={

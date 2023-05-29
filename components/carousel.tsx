@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import Image from 'next/image';
 
 import useEmblaCarousel, { EmblaOptionsType } from 'embla-carousel-react'
 import styles from './carousel.module.scss'
@@ -68,13 +67,11 @@ const Carousel = ({ slides, alt, options }: Props) => {
           <div className={styles.embla__container}>
             {slides.map((elem, index) => (
               <div className={styles.embla__slide} key={elem}>
-                <div className={styles.embla__slide__img}>
-                  <Image
+                <img
+                  className={styles.embla__slide__img}
                   src={elem}
-                  fill={true}
-                  quality={100}
-                  alt={alt[index]}/>
-                </div>
+                  alt={alt[index]}
+                />
               </div>
             ))}
           </div>

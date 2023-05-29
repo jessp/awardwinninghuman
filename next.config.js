@@ -7,8 +7,6 @@ const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   assetPrefix: !debug ? '' : '',
   images: {
-    loader: "imgix",
-    path: "https://awardwinninghuman.com/",
     remotePatterns: [
       {
         protocol: 'https',
