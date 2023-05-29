@@ -7,12 +7,7 @@ const debug = process.env.NODE_ENV !== 'production'
 module.exports = {
   images: {
     loader: 'akamai',
-    path: '/',
-    remotePatterns: [
-      {
-        hostname: 'awardwinninghuman.com'
-      },
-    ]
+    path: ''
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
