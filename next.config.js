@@ -5,14 +5,10 @@
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-  assetPrefix: !debug ? '' : '',
   images: {
-    loader: 'akamai',
-    path: '',
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**.awardwinninghuman.com'
+        hostname: 'awardwinninghuman.com'
       },
     ]
   },
