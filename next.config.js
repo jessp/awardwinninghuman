@@ -6,6 +6,8 @@ const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   images: {
+    loader: 'akamai',
+    path: '/',
     remotePatterns: [
       {
         hostname: 'awardwinninghuman.com'
