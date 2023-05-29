@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { ReactNode } from "react";
 import Carousel from './carousel';
 import Flare from './flare';

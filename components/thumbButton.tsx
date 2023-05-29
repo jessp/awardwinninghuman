@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 import styles from './thumbButton.module.scss'
 
 type Props = {
@@ -18,13 +19,16 @@ const ThumbButton = ({ selected, imgSrc, index, alt, onClick }: Props) => (
         className={styles.embla_thumbs__slide__button}
         type="button"
       >
-        <img
-          className={styles.embla_thumbs__slide__img}
-          src={imgSrc}
-          alt={alt}
-        />
+        <div className={styles.embla_thumbs__slide__img}>
+          <Image
+            src={imgSrc}
+            fill={true}
+            quality={20}
+            alt={alt}/>
+        </div>
       </button>
     </div>
 )
 
 export default ThumbButton
+

@@ -19,6 +19,7 @@
   padding: 0;
   margin: 0;
   width: 100%;
+  position: relative;
   
   img {
     opacity: 0.2;
@@ -36,4 +37,8 @@
   height: var(--thumbs-slide-height);
   width: 100%;
   object-fit: cover;
+  img {
+    object-fit: cover;
+    position: relative;
+  }
 }
