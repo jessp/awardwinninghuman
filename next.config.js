@@ -5,9 +5,16 @@
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
+  assetPrefix: !debug ? '' : '',
   images: {
-    loader: 'akamai',
-    path: ''
+    loader: "imgix",
+    path: "https://awardwinninghuman.com/",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.awardwinninghuman.com'
+      },
+    ]
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
