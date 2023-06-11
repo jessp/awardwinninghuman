@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -15,7 +15,7 @@
     "@types/three": "~0.151.0",
     "embla-carousel": "^8.0.0-rc03",
     "embla-carousel-react": "^8.0.0-rc03",
-    "next": "^13.3.1",
+    "next": "^13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-transition-group": "^4.4.5",
