@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useRef, useEffect, useState, MouseEvent as rMouseEvent } from 'react';
-import Image from 'next/image'
 import ProjectList from '../components/projectList'
 import styles from '../styles/Home.module.scss'
 import Hero from '../components/hero'
+import Header from '../components/header'
 import Links from '../components/links'
 import Nav from '../components/nav'
 import ProjectListPlay from '../components/projectListPlay'
@@ -65,7 +65,8 @@ const Home: NextPage = () => {
     <main>
       <div className={`container`}>
         <div className={"innerContainer"}>
-          <div className={styles.header}>
+          <Header/>
+          {/*<div className={styles.header}>
             <Hero isWork={isWork} setWork={(e) => updateWork(e)}></Hero>
             <div className={styles.info}>
               <div className={styles.descriptionWrapper}>
@@ -75,10 +76,11 @@ const Home: NextPage = () => {
                 <Links/>
               </div>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
-      <div ref={pageRef} className={styles.navHolder}>
+
+     {/* <div ref={pageRef} className={styles.navHolder}>
         <Nav scrolled={isPinned} isWork={isWork} setWork={(e) => updateWork(e)} scrollToProj={(e) => scrollToProj(e)}/>
       </div>
 
@@ -128,7 +130,7 @@ const Home: NextPage = () => {
         </div>
         
       </div>
-
+*/}
     </main>
   </div>
   )

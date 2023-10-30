@@ -1,0 +1,36 @@
+@import './../styles/variables';
+
+.heroStarter {
+
+	height: 100vh;
+	min-height: 400px;
+    position: relative;
+
+	.backText {
+		opacity: 15%;
+		color: #fff;
+	}
+
+	.frontText {
+		color: rgba(255, 255, 255, 0);
+		-webkit-text-stroke: 1px $accent;
+
+		@media screen and (min-width: $big) {
+			-webkit-text-stroke: 2px $accent;
+		}
+
+		h1 {
+			transform: translate(0.25rem, 0.75rem);
+		}
+	}
+
+	.contrastText {
+		color: $accent;
+	}
+}
+
+.titleHolder {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
