@@ -1,11 +1,16 @@
 $accent: #DAFF70;
+$bg: #333;
+$bg-transparent: rgba(51, 51, 51, 0.25);
 $fuzz: 0px 0px 11px 11px $accent;
 $grad: radial-gradient(50% 50% at 50% 50%, $accent 51.56%, rgba(218, 255, 112, 0) 100%);
 $text-fuzz: 0px 0px 11px $accent;
 $work-font: 'EB Garamond', serif;
 $play-font: 'MuseoModerno', cursive;
 $body-font: 'Epilogue', sans-serif;
-$med: 400px;
-$big: 800px;
+$sm: 400px;
+$med: 600px;
+$big: 1200px;
 $xbig: 1600px;
 $border: 1.25pt solid black;
+$max-contrast: #FFF;
+$min-contrast: #D5D6DA;

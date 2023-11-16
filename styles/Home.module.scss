@@ -54,7 +54,6 @@
 
 .description {
   @media screen and (min-width: $big) {
-    font-size: 24pt;
     margin-bottom: 50px;
   }
 }
@@ -99,4 +98,52 @@
   @media screen and (min-width: $big) {
     padding: 50px 0px;
   }
+}
+
+.headerHolder {
+  @media (min-aspect-ratio: 7/5) and (max-aspect-ratio: 7.5/5) {
+    height: calc(100vh - 2em);
+  }
+}
+
+.linksHolder {
+  position: absolute;
+  top: -1.5em;
+  right: 0px;
+}
+
+
+
+.descriptionHolder {
+  position: relative;
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+  @media screen and (min-width: $med) {
+    position: absolute;
+    bottom: 15%;
+  }
+
+  p {
+    grid-area: 1 / 1 / 1 / span 8;
+    margin-bottom: 0px;
+
+    @media screen and (min-width: $sm) {
+      grid-area: 1 / 2 / 1 / span 6;
+    }
+
+    @media screen and (min-width: $med) {
+      grid-area: 1 / 1 / 1 / span 4;
+      background-color: $bg-transparent;
+      box-shadow: 0 0 15px 20px $bg-transparent;
+      color: #fff;
+    }
+
+    @media screen and (min-width: $big) {
+      grid-area: 1 / 1 / 1 / span 2;
+    }
+
+  }
+
 }

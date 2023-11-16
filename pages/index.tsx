@@ -3,7 +3,6 @@ import Head from 'next/head'
 import { useRef, useEffect, useState, MouseEvent as rMouseEvent } from 'react';
 import ProjectList from '../components/projectList'
 import styles from '../styles/Home.module.scss'
-import Hero from '../components/hero'
 import Header from '../components/header'
 import Links from '../components/links'
 import Nav from '../components/nav'
@@ -64,19 +63,14 @@ const Home: NextPage = () => {
 
     <main>
       <div className={`container`}>
-        <div className={"innerContainer"}>
+        <div className={styles.headerHolder}>
           <Header/>
-          {/*<div className={styles.header}>
-            <Hero isWork={isWork} setWork={(e) => updateWork(e)}></Hero>
-            <div className={styles.info}>
-              <div className={styles.descriptionWrapper}>
-                <p className={styles.description}>
-                Product designer. Creative coder. UX researcher. I have an unhealthy fascination with the strange and the complex.
-                </p>
-                <Links/>
-              </div>
-            </div>
-          </div>*/}
+          <div className={styles.linksHolder}>
+            <Links/>
+          </div>
+          <div className={styles.descriptionHolder}>
+            <p>Jess Peter is a product designer, creative coder, and UX researcher, who carefully balances an eye for detail with a pragmatic understanding that done is better than perfect.</p>
+          </div>
         </div>
       </div>
 

@@ -6,15 +6,32 @@
 	a {
 		text-decoration: none;
 		display: flex;
-		gap: 3px;
+		gap: 5px;
 		flex-direction: row;
 		align-items: center;
+
+		svg {
+
+			width: 12px; 
+
+			@media screen and (min-width: $med) {
+				width: 14px; 
+			}
+
+			@media screen and (min-width: $big) {
+				width: 16px; 
+			}
+
+			@media screen and (min-width: $xbig) {
+				width: 22px; 
+			}
+		}
 	}
 
 	span {
-		border-bottom: 1.25pt solid black;
-		color: black;
-		line-height: 100%
+		color: $min-contrast;
+		margin-top: 3px;
+		font-size: 87.5%;
 	}
 
 	path {
