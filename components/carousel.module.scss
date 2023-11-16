@@ -5,7 +5,7 @@
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-height: 19rem;
+  --slide-height: 30rem;
   position: relative;
   height: min-content;
 }
@@ -36,7 +36,8 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  border: $border;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
   display: grid;
   grid-auto-flow: column;
   width: min-content;

@@ -54,8 +54,4 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	margin-left: -20px;
-	@media screen and (min-width: $big) {
-		margin-left: -50px;
-	}
 }

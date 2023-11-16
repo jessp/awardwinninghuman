@@ -51,23 +51,33 @@ table {
 }
 
 html, body { 
-	font-size: 12px; 
+	font-size: 16px; 
 
 	@media screen and (min-width: $big) {
-		font-size: 14px; 
+		font-size: 18px; 
+	}
+
+	@media screen and (min-width: $xbig) {
+		font-size: 22px; 
 	}
 }
 
 h1, p.titleClone {
-	font-family: "HappyOK";
+	font-family: $title-font;
 }
 
 h2 {
 	font-size: 2.5em;
+	font-family: $accent-font;
+	color: #fff;
+	letter-spacing: 0.2rem;
 }
 
 h3 {
 	font-size: 1.5em;
+	font-family: $accent-font;
+	color: #fff;
+	letter-spacing: 0.2rem;
 }
 
 p:not(.titleClone), li {
@@ -82,7 +92,7 @@ p:not(.titleClone) {
 }
 
 a, a:hover, a:active {
-	color: black;
+	color: $max-contrast;
 }
 
 body {
@@ -94,63 +104,6 @@ body {
 	max-width: $xbig;
 	width: calc(100% - 40px);
 	position: relative;
-	@media screen and (min-width: $big) {
-		width: calc(100% - 100px);
-	}
-}
-
-.containerNoSmall {
-	@media screen and (min-width: $big) {
-		margin: 0 auto;
-		max-width: 1280px;
-	}	
-}
-
-.work {
-	h1, h2, h3, button, p.titleClone {
-		font-family: $work-font;
-		font-style: italic;
-	}
-
-	button {
-		font-size: 1.95em;
-	}
-}
-
-.play {
-
-	h1, h2, h3, button, p.titleClone {
-		font-family: $play-font;
-		font-style: italic;
-	}
-
-	button {
-		font-size: 1.59em;
-	}
-}
-
-button.navButton {
-  	background: #FFFFFF;
-	border: $border;
-	padding: 2px 4px;
-	height: 50px;
-	color: #000;
-	cursor: pointer;
-  	@media screen and (min-width: $big) {
-  		padding: 4px 8px;
-  		margin-top: 25px;
-  		height: 65px;
-  	}
-
-  	&.active {
-    	background: #000;
-    	color: #fff;
-    }
-
-    &:not(.active):hover {
-    	animation-name: shine;
-  		animation-duration: 300ms;
-    }
 }
 
 @keyframes shine {
@@ -192,11 +145,6 @@ button.navButton {
 	@media screen and (min-width: $big) {
 		display: none;
 	}
-}
-
-.caption {
-	font-size: 0.875em;
-	font-style: italic;
 }
 
 .bold {

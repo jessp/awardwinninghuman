@@ -4,7 +4,7 @@ const ProjectListPlay= () => {
       return (
       	<>
           <Project 
-          title= {"Maria: Holographic Virtual Assistant"}
+          title= {"Maria"}
           alt={["A short looping video of a dancing anime girl hologram.", "A close up of an anime girl hologram.", "A screenshot of the Maria website showing instructions for how she is made."]}
           images= {["./maria-animated.gif", "./maria_website.png", "./maria_still.jpg", "./maria_materials.jpg"]}
           years= {[2022]}
@@ -46,7 +46,7 @@ const ProjectListPlay= () => {
           </Project>
 
           <Project 
-          title= {"11 Years of Top-Selling Book Covers"}
+          title= {"11 Years of Books"}
           alt={["A zoomed out grid of book covers with a title reading '11 Yeard of Top-Selling Book Covers, Arranged by Visual Similarity'", "A grid of book covers", "A book cover among other book covers, with text describing the book", "A grid of different book covers with some darkened out"]}
           images= {["./books-1.jpg", "./books-2.jpg", "./books-3.jpg","./books-4.jpg"]}
           years= {[2019]}
@@ -64,7 +64,6 @@ const ProjectListPlay= () => {
           alt={["An assortment of small knitted objects", "A website with code showing how to make a little knit shirt"]}
           images= {["./knit-1.jpg", "./knit-2.jpg"]}
           years= {[2019]}
-          last={true}
           link={
             {"display": "jessp.github.io/kcodeblog",
             "address": "https://jessp.github.io/kcodeblog/"}

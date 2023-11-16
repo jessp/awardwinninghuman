@@ -8,63 +8,86 @@
 }
 
 .projHeader {
-	padding: 6px 20px 8px;
-	color: black;
-	text-shadow: $text-fuzz;
+	padding: 6px 0px 0px;
+	z-index: 2;
+	position: relative;
+
+	h3 {
+		margin: 5px 5px 1px 5px;
+	}
+
+	p:first-of-type {
+		color: rgba(217, 217, 217, 0.15);
+		transform: translate(0px, -3px);
+	}
+
+	p:nth-of-type(2) {
+		opacity: 0.5;
+		color: rgba(0, 0, 0, 0);
+		-webkit-text-stroke: 1px $accent;
+		text-stroke: 1px $accent;
+		transform: translate(2px, 2px);
+	}
+
 	@media screen and (min-width: $big) {
-		padding: 5px 20px 10px;
+		padding: 5px 0px 0px;
 	}
 }
 
 .projBody {
-	padding: 15px 0px; 
-	@media screen and (min-width: $big) {
-		padding: 25px 20px;
-	}
+	position: relative;
+	z-index: 1;
 }
 
+
 .linkHolder {
-	font-size: 0.875em;
-	margin-bottom: 0.5em;
-	a {
-		color: black;
-	}
+	margin-bottom: 0.25em;
 	> * {
 		margin-right: 5px;
 	}
 }
 
+.abs {
+	position: absolute;
+}
+
+.accentText {
+	font-size: 4em;
+	top: -0.15em;
+	z-index: -1;
+}
+
 .bodyInfo {
-	margin: 10px 20px 0px;
+	margin-top: 20px;
+
 	@media screen and (min-width: $big) {
 		margin: 0px;
 	}
 
 	li {
-		text-shadow: $text-fuzz;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
+		color: #fff;
 		@media screen and (min-width: $big) {
-			margin-bottom: 15px;
+			margin-bottom: 10px;
+		}
+
+		a {
+			color: #fff;
 		}
 	}
 
 	p:first-of-type {
 		font-weight: bold;
-		margin-top: 40px;
+		margin-top: 20px;
 	}
 }
 
 .projContent {
-	@media screen and (min-width: $big) {
+	@media screen and (min-width: $med) {
 	    display: grid;
 	    grid-auto-flow: column;
-	    grid-column-gap: 40px;
+	    grid-column-gap: 20px;
 	    grid-template-columns: 1fr 1fr;
   	}
 	
-}
-
-.flare:not(.hideOnBig) {
-	text-align: center;
-	margin-top: 20px;
 }

@@ -1,8 +1,10 @@
 @import './../styles/variables';
 
 .projList {
+
 	@media screen and (min-width: $big) {
 		margin-top: 75px;
 		margin-bottom: 100px;
 	}
+
 }

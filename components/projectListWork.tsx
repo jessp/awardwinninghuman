@@ -5,7 +5,8 @@ const ProjectListWork= () => {
       return (
       	<>
           <Project 
-          title= {"Senior Product Designer at SuperAwesome"}
+          title= {"SuperAwesome"}
+          role={"Senior Product Designer"}
           alt={["The SuperAwesome logo"]}
           images= {["./sa-logo.png"]}
           years= {[2022, "Present"]}
@@ -19,7 +20,8 @@ const ProjectListWork= () => {
             <p>In my role, I create visuals, perform user research, and collaborate with the design, development, and legal teams.</p>
           </Project>
           <Project 
-          title= {"Senior Designer/Front-end Developer at Thomson Reuters Labs"}
+          title= {"Thomson Reuters Labs"}
+          role={"Senior Designer/Front-end Developer"}
           alt={["The Thomson Reuters logo"]}
           images= {["./tr-logo-square.png"]}
           years= {[2019, 2021]}
@@ -32,11 +34,11 @@ const ProjectListWork= () => {
             <p>As a designer and front-end developer, I designed and built interfaces, performed visual analytics and data visualisation, and facilitated user research.</p>
           </Project>
           <Project 
-          title= {"Designer/Front-end Developer at The Globe and Mail (Sophi)"}
+          title= {"The Globe and Mail (Sophi)"}
+          role={"Designer/Front-end Developer"}
           alt={["The Globe and Mail logo"]}
           images= {["./globe-logo.png"]}
           years= {[2016, 2017]}
-          last={true}
           link={
             {"display": "sophi.io",
             "address": "https://www.sophi.io/"}

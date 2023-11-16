@@ -1,56 +1,42 @@
 @import './../styles/variables';
 
-
-.nav {
-	
-	background: linear-gradient(180deg, $accent 0%, $accent 35%, rgba(218, 255, 112, 0) 50%, rgba(218, 255, 112, 0) 50.01%, rgba(218, 255, 112, 0) 100%);
-	background-size: 100% 200%;
-  	background-position: 100% 100%;
-  	height: 100px;
-	@media screen and (min-width: $big) {
-	    height: 150px;
-	    text-align: right;
-	    margin-top: -140px;
-  	}
-
-}
-
-.nav.greenBackground {
-	background-position: 100% 0%;
-	transition: background-position 1s;
-
-
-	.buttons {
-		visibility: initial;
-		margin-top: 15px;
-		transition: margin-top 1s;
-		@media screen and (min-width: $big) {
-			margin-top: 0px;
-		}
-	}
-
-}
-
 .buttons {
+	padding: 10px;
 	display: grid;
     grid-auto-flow: column;
     float: right;
     grid-column-gap: 10px;
-    position: absolute;
     justify-content: space-between;
-    width: calc(100% - 40px);
-    visibility: hidden;
-    margin-top: -30px;
-    transition: margin-top 1s;
+    background-color: $accent;
+  	border-radius: 4px;
+  	width: max-content;
+  	min-height: 0;
+  	overflow: hidden;
+  	position: relative;
+
+  	button {
+  		font-size: 75%;
+  		background-color: rgba(0, 0, 0, 0);
+  		border: 1px solid black;
+  		padding: 8px 8px 6px;
+  		border-radius: 4px;
+
+  		&:not(.active) {
+  			border: 1px solid rgba(0, 0, 0, 0);
+  			opacity: 75%;
+  		}
+  	}
+
     > div {
-    	width: min-content;
+    	width: max-content;
+    	min-height: 0;
+  		overflow: hidden;
+
+  		svg {
+  			height: 30px;
+  		}
     }
-    @media screen and (min-width: $big) {
-    	position: relative;
-    	width: min-content;
-    	visibility: initial;
-    	margin-top: 0px;
-    }
+
 }
 
 

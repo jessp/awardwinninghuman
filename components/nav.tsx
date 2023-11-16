@@ -1,5 +1,6 @@
 import { MouseEvent as rMouseEvent } from 'react';
-import styles from './nav.module.scss'
+import Flare from './flare'
+import styles from './nav.module.scss';
 
 type Props = {
     scrolled: boolean,
@@ -11,23 +12,26 @@ type Props = {
 
 const Nav = ({ scrolled, isWork, setWork, scrollToProj }: Props) => {
       return (
-    <div className={`${styles.nav} ${scrolled ? styles.greenBackground : ""}`}>
+    <div>
         <div className={"container"}>
             <div className={`innerContainer ${styles.buttons}`}>
-    	       <div className={"work"}>
+                <div>
+                    <Flare fill={"#000"}/>
+                </div>
+    	       <div>
                     <button 
-                        className={isWork ? "navButton active" : "navButton"}
+                        className={isWork ? `navButton ${styles.active}` : "navButton"}
                         onClick={(e) => { setWork(true); if (scrolled){ scrollToProj(e);}}}
                         >
-                        work
+                        Work History
                     </button>
                 </div>
-                <div className={"play"}>
+                <div>
                     <button 
-                        className={isWork ? "navButton" : "navButton active"}
+                        className={isWork ? "navButton" : `navButton ${styles.active}`}
                         onClick={(e) => { setWork(false); if (scrolled){ scrollToProj(e);}}}
                         >
-                        play
+                        Personal Projects
                     </button>
                 </div>
             </div>
