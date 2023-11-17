@@ -95,8 +95,12 @@
 
 .linksHolder {
   position: absolute;
-  top: -1.5em;
+  top: -3em;
   right: 0px;
+
+  @media screen and (min-width: $med) {
+    top: -1.5em;
+  }
 }
 
 
@@ -106,10 +110,12 @@
   display: grid;
   column-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin-bottom: 50px;
 
   @media screen and (min-width: $med) {
     position: absolute;
     bottom: 15%;
+    margin-bottom: 0px;
   }
 
   p {
