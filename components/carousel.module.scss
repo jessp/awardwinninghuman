@@ -5,7 +5,10 @@
 .embla {
   --slide-spacing: 1rem;
   --slide-size: 100%;
-  --slide-height: 30rem;
+  --slide-height: 20rem;
+  @media screen and (min-width: $med) {
+    --slide-height: 30rem;
+  }
   position: relative;
   height: min-content;
 }
