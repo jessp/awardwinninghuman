@@ -32,7 +32,7 @@ export function Trophy({ isWork }: Props) {
   const flare = useRef<THREE.Sprite>();
   const [angle, setAngle] = useState(false);
   const { nodes, materials, animations } = useGLTF(
-    "/8_may.glb"
+    "/trophy_person.glb"
   ) as GLTFResult;
 
 
@@ -55,24 +55,26 @@ export function Trophy({ isWork }: Props) {
 
 
   useEffect(() => {
-    actions["Hands on Hips"].clampWhenFinished = true;
-    actions["Hands on Hips"].setLoop(THREE.LoopOnce);
-    if (!isWork) {
-      actions["Hands on Hips"].reset();
-      actions["Hands on Hips"].timeScale = 1;
-      actions["Hands on Hips"].play();
-    } else {
-      actions["Hands on Hips"].timeScale = -1;
-      actions["Hands on Hips"].paused = false;
-    }
+    // actions["Hands on Hips"].clampWhenFinished = true;
+    // actions["Hands on Hips"].setLoop(THREE.LoopOnce);
+    // if (!isWork) {
+    //   actions["Hands on Hips"].reset();
+    //   actions["Hands on Hips"].timeScale = 1;
+    //   actions["Hands on Hips"].play();
+    // } else {
+    //   actions["Hands on Hips"].timeScale = -1;
+    //   actions["Hands on Hips"].paused = false;
+    // }
 
   }, [isWork, actions]);
 
   return (
     <group ref={group} dispose={null}>
-      <group name="Scene" scale={7} position={[0, -0.65, 0]}>
+      <group name="Scene" 
+        scale={7} 
+        position={[0, -0.65, 0]}>
         <group name="metarig" scale={0.00305} position={[0, -0.01, 0]}>
-          <primitive object={nodes.spine} />
+          <primitive object={nodes.spine}  />
           <skinnedMesh
             name="casual_Female_K"
             castShadow
@@ -80,14 +82,15 @@ export function Trophy({ isWork }: Props) {
             geometry={nodes.casual_Female_K.geometry}
             material={metal}
             skeleton={nodes.casual_Female_K.skeleton}
+            onClick={() => console.log("hi")}
           />
         </group>
 
         <mesh
-          name="trophy_base"
+          name="trophy_base_v2"
           castShadow
           receiveShadow
-          geometry={nodes.trophy_base.geometry}
+          geometry={nodes.trophy_base_v2.geometry}
           material={metal}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.005}
@@ -113,5 +116,5 @@ export function Trophy({ isWork }: Props) {
   );
 }
 
-useGLTF.preload("/8_may.glb");
+useGLTF.preload("/trophy_person.glb");
 
