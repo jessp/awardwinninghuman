@@ -16,7 +16,9 @@ const Scene = () => {
   const [animationIndex, setAnimationIndex] = useState(-1);
 
   return (
-      <Canvas shadows onClick={() => setAnimationIndex((animationIndex + 1)%animationList.length)}>
+      <Canvas shadows 
+        onClick={() => setAnimationIndex((animationIndex + 1)%animationList.length)}
+        style={{'cursor': 'pointer'}}>
         <Suspense fallback={null}>
           <Trophy activeAnim={animationList[animationIndex]} prevAnim={animationList[mod(animationIndex - 1, animationList.length)]}/>
           <Environment files="./venice_sunset_1k.hdr" />
