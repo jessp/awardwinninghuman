@@ -9,7 +9,8 @@ import { GLTF } from "three-stdlib";
 
 
 type Props = {
-  isWork: boolean,
+  activeAnim: string | undefined,
+  prevAnim: string | undefined,
 }
 
 type GLTFResult = GLTF & {
@@ -21,16 +22,18 @@ type GLTFResult = GLTF & {
   materials: {};
 };
 
-type ActionName = "Hands on Hips";
+type ActionName = "Hands on Hips" | "Matrix" | "Landing";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Trophy({ isWork }: Props) {
+export function Trophy({ activeAnim, prevAnim }: Props) {
   const loader = new TextureLoader();
   const texture = loader.load("./white_flare.png");
 
   const group = useRef<THREE.Group>();
   const flare = useRef<THREE.Sprite>();
+
   const [angle, setAngle] = useState(false);
+
   const { nodes, materials, animations } = useGLTF(
     "/trophy_person.glb"
   ) as GLTFResult;
@@ -44,7 +47,7 @@ export function Trophy({ isWork }: Props) {
   } );
   
 
-  const { actions } = useAnimations<GLTFActions>(animations, group);
+  const { actions, mixer } = useAnimations<GLTFActions>(animations, group);
 
   useFrame(({ state, delta }) => {
     setAngle((angle + (Math.PI / 360) * 2) % (Math.PI * 2));
@@ -55,18 +58,20 @@ export function Trophy({ isWork }: Props) {
 
 
   useEffect(() => {
-    // actions["Hands on Hips"].clampWhenFinished = true;
-    // actions["Hands on Hips"].setLoop(THREE.LoopOnce);
-    // if (!isWork) {
-    //   actions["Hands on Hips"].reset();
-    //   actions["Hands on Hips"].timeScale = 1;
-    //   actions["Hands on Hips"].play();
-    // } else {
-    //   actions["Hands on Hips"].timeScale = -1;
-    //   actions["Hands on Hips"].paused = false;
-    // }
+    if (activeAnim !== undefined){
+      if (prevAnim !== undefined){
+        actions[prevAnim].reset();
+        actions[prevAnim].stop();
+        actions[prevAnim].paused = true;
+      }
+      actions[activeAnim].reset();
+      actions[activeAnim].paused = false;
+      actions[activeAnim].clampWhenFinished = true;
+      actions[activeAnim].setLoop(THREE.LoopOnce);
+      actions[activeAnim].play();
+    }
 
-  }, [isWork, actions]);
+  }, [activeAnim, actions]);
 
   return (
     <group ref={group} dispose={null}>

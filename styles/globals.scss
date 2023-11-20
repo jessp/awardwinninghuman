@@ -100,7 +100,8 @@ body {
 }
 
 ::selection { 
-	color: $accent;
+	background-color: $accent;
+	color: black;
 }
 
 .container {

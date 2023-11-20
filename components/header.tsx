@@ -31,7 +31,7 @@ const Header = () => (
 			/>
 	    </div>
 	    <div className={styles.sceneHolder}>
-	    	<Scene isWork={true}></Scene>
+	    	<Scene></Scene>
 	    </div>
     </div>
 )
