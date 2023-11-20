@@ -13,7 +13,7 @@ type Props = {
 	link: {"display": string, "address": string},
 	alt: (string)[],
 	children: ReactNode,
-	role: string | undefined
+	role?: string | undefined
 }
 
 const Project = ({ title, images, years, link, alt, role, children }: Props) => (
