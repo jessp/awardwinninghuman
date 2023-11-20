@@ -2,6 +2,7 @@
 
 .heroStarter {
     position: relative;
+    margin: auto;
    	margin-top: 4em;
    	margin-bottom: 2em;
    	aspect-ratio: 68 / 110;
@@ -41,8 +42,8 @@
 	position: absolute;
 	background-position: center top;
 	width: 100%;
-			top: 50%;
-		transform: translateY(-50%);
+	top: 50%;
+	transform: translateY(-50%);
 
 	@media screen and (min-width: $med) {
 
@@ -54,11 +55,12 @@
 }
 
 .sceneHolder {
-	width: 100%;
 	max-height: 100%;
+	width: 100%;
 	position: absolute;
 	top: 50%;
-	transform: translateY(-50%);
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
 	aspect-ratio: 1 / 2;
 	@media screen and (min-width: $med) {
 		aspect-ratio: 139 / 150;
