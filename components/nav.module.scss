@@ -25,10 +25,11 @@
   		border: 1px solid black;
   		padding: 8px 8px 6px;
   		border-radius: 4px;
+        color: black;
 
   		&:not(.active) {
   			border: 1px solid rgba(0, 0, 0, 0);
-  			opacity: 75%;
+  			opacity: 65%;
   		}
   	}
 

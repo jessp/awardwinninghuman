@@ -48,6 +48,7 @@ const Home: NextPage = () => {
     </Head>
 
     <main>
+      <h1 className={"sr-only"}></h1>
       <div className={`container`}>
         <div className={styles.headerHolder}>
           <Header/>

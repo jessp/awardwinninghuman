@@ -109,6 +109,7 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.005}
         />
+        
         <group name="orbit"
           rotation={[Math.PI / 2, Math.PI / 12, 0]}
           position={[0, 0.3, -0.15]}
