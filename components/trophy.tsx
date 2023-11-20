@@ -11,6 +11,7 @@ import { GLTF } from "three-stdlib";
 type Props = {
   activeAnim: string | undefined,
   prevAnim: string | undefined,
+  setActive: fn
 }
 
 type GLTFResult = GLTF & {
@@ -25,7 +26,7 @@ type GLTFResult = GLTF & {
 type ActionName = "Hands on Hips" | "Matrix" | "Landing";
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 
-export function Trophy({ activeAnim, prevAnim }: Props) {
+export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
   const loader = new TextureLoader();
   const texture = loader.load("./white_flare.png");
 
@@ -59,6 +60,7 @@ export function Trophy({ activeAnim, prevAnim }: Props) {
 
   useEffect(() => {
     if (activeAnim !== undefined){
+      setActive(false);
       if (prevAnim !== undefined){
         actions[prevAnim].reset();
         actions[prevAnim].stop();
@@ -72,6 +74,14 @@ export function Trophy({ activeAnim, prevAnim }: Props) {
     }
 
   }, [activeAnim, actions]);
+
+  useEffect(() => {
+    const fn = () => setActive(true);
+    mixer.addEventListener('finished', fn)
+    return () => {
+      mixer.removeEventListener('finished', fn)
+    }
+}, [mixer]);
 
   return (
     <group ref={group} dispose={null}>
@@ -87,7 +97,6 @@ export function Trophy({ activeAnim, prevAnim }: Props) {
             geometry={nodes.casual_Female_K.geometry}
             material={metal}
             skeleton={nodes.casual_Female_K.skeleton}
-            onClick={() => console.log("hi")}
           />
         </group>
 

@@ -12,15 +12,20 @@ const Scene = () => {
     return ((n % m) + m) % m;
   }
 
+  const [isActive, setActive] = useState(true);
+
   const animationList = ["Hands on Hips", "Matrix", "Landing"];
   const [animationIndex, setAnimationIndex] = useState(-1);
 
   return (
       <Canvas shadows 
         onClick={() => setAnimationIndex((animationIndex + 1)%animationList.length)}
-        style={{'cursor': 'pointer'}}>
+        style={isActive ? {'cursor': 'pointer'} : {'pointerEvents': 'none'}}>
         <Suspense fallback={null}>
-          <Trophy activeAnim={animationList[animationIndex]} prevAnim={animationList[mod(animationIndex - 1, animationList.length)]}/>
+          <Trophy 
+            activeAnim={animationList[animationIndex]} 
+            prevAnim={animationList[mod(animationIndex - 1, animationList.length)]}
+            setActive={setActive}/>
           <Environment files="./venice_sunset_1k.hdr" />
         </Suspense>
       </Canvas>
