@@ -6,6 +6,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { TextureLoader } from "three";
 import { useFrame } from '@react-three/fiber';
 import { GLTF } from "three-stdlib";
+import useMousePosition from "./useMousePosition";
 
 
 type Props = {
@@ -31,9 +32,14 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
   const texture = loader.load("./white_flare.png");
 
   const group = useRef<THREE.Group>();
+  const figure = useRef<THREE.Group>();
   const flare = useRef<THREE.Sprite>();
 
   const [angle, setAngle] = useState(false);
+
+  const mousePosition = useMousePosition(true);
+  const target = new THREE.Vector3(0, 0, 15);
+
 
   const { nodes, materials, animations } = useGLTF(
     "/trophy_person.glb"
@@ -54,6 +60,13 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
     setAngle((angle + (Math.PI / 360) * 2) % (Math.PI * 2));
     flare.current.position.x = 0.285 * Math.cos(angle);
     flare.current.position.y = 0.285 * Math.sin(angle) + 0.02;
+
+    if (mousePosition !== undefined && mousePosition.x !== null) {
+      let mouseX = ( mousePosition.x - (window.innerWidth / 2));
+      target.x += ( mouseX - target.x ) * .01;
+      figure.current.lookAt( target );
+    }
+
   });
 
 
@@ -88,28 +101,30 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
       <group name="Scene" 
         scale={7} 
         position={[0, -0.65, 0]}>
-        <group name="metarig" scale={0.00305} position={[0, -0.01, 0]}>
-          <primitive object={nodes.spine}  />
-          <skinnedMesh
-            name="casual_Female_K"
+         <group ref={figure}>
+          <group name="metarig" scale={0.00305} position={[0, -0.01, 0]}>
+            <primitive object={nodes.spine}  />
+            <skinnedMesh
+              name="casual_Female_K"
+              castShadow
+              receiveShadow
+              geometry={nodes.casual_Female_K.geometry}
+              material={metal}
+              skeleton={nodes.casual_Female_K.skeleton}
+            />
+          </group>
+
+          <mesh
+            name="trophy_base_v2"
             castShadow
             receiveShadow
-            geometry={nodes.casual_Female_K.geometry}
+            geometry={nodes.trophy_base_v2.geometry}
             material={metal}
-            skeleton={nodes.casual_Female_K.skeleton}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.005}
           />
         </group>
 
-        <mesh
-          name="trophy_base_v2"
-          castShadow
-          receiveShadow
-          geometry={nodes.trophy_base_v2.geometry}
-          material={metal}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.005}
-        />
-        
         <group name="orbit"
           rotation={[Math.PI / 2, Math.PI / 12, 0]}
           position={[0, 0.3, -0.15]}
