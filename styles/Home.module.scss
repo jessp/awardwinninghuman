@@ -111,6 +111,7 @@
   column-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   margin-bottom: 50px;
+  pointer-events: none;
 
   @media screen and (min-width: $med) {
     position: absolute;
@@ -121,6 +122,7 @@
   p {
     grid-area: 1 / 1 / 1 / span 8;
     margin-bottom: 0px;
+    pointer-events: all;
 
     @media screen and (min-width: $sm) {
       grid-area: 1 / 2 / 1 / span 6;
