@@ -66,11 +66,11 @@ const Home: NextPage = () => {
       </div>
 
 
-      <div className={`${isWork ? "work" : "play"} container`}>
+      <div className={`${isWork ? "work" : "play"} container`} ref={projRef}>
 
         <div className={styles.catHolder}>
           <div className={styles.category}>
-              <h2 ref={projRef}>{isWork ? "Work History" : "Personal Projects"}</h2>
+              <h2>{isWork ? "Work History" : "Personal Projects"}</h2>
             {isWork && 
               <p>
                 A lot of my past jobs have been internal projects with sensitive data and internal users. I can’t always show as much as I’d like. Check out <span className={styles.clickableSpan} onClick={() => updateWork(false)}>some of the work</span> I’ve done for fun to see more of my breadth as a designer.

@@ -3,6 +3,8 @@ import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from "@react-three/drei";
 import {Trophy} from './trophy';
+import styles from './scene.module.scss'
+
 
 
 const Scene = () => {
@@ -19,8 +21,8 @@ const Scene = () => {
 
   return (
       <Canvas shadows 
-        onClick={() => setAnimationIndex((animationIndex + 1)%animationList.length)}
-        style={isActive ? {'cursor': 'pointer'} : {'pointerEvents': 'none'}}>
+        className={isActive ? styles.isActive : styles.isInactive}
+        onClick={() => isActive ? setAnimationIndex((animationIndex + 1)%animationList.length) : null}>
         <Suspense fallback={null}>
           <Trophy 
             activeAnim={animationList[animationIndex]} 

@@ -37,7 +37,7 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
 
   const [angle, setAngle] = useState(false);
 
-  const mousePosition = useMousePosition(true);
+  const mousePosition = useMousePosition(false);
   const target = new THREE.Vector3(0, 0, 15);
 
 
@@ -61,9 +61,9 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
     flare.current.position.x = 0.285 * Math.cos(angle);
     flare.current.position.y = 0.285 * Math.sin(angle) + 0.02;
 
-    if (mousePosition !== undefined && mousePosition.x !== null) {
+    if (mousePosition !== undefined && mousePosition.x !== null && window.innerWidth > 400) {
       let mouseX = ( mousePosition.x - (window.innerWidth / 2));
-      target.x += ( mouseX - target.x ) * .01;
+      target.x += (( mouseX - target.x ) * .01);
       figure.current.lookAt( target );
     }
 

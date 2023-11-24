@@ -1,11 +1,13 @@
 @import './../styles/variables';
 
+
 .heroStarter {
     position: relative;
     margin: auto;
    	margin-top: 4em;
    	margin-bottom: 2em;
    	aspect-ratio: 68 / 110;
+   	overflow: visible !important;
    	
 
 
@@ -22,11 +24,9 @@
 	  	}
 	}
 
-	.backText {
-	}
-
-	.frontText {
+	.frontText img{
 		transform: translate(1%, -48.5%);
+
 		@media screen and (min-width: $med) {
 			transform: translate(1%, -53%);
 		}
@@ -59,7 +59,6 @@
 	background-position: center top;
 	width: 100%;
 	top: 50%;
-	transform: translateY(-50%);
 
 	@media screen and (min-width: $med) {
 
@@ -67,6 +66,7 @@
 
 	img {
 		width: 100%;
+		transform: translateY(-50%);
 	}
 }
 
