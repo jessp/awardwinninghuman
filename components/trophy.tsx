@@ -37,7 +37,7 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
 
   const [angle, setAngle] = useState(false);
 
-  const mousePosition = useMousePosition(false);
+  const mousePosition = useMousePosition();
   const target = new THREE.Vector3(0, 0, 15);
 
 
