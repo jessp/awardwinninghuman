@@ -9,8 +9,7 @@ const Header = () => (
     	<MouseParallaxContainer 
     		globalFactorX={0.05} 
     		globalFactorY={0.05} 
-    		className={styles.heroStarter}
-    		style={{overflow: "visible"}}>
+    		className={styles.heroStarter}>
 	    	<MouseParallaxChild factorX={0.3} factorY={0.1} className={`${styles.titleHolder}`}>
 		    		<img
 		    		className={"hideOnSmall"}
