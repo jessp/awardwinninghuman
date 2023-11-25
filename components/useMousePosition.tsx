@@ -1,26 +1,18 @@
-import React from 'react';
-import { MouseEvent as rMouseEvent } from 'react';
+import { useState, useEffect } from 'react';
 
-
-const useMousePosition = () => {
-  const [
-    mousePosition,
-    setMousePosition
-  ] = React.useState({ x: null, y: null });
-  React.useEffect(() => {
-    const updateMousePosition = (ev: rMouseEvent<HTMLButtonElement, MouseEvent>) => {
-      let x, y;
-      [x, y] = [ev.clientX, ev.clientY];
-      if (typeof x === "number" && typeof y === "number"){
-        setMousePosition({ x, y });
-      }
+const useMousePosition = (): [{ x: number, y: number },
+React.Dispatch<React.SetStateAction<{ x: number, y: number }>>] => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      setPosition({ x: event.clientX, y: event.clientY });
     };
-    window.addEventListener('mousemove', updateMousePosition);
-  
+    window.addEventListener('mousemove', handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
+      window.removeEventListener('mousemove', handleMouseMove);
     };
-  });
-  return mousePosition;
+  }, []);
+  return [position, setPosition];
 };
+
 export default useMousePosition;
