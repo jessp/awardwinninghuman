@@ -1,11 +1,18 @@
 import React from 'react';
-const useMousePosition = ({ includeTouch }) => {
+import { MouseEvent as rMouseEvent } from 'react';
+
+
+type Props = {
+  includeTouch: boolean
+}
+
+const useMousePosition = ({ includeTouch }: Props) => {
   const [
     mousePosition,
     setMousePosition
   ] = React.useState({ x: null, y: null });
   React.useEffect(() => {
-    const updateMousePosition = ev => {
+    const updateMousePosition = (ev: rMouseEvent<HTMLButtonElement, MouseEvent>) => {
       let x, y;
       if (ev.touches) {
         const touch = ev.touches[0];
