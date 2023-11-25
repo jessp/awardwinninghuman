@@ -11,7 +11,9 @@ const useMousePosition = () => {
     const updateMousePosition = (ev: rMouseEvent<HTMLButtonElement, MouseEvent>) => {
       let x, y;
       [x, y] = [ev.clientX, ev.clientY];
-      setMousePosition({ x, y });
+      if (typeof x === "number" && typeof y === "number"){
+        setMousePosition({ x, y });
+      }
     };
     window.addEventListener('mousemove', updateMousePosition);
   
