@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { Suspense, useState } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Environment } from "@react-three/drei";
 import {Trophy} from './trophy';
@@ -15,15 +15,15 @@ const Scene = () => {
   }
 
   const [isActive, setActive] = useState(true);
+  const [isLoading, load] = useState(true);
 
   const animationList = ["Hands on Hips", "Matrix", "Landing"];
   const [animationIndex, setAnimationIndex] = useState(-1);
-
   return (
       <Canvas shadows 
-        className={isActive ? styles.isActive : styles.isInactive}
+        className={`${isActive ? styles.isActive : styles.isInactive} ${isLoading ? " " : " expand"}`}
         onClick={() => isActive ? setAnimationIndex((animationIndex + 1)%animationList.length) : null}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<Handle load={load} />}>
           <Trophy 
             activeAnim={animationList[animationIndex]} 
             prevAnim={animationList[mod(animationIndex - 1, animationList.length)]}
@@ -33,6 +33,14 @@ const Scene = () => {
       </Canvas>
   )
 }
+
+function Handle({ load }) {
+  useEffect(() => {
+    load(true)
+    return () => load(false)
+  }, []);
+}
+
 
 export default Scene;
 

@@ -99,7 +99,7 @@ export function Trophy({ activeAnim, prevAnim, setActive }: Props) {
   return (
     <group ref={group} dispose={null}>
       <group name="Scene" 
-        scale={7} 
+        scale={7.5} 
         position={[0, -0.65, 0]}>
          <group ref={figure}>
           <group name="metarig" scale={0.00305} position={[0, -0.01, 0]}>

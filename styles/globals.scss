@@ -184,3 +184,21 @@ body {
 	opacity: 1;
 	transition: opacity 500ms;
 }
+
+canvas {
+	transform: scale(0.01);
+}
+
+.expand canvas {
+	transform: scale(1);
+	animation: 1.5s ease-in 0s 1 expandFromMiddle;
+}
+
+@keyframes expandFromMiddle {
+  0% {
+    transform: scale(0.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
