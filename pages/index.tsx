@@ -61,58 +61,19 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <div className={styles.navHolder}>
-        <Nav isWork={isWork} setWork={(e) => updateWork(e)} scrollToProj={(e) => scrollToProj(e)}/>
-      </div>
 
 
-      <div className={`${isWork ? "work" : "play"} container`} ref={projRef}>
+      <div className={"container"}>
 
         <div className={styles.catHolder}>
           <div className={styles.category}>
-              <h2>{isWork ? "Work History" : "Personal Projects"}</h2>
-            {isWork && 
+              <h2>This site is deprecated!</h2>
               <p>
-                A lot of my past jobs have been internal projects with sensitive data and internal users. I can’t always show as much as I’d like. Check out <span className={styles.clickableSpan} onClick={() => updateWork(false)}>some of the work</span> I’ve done for fun to see more of my breadth as a designer.
+                I've moved my personal website to <a href='http://jesspeter.com'>jesspeter.com</a>. Go there and check it out or hang out here and click the statue above just for fun. I really don't mind which.
               </p>
-            }
-            {!isWork && 
-              <p>
-                I take on personal projects to explore new technologies and types of design. As much as I love exploring zany ideas, you should check out <span className={styles.clickableSpan} onClick={() => updateWork(true)}>my employment history</span> to see some of my more focussed undertakings.
-              </p>
-            }
           </div>
         </div>
- 
-      <div>
-          <div className={"innerContainer"}>
-            {!isWork &&
-              <ProjectList>
-                <ProjectListPlay/>
-              </ProjectList>
-            }
-            {isWork &&
-              <ProjectList>
-                <ProjectListWork/>
-              </ProjectList>
-            }
-          </div>
-      </div>
 
-
-      </div>
-
-    
-      <div className={styles.ender}>
-      <div className={`container`}>
-        <div className={`innerContainer ${styles.enderHolder}`}>
-          <h3>Why award-winning human?</h3>
-          <p>Whenever my domain name comes up, I get questions. First of all, yes, I have won some awards. Mostly for pretty niche things that become less and less topical the older I get. But if I were put on trial for domain name veracity, I bet I would win.</p>
-          <p>I chose this domain for a few reasons: a) it was available, b) I found it really funny, and c) as a designer who prefers to disappear into their work, it makes a lot of the self-promotional statements for me so I don’t have to.</p>
-          <p>So there you have it.</p>
-        </div>
-        </div>
-        
       </div>
 
     </main>
