@@ -69,7 +69,7 @@ const Home: NextPage = () => {
           <div className={styles.category}>
               <h2>This site is deprecated!</h2>
               <p>
-                I've moved my personal website to <a href='http://jesspeter.com'>jesspeter.com</a>. Go there and check it out or hang out here and click the statue above just for fun. I really don't mind which.
+                I've moved my website to <a href='https://jesspeter.com'>jesspeter.com</a>. Go there and check it out or hang out here and click the statue above just for fun. I really don't mind which.
               </p>
           </div>
         </div>
